@@ -1,6 +1,7 @@
 # Dory
 
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/images/badges/makes-people-smile.svg)](http://forthebadge.com)
 
 > Dory should have a blog to write before she forgets.<br />
 > So don't be like her else you'll have many regrets.<br />
