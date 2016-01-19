@@ -15,10 +15,10 @@
 ## Features
 
 * Static HTML blog posts published upon Git commit;
-* Integrates Disqus for post commenting;
+* Integrates [Disqus](https://disqus.com/) for post commenting;
 * Native Markdown support for formatting blog posts;
 * Ping servers to notify of blog updates;
 * Automatic publishing to [Surge.sh](http://surge.sh/) for each post;
-* Uses `ServiceWorker` for offline support;
-* Push messaging for notifying users of added posts;
+* Uses [`ServiceWorker`](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) for offline support;
+* [Push API](https://developer.mozilla.org/en/docs/Web/API/Push_API) for notifying users of added posts;
 * Background sync for offline comments when not using Disqus;
