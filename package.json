@@ -1,0 +1,25 @@
+{
+  "name": "dory",
+  "version": "0.1.0",
+  "description": "Markdown blogging platform with automatic publishing to Surge.sh, using advanced JavaScript/HTML5 techniques for a much loved UX.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wildhoney/Dory.git"
+  },
+  "keywords": [
+    "blog",
+    "blogging",
+    "writing",
+    "write"
+  ],
+  "author": "Adam Timberlake <adam.timberlake@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Wildhoney/Dory/issues"
+  },
+  "homepage": "https://github.com/Wildhoney/Dory#readme"
+}
