@@ -25,3 +25,5 @@
 ### On The Horizon 🌅
 
 * Integrates [Disqus](https://disqus.com/) for post commenting when enabled via `.dory.yml`;
+
+<small>[Have an idea?](https://github.com/Wildhoney/Dory/issues/new)</small>
