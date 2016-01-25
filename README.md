@@ -14,11 +14,14 @@
 
 ## Features
 
-* Static HTML blog posts published upon Git commit;
-* Integrates [Disqus](https://disqus.com/) for post commenting;
-* Native Markdown support for formatting blog posts;
-* Ping servers to notify of blog updates;
-* Automatic publishing to [Surge.sh](http://surge.sh/) for each post;
-* Uses [`ServiceWorker`](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) for offline support;
-* [Push API](https://developer.mozilla.org/en/docs/Web/API/Push_API) for notifying users of added posts;
-* Background sync for offline comments when not using Disqus;
+* Provides static HTML pages for easy crawling by search bots;
+* Integrates native [Markdown](https://github.com/evilstreak/markdown-js) support for generating blog posts;
+* Automatically pings via [Ping-o-matic](http://pingomatic.com/) to notify of updates;
+* Instantaneous publishing to [Surge.sh](http://surge.sh/) for each post via Git commits;
+* Utilises HTML5 [`ServiceWorker`](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) for offline support;
+* Seamlessly applies background sync for posting comments when offline;
+* Implements the HTML5 [Push API](https://developer.mozilla.org/en/docs/Web/API/Push_API) for notifying users of added posts;
+* 
+### Future
+
+* Integrates [Disqus](https://disqus.com/) for post commenting when enabled via `.dory.yml`;
