@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+section.static {
+    max-width: 800px;
+    width: 100%;
+    text-align: left;
+}
