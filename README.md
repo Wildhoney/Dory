@@ -24,6 +24,7 @@
 
 ### On The Horizon 🌅
 
+* Generates a [`sitemap.xml`](http://www.sitemaps.org/protocol.html) with automatic XSLT styling;
 * Integrates [Disqus](https://disqus.com/) for post commenting when enabled via `.dory.yml`;
 * Isomorphic JavaScript &mdash; requires own Node instance meaning a move away from Surge.
 * [Have an idea?](https://github.com/Wildhoney/Dory/issues/new)
