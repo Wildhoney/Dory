@@ -1,5 +1,5 @@
-catalogue: public/catalogue.json
 posts: public/posts/*.md
+catalogue: public/catalogue.json
 
 styles:
   main: public/sass/default.scss
