@@ -1,4 +1,5 @@
 catalogue: public/catalogue.json
+posts: public/posts/*.md
 
 styles:
   main: public/sass/default.scss

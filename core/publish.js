@@ -7,9 +7,10 @@ import glob from 'glob';
 import yaml from 'js-yaml';
 import {uniq} from 'lodash';
 
-glob(`${__dirname}/public/posts/*.md`, {}, async (error, files) => {
+const config = yaml.safeLoad(readFileSync('dory.yml', 'utf8'));
 
-    const config = yaml.safeLoad(readFileSync('dory.yml', 'utf8'));
+glob(config.posts, {}, async (error, files) => {
+
     const catalogue = existsSync(config.catalogue) ? JSON.parse(readFileSync(config.catalogue, 'utf8')) : [];
 
     try {
