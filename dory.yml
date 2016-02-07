@@ -1,1 +1,9 @@
 catalogue: public/catalogue.json
+
+styles:
+  main: public/sass/default.scss
+  static: public/sass/static.scss
+
+scripts:
+  main: public/js/default.js
+  static: public/js/static.js

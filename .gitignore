@@ -9,4 +9,5 @@ npm-debug.log
 .idea
 
 # build
+public/.assets
 core/build

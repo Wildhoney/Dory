@@ -4,7 +4,10 @@
   "description": "Markdown blogging platform with automatic publishing to Surge.sh, using advanced JavaScript/HTML5 techniques for a much loved UX.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "publish": "babel core/publish.js | node"
+    "publish": "babel core/publish.js | node",
+    "build": "npm run process-html",
+    "dev": "node-sass public/sass/default.scss public/.assets/default.css",
+    "process-html": "htmlprocessor public/index.html -o core/build/index.html"
   },
   "repository": {
     "type": "git",
@@ -24,12 +27,11 @@
   "homepage": "https://github.com/Wildhoney/Dory#readme",
   "dependencies": {
     "babel-cli": "^6.4.5",
+    "babel-polyfill": "^6.3.14",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
     "js-yaml": "^3.5.2",
-    "mustache": "^2.2.1"
-  },
-  "devDependencies": {
-    "babel-polyfill": "^6.3.14"
+    "mustache": "^2.2.1",
+    "node-sass": "^3.4.2"
   }
 }
