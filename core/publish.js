@@ -4,10 +4,10 @@ import 'babel-polyfill';
 import {stat, readFileSync, writeFile, existsSync} from 'fs';
 import {parse} from 'path';
 import glob from 'glob';
-import yaml from 'js-yaml';
+import {safeLoad} from 'js-yaml';
 import {uniq} from 'lodash';
 
-const config = yaml.safeLoad(readFileSync('dory.yml', 'utf8'));
+const config = safeLoad(readFileSync('dory.yml', 'utf8'));
 
 glob(config.posts, {}, async (error, files) => {
 
@@ -19,14 +19,14 @@ glob(config.posts, {}, async (error, files) => {
 
             return new Promise(async resolve => {
 
-                const slug = parse(file).name;
+                const {name: slug, base: filename} = parse(file);
                 const stats = await new Promise(resolve => stat(file, (error, stats) => resolve(stats)));
                 const post = catalogue.find(item => item.slug === slug);
                 const createdDate = post && post.createdDate || stats.ctime.getTime();
                 const modifiedDate = stats.mtime.getTime();
                 const modifiedDates = post && post.createdDate !== modifiedDate ? uniq([ ...post.modifiedDates, modifiedDate ]) : [];
 
-                resolve({ slug, createdDate, modifiedDates });
+                resolve({ slug, filename, createdDate, modifiedDates });
 
             });
 

@@ -1,6 +1,11 @@
 posts: public/posts/*.md
 catalogue: public/catalogue.json
 
+templates:
+  index: public/index.html
+  list: public/templates/list.html
+  post: public/templates/post.html
+
 styles:
   main: public/sass/default.scss
   static: public/sass/static.scss
@@ -8,3 +13,6 @@ styles:
 scripts:
   main: public/js/default.js
   static: public/js/static.js
+
+post:
+  dateFormat: MMM Do YYYY

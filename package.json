@@ -5,6 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "publish": "babel core/publish.js | node",
+    "generate": "babel core/generate.js | node",
     "build": "npm run process-html",
     "dev": "node-sass public/sass/default.scss public/.assets/default.css",
     "process-html": "htmlprocessor public/index.html -o core/build/index.html"
@@ -35,6 +36,7 @@
     "js-yaml": "^3.5.2",
     "keo": "^1.5.2",
     "lodash": "^4.2.1",
+    "moment": "^2.11.2",
     "mustache": "^2.2.1",
     "node-sass": "^3.4.2",
     "redux": "^3.3.1",
