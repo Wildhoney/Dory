@@ -1,18 +1,15 @@
-posts: public/posts/*.md
-catalogue: public/catalogue.json
-
-templates:
-  index: public/index.html
-  list: public/templates/list.html
-  post: public/templates/post.html
-
-styles:
-  main: public/sass/default.scss
-  static: public/sass/static.scss
-
-scripts:
-  main: public/js/default.js
-  static: public/js/static.js
-
-post:
+posts:
   dateFormat: MMM Do YYYY
+  perPage: 5
+
+parsers:
+  md: core/parsers/markdown.js
+
+locations:
+  posts: public/posts/*
+  catalogue: public/catalogue.json
+  script: public/js/static.js
+  style: public/sass/static.scss
+  templates:
+    - public/*.html
+    - public/templates/*.html

@@ -6,7 +6,6 @@ import {safeLoad} from 'js-yaml';
 import {render} from 'mustache';
 import moment from 'moment';
 import marked from 'marked';
-import {parse} from './public/js/helpers/parser';
 
 const config = safeLoad(readFileSync('dory.yml', 'utf8'));
 const catalogue = JSON.parse(readFileSync(config.catalogue, 'utf8'));
