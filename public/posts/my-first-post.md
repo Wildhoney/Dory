@@ -1,3 +1,6 @@
-# My First Post
+---
+name: My First Post
+tags: demo
+---
 
-An example of my first post for my blog.
+An example of my **first** post for my blog.

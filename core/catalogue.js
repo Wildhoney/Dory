@@ -6,6 +6,7 @@ import {parse} from 'path';
 import glob from 'glob';
 import {safeLoad} from 'js-yaml';
 import {uniq} from 'lodash';
+import {loadFront} from 'yaml-front-matter';
 
 const catalogue = `${__dirname}/core/build/catalogue.json`;
 
@@ -20,13 +21,15 @@ glob(`${__dirname}/public/posts/*`, {}, async (error, files) => {
             return new Promise(async resolve => {
     
                 const {name: slug, base: filename} = parse(file);
+                const meta = loadFront(file);
                 const stats = await new Promise(resolve => stat(file, (error, stats) => resolve(stats)));
                 const post = blogPosts.find(item => item.slug === slug);
                 const createdDate = post && post.createdDate || stats.ctime.getTime();
                 const modifiedDate = stats.mtime.getTime();
                 const modifiedDates = post && post.createdDate !== modifiedDate ? uniq([ ...post.modifiedDates, modifiedDate ]) : [];
-    
-                resolve({ slug, filename, createdDate, modifiedDates });
+
+                delete meta.__content;
+                resolve({ slug, meta, filename, createdDate, modifiedDates });
     
             });
     
@@ -37,7 +40,7 @@ glob(`${__dirname}/public/posts/*`, {}, async (error, files) => {
     }
     
     catch (e) {
-    
+        console.log(e);
     }
 
 });
