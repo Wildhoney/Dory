@@ -18,7 +18,9 @@
     "blog",
     "blogging",
     "writing",
-    "write"
+    "write",
+    "universal",
+    "isomorphic"
   ],
   "author": "Adam Timberlake <adam.timberlake@gmail.com>",
   "license": "MIT",
@@ -41,9 +43,7 @@
     "mustache": "^2.2.1",
     "node-sass": "^3.4.2",
     "redux": "^3.3.1",
-    "webpack": "^2.0.6-beta",
-    "whatwg-fetch": "^0.11.0",
-    "xml-parse-from-string": "^1.0.0",
-    "xmldom": "^0.1.22"
+    "webpack": "^2.0.7-beta",
+    "whatwg-fetch": "^0.11.0"
   }
 }
