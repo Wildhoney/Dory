@@ -8,8 +8,9 @@
     "build": "webpack && npm run minify-html && npm run minify-js",
     "dev": "webpack-dev-server --content-base core/build",
     "start": "babel server/default.js | node",
-    "minify-js": "uglifyjs --compress --mangle -- core/build/dory.js > core/build/dory.min.js; rimraf core/build/dory.js && mv core/build/dory.min.js core/build/dory.js",
-    "minify-html": "html-minifier public/index.html --collapse-whitespace > core/build/index.html"
+    "minify-js": "uglifyjs --compress --mangle --source-map core/build/dory.map -- core/build/dory.js > core/build/dory.min.js && npm run replace-compressed",
+    "minify-html": "html-minifier public/index.html --collapse-whitespace > core/build/index.html",
+    "replace-compressed": "rimraf core/build/dory.js && mv core/build/dory.min.js core/build/dory.js"
   },
   "repository": {
     "type": "git",
