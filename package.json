@@ -4,11 +4,7 @@
   "description": "Markdown blogging platform with automatic publishing to Surge.sh, using advanced JavaScript/HTML5 techniques for a much loved UX.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "catalogue": "babel core/catalogue.js | node",
-    "generate": "babel core/generate.js | node",
-    "build": "npm run process-html",
-    "dev": "node-sass public/sass/default.scss public/.assets/default.css",
-    "process-html": "htmlprocessor public/index.html -o core/build/index.html"
+    "catalogue": "babel core/catalogue.js | node"
   },
   "repository": {
     "type": "git",
