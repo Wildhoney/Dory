@@ -6,7 +6,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "catalogue": "babel core/catalogue.js | node",
     "build": "webpack && html-minifier public/index.html --collapse-whitespace > core/build/index.html",
-    "start": "webpack-dev-server --content-base core/build"
+    "dev": "webpack-dev-server --content-base core/build",
+    "start": "babel server/default.js | node"
   },
   "repository": {
     "type": "git",
@@ -44,6 +45,7 @@
     "whatwg-fetch": "^0.11.0"
   },
   "devDependencies": {
+    "express": "^4.13.4",
     "html-minifier": "^1.1.1",
     "node-sass": "^3.4.2",
     "sass-loader": "^3.1.2",
