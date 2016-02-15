@@ -5,9 +5,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "catalogue": "babel core/catalogue.js | node",
-    "build": "webpack && html-minifier public/index.html --collapse-whitespace > core/build/index.html",
+    "build": "webpack && npm run minify-html && npm run minify-js",
     "dev": "webpack-dev-server --content-base core/build",
-    "start": "babel server/default.js | node"
+    "start": "babel server/default.js | node",
+    "minify-js": "uglifyjs --compress --mangle -- core/build/dory.js > core/build/dory.min.js; rimraf core/build/dory.js && mv core/build/dory.min.js core/build/dory.js",
+    "minify-html": "html-minifier public/index.html --collapse-whitespace > core/build/index.html"
   },
   "repository": {
     "type": "git",
@@ -45,10 +47,13 @@
     "whatwg-fetch": "^0.11.0"
   },
   "devDependencies": {
+    "babel-preset-react": "^6.5.0",
     "express": "^4.13.4",
     "html-minifier": "^1.1.1",
     "node-sass": "^3.4.2",
+    "rimraf": "^2.5.2",
     "sass-loader": "^3.1.2",
+    "uglify-js": "^2.6.1",
     "webpack": "^2.0.7-beta",
     "webpack-dev-server": "^1.14.1",
     "yaml-front-matter": "^3.3.0"

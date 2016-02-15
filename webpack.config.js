@@ -8,8 +8,7 @@ module.exports = {
     output: {
         path: __dirname + '/core/build',
         filename: '[name].js',
-	    library: 'keo',
-        libraryTarget: 'commonjs2'
+        libraryTarget: 'var'
     },
     module: {
         loaders: [
@@ -17,7 +16,7 @@ module.exports = {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 query: {
-                  presets: ['es2015', 'stage-0']
+                  presets: ['es2015', 'react', 'stage-0']
                 }
             },
             {
