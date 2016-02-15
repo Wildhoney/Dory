@@ -4,7 +4,8 @@
   "description": "Markdown blogging platform with automatic publishing to Surge.sh, using advanced JavaScript/HTML5 techniques for a much loved UX.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "catalogue": "babel core/catalogue.js | node"
+    "catalogue": "babel core/catalogue.js | node",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -41,5 +42,10 @@
     "redux": "^3.3.1",
     "webpack": "^2.0.7-beta",
     "whatwg-fetch": "^0.11.0"
+  },
+  "devDependencies": {
+    "node-sass": "^3.4.2",
+    "sass-loader": "^3.1.2",
+    "webpack": "^2.0.7-beta"
   }
 }

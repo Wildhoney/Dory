@@ -4,12 +4,3 @@ posts:
 
 parsers:
   md: core/parsers/markdown.js
-
-locations:
-  posts: public/posts/*
-  catalogue: public/catalogue.json
-  script: public/js/static.js
-  style: public/sass/static.scss
-  templates:
-    - public/*.html
-    - public/templates/*.html
