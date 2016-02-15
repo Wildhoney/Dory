@@ -2,7 +2,9 @@ import 'whatwg-fetch';
 import 'array.from';
 import Promise from 'es6-promise';
 import React from 'react';
-import { render } from 'react-dom';
+import {render} from 'react-dom';
+
+Promise.polyfill();
 
 global.document.addEventListener('DOMContentLoaded', () => {
 
