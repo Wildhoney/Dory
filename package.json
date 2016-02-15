@@ -5,12 +5,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "catalogue": "babel core/catalogue.js | node",
-    "build": "webpack && npm run minify-html && npm run minify-js",
+    "build": "webpack && npm run catalogue && npm run minify-html && npm run minify-js && npm run favicon",
     "dev": "webpack-dev-server --content-base core/build",
     "start": "babel server/default.js | node",
-    "minify-js": "uglifyjs --compress --mangle --source-map core/build/dory.map -- core/build/dory.js > core/build/dory.min.js && npm run swap-js",
+    "minify-js": "uglifyjs --compress --mangle --source-map core/build/dory.map -- core/build/dory.js > core/build/dory.min.js && npm run finalise-build",
     "minify-html": "html-minifier public/index.html --collapse-whitespace > core/build/index.html",
-    "swap-js": "rimraf core/build/dory.js && mv core/build/dory.min.js core/build/dory.js"
+    "finalise-build": "rimraf core/build/dory.js && mv core/build/dory.min.js core/build/dory.js",
+    "favicon": "cp public/favicon.ico core/build/favicon.ico"
   },
   "repository": {
     "type": "git",
