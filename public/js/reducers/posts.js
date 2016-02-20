@@ -4,7 +4,9 @@ import { GET_POSTS } from '../config/events';
  * @constant INITIAL_STATE
  * @type {Array}
  */
-const INITIAL_STATE = [];
+const INITIAL_STATE = [
+    { title: 'Yup!' }
+];
 
 /**
  * @param {Object} state

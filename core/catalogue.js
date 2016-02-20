@@ -8,7 +8,7 @@ import {safeLoad} from 'js-yaml';
 import {uniq} from 'lodash';
 import {loadFront} from 'yaml-front-matter';
 
-const catalogue = `${__dirname}/core/build/catalogue.json`;
+const catalogue = `${__dirname}/core/build/assets/catalogue.json`;
 
 glob(`${__dirname}/public/posts/*`, {}, async (error, files) => {
 

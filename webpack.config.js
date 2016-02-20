@@ -6,7 +6,7 @@ module.exports = {
         dory: ['./public/js/default.js']
     },
     output: {
-        path: __dirname + '/core/build',
+        path: __dirname + '/core/build/assets',
         filename: '[name].js',
         libraryTarget: 'var'
     },

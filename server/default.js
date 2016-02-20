@@ -1,5 +1,3 @@
-import express from 'express';
-const app = express();
-
-app.use(express.static(__dirname + '/core/build'));
-app.listen(process.env.PORT);
+import 'babel-register';
+import server from './server/server';
+server.listen(process.env.PORT || 5000);
