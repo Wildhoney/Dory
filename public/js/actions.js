@@ -1,4 +1,4 @@
-import {GET_POSTS} from './config/events';
+import { GET_POSTS } from './config/events';
 
 /**
  * @method getPosts

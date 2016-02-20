@@ -1,12 +1,12 @@
-import React, {PropTypes} from 'react';
-import {stitch} from 'keo';
+import React, { PropTypes } from 'react';
+import { stitch } from 'keo/redux';
 
 /**
  * @constant propTypes
- * @type {{name: String}}
+ * @type {{posts: Number}}
  */
 const propTypes = {
-    name: PropTypes.string.isRequired
+    posts: PropTypes.array.isRequired
 };
 
 /**
@@ -15,7 +15,14 @@ const propTypes = {
  * @return {XML}
  */
 const render = ({ props }) => {
-    return <h2>Welcome to Dory, {props.name}!</h2>;
+
+    return (
+        <section>
+            <h2>Welcome to Dory!</h2>
+            <h3>We have {props.posts.length} blog posts</h3>
+        </section>
+    );
+
 };
 
-export default stitch({ propTypes, render });
+export default stitch({ propTypes, render }, state => state);
