@@ -12,6 +12,7 @@ export function getCatalogue() {
      * @return {axios.Promise}
      */
     const fetchCatalogue = () => {
+        /** todo: Use dynamic URL or config */
         return axios.get(`http://localhost:5000/assets/catalogue.json`).then(response => response.data);
     };
 
