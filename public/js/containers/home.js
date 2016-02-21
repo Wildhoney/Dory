@@ -6,15 +6,15 @@ import { stitch } from 'keo/redux';
  * @type {{posts: Number}}
  */
 const propTypes = {
-    posts: PropTypes.array.isRequired
+    catalogue: PropTypes.array.isRequired
 };
 
 /**
  * @method getDefaultProps
- * @return {Array}
+ * @return {Object}
  */
 const getDefaultProps = () => {
-    return { posts: [] };
+    return { catalogue: [] };
 };
 
 /**
@@ -27,7 +27,7 @@ const render = ({ props }) => {
     return (
         <section>
             <h2>Welcome to Dory!</h2>
-            <h3 onClick={ () => setState({ name: 'Adam' }) }>We have {props.posts.length} blog posts</h3>
+            <h3>We have {props.catalogue.length} blog posts</h3>
         </section>
     );
 

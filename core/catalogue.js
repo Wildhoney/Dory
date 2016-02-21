@@ -1,4 +1,4 @@
-import 'babel-core/register';
+import 'babel-register';
 import 'babel-polyfill';
 
 import {stat, readFileSync, writeFile, existsSync} from 'fs';

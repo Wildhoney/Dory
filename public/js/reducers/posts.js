@@ -1,12 +1,10 @@
-import { GET_POSTS } from '../config/events';
+import { POST } from '../config/events';
 
 /**
  * @constant INITIAL_STATE
- * @type {Array}
+ * @type {Object}
  */
-const INITIAL_STATE = [
-    { title: 'Yup!' }
-];
+const INITIAL_STATE = {};
 
 /**
  * @param {Object} state
@@ -17,7 +15,7 @@ export default (state = INITIAL_STATE, action) => {
 
     switch (action.type) {
 
-        case GET_POSTS:
+        case POST:
             return action.posts;
 
     }

@@ -1,1 +1,2 @@
-export const GET_POSTS = 'get-posts';
+export const POST = 'post';
+export const CATALOGUE = 'catalogue';

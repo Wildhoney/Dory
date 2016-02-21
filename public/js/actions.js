@@ -1,13 +1,23 @@
-import { GET_POSTS } from './config/events';
+import axios from 'axios';
+import * as event from './config/events';
 
 /**
  * @method getPosts
- * @return {Function}
+ * @return {Object}
  */
-export function getPosts() {
+export function getCatalogue() {
 
-    return dispatch => fetch('../catalogue.json')
-                        .then(response => response.json())
-                        .then(posts => dispatch({ type: GET_POSTS, posts }));
+    /**
+     * @method fetchCatalogue
+     * @return {axios.Promise}
+     */
+    const fetchCatalogue = () => {
+        return axios.get(`http://localhost:5000/assets/catalogue.json`).then(response => response.data);
+    };
+
+    return {
+        type: event.CATALOGUE,
+        promise: fetchCatalogue()
+    };
 
 }
