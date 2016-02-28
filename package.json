@@ -4,7 +4,7 @@
   "description": "Markdown blogging platform with automatic publishing to Surge.sh, using advanced JavaScript/HTML5 techniques for a much loved UX.",
   "scripts": {
     "test": "ava tests/**/*.js && stylelint public/sass/*.scss public/sass/**/*.scss public/sass/**/**/*.scss && eslint public/js/**/*.js",
-    "catalogue": "babel core/catalogue.js | node",
+    "catalogue": "babel core/catalogue.js | node && mkdir -p core/build/assets/posts && cp public/posts/* core/build/assets/posts",
     "build": "babel core/cli/build.js | node",
     "config": "yaml2json dory.yml > core/build/assets/config.json",
     "dev": "webpack-dev-server --content-base core/build",
