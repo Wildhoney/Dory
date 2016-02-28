@@ -6,6 +6,7 @@
     "test": "stylelint public/sass/**/*.scss && eslint public/js/**/*.js",
     "catalogue": "babel core/catalogue.js | node",
     "build": "babel core/cli/build.js | node",
+    "config": "yaml2json dory.yml > core/build/assets/config.json",
     "dev": "webpack-dev-server --content-base core/build",
     "start": "babel server/default.js | node"
   },
@@ -58,6 +59,7 @@
     "uglify-js": "^2.6.1",
     "webpack": "^2.0.7-beta",
     "webpack-dev-server": "^1.14.1",
-    "yaml-front-matter": "^3.3.0"
+    "yaml-front-matter": "^3.3.0",
+    "yamljs": "^0.2.6"
   }
 }
