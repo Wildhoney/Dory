@@ -10,12 +10,10 @@ const defaultStates = typeof DEFAULT_DATA !== 'undefined' ? JSON.parse(DEFAULT_D
 
 /**
  * @method defaultData
- * @param {Array} types
+ * @param {String} type
  * @return {*}
  */
-export const defaultData = (...types) => {
-
-    return defaultStates.filter(state => ~types.indexOf(state.type))
-                        .map(state => state.result);
-    
+export const defaultData = type => {
+    const byType = state => state.type === type && state.readyState === SUCCESS;
+    return (defaultStates.find(byType) || {}).result;
 };

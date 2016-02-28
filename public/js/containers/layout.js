@@ -38,8 +38,10 @@ const render = ({props}) => {
 
     return (
         <section className="layout">
-            <h1>Welcome to Dory</h1>
-            <Navigation />
+            <header>
+                <h1>Dory</h1>
+                <Navigation />
+            </header>
             <main>
                 {props.children}
             </main>

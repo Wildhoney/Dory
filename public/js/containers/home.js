@@ -1,5 +1,8 @@
 import React, { PropTypes } from 'react';
+import hash from 'object-hash';
 import { stitch } from 'keo/redux';
+import pluralize from 'pluralize';
+import Post from '../components/post';
 
 /**
  * @constant propTypes
@@ -18,6 +21,15 @@ const getDefaultProps = () => {
 };
 
 /**
+ * @method personalGreeting
+ * @return {String}
+ */
+const personalGreeting = () => {
+    const greetings = ['Welcome', 'Willkommen', 'Bienvenido', 'Bem-vindo', 'Benvenuto', 'Bienvenue'];
+    return greetings[Math.floor(Math.random() * greetings.length)];
+};
+
+/**
  * @method render
  * @param {Object} props
  * @return {XML}
@@ -25,8 +37,17 @@ const getDefaultProps = () => {
 const render = ({ props }) => {
 
     return (
-        <section>
-            <h3>We have {props.catalogue.length} blog posts</h3>
+        <section className="home">
+
+            <h2>
+                {personalGreeting()}
+                <label>
+                    ({props.catalogue.length} {(pluralize('Post', props.catalogue.length))})
+                </label>
+            </h2>
+
+            {props.catalogue.map(model => <Post key={ hash(model) } model={model} />)}
+
         </section>
     );
 
