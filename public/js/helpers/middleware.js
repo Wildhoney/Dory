@@ -1,20 +1,20 @@
 /**
  * @constant SUCCESS
- * @type {Symbol}
+ * @type {String}
  */
-export const SUCCESS = Symbol('success');
+export const SUCCESS = 'success';
 
 /**
  * @constant FAILURE
- * @type {Symbol}
+ * @type {String}
  */
-export const FAILURE = Symbol('failure');
+export const FAILURE = 'failure';
 
 /**
  * @constant REQUEST
- * @type {Symbol}
+ * @type {String}
  */
-export const REQUEST = Symbol('request');
+export const REQUEST = 'request';
 
 /**
  * @method result

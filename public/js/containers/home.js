@@ -26,7 +26,6 @@ const render = ({ props }) => {
 
     return (
         <section>
-            <h2>Welcome to Dory!</h2>
             <h3>We have {props.catalogue.length} blog posts</h3>
         </section>
     );

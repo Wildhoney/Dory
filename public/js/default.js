@@ -14,11 +14,11 @@ Promise.polyfill();
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    const mountNode = document.querySelector('section.dory');
+    const mountNode = document.querySelector('.dory');
     render((
         <Provider store={store}>
             {routes}
         </Provider>
-    ), mountNode || document.body);
+    ), mountNode);
 
 });

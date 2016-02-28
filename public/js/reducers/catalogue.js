@@ -1,11 +1,12 @@
 import { CATALOGUE } from '../config/events';
 import { SUCCESS } from '../helpers/middleware';
+import { defaultData } from '../helpers/data';
 
 /**
  * @constant INITIAL_STATE
  * @type {Array}
  */
-const INITIAL_STATE = [];
+const INITIAL_STATE = defaultData(CATALOGUE) || [];
 
 /**
  * @param {Object} state
