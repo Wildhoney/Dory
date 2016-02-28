@@ -1,5 +1,4 @@
 require('babel-loader');
-require('style-loader');
 
 module.exports = {
     entry: {
@@ -18,8 +17,7 @@ module.exports = {
                 query: {
                   presets: ['es2015', 'react', 'stage-0']
                 }
-            },
-            { test: /\.css$/, loader: 'style-loader!css-loader' }
+            }
         ]
     }
 };
