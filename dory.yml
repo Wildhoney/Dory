@@ -1,3 +1,5 @@
+domain: http://localhost:5000/
+
 posts:
   dateFormat: MMM Do YYYY
   perPage: 5
