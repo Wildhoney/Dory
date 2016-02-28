@@ -7,7 +7,7 @@ import { stitch } from 'keo';
  */
 const propTypes = {
     model: PropTypes.shape({
-        slug: PropTypes.string.isRequired
+        title: PropTypes.string.isRequired
     }).isRequired
 };
 
@@ -19,7 +19,7 @@ const propTypes = {
 const render = ({ props }) => {
 
     return (
-        <h3>{props.model.slug}</h3>
+        <h3>{props.model.title}</h3>
     );
 
 };
