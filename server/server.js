@@ -25,13 +25,13 @@ app.use((request, response) => {
 
     match({ routes, location }, (error, redirectLocation, renderProps) => {
 
-        // if (error) {
-        //     return response.status(500).end('Internal server error.');
-        // }
-        //
-        // if (!renderProps) {
-        //     return response.status(404).end('Not found.');
-        // }
+        if (error) {
+            return response.status(500).end('Internal server error.');
+        }
+        
+        if (!renderProps) {
+            return response.status(404).end('Not found.');
+        }
 
         const InitialComponent = (
             <Provider store={store}>
@@ -42,16 +42,19 @@ app.use((request, response) => {
         const promises = renderProps.components.map(component => {
 
             if (!component || typeof component.fetchData !== 'function') {
-                return Promise.resolve(false);
+                return Promise.resolve(true);
             }
 
             return component.fetchData(store.dispatch);
 
         });
 
-        Promise.all(promises).then(() => {
+        Promise.all(promises).then(data => {
             const componentHtml = renderToString(InitialComponent);
-            response.end(render(documentHtml, { content: componentHtml }));
+            response.end(render(documentHtml, {
+                content: componentHtml,
+                data: JSON.stringify(data.filter(data => typeof data !== 'boolean'))
+            }));
         });
 
     });
