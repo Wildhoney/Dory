@@ -22,7 +22,7 @@ export const REQUEST = Symbol('request');
  */
 export function promise() {
 
-    return (next) => (action) => {
+    return next => action => {
 
         const { promise, ...rest } = action;
 

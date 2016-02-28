@@ -1,5 +1,5 @@
 require('babel-loader');
-require('sass-loader');
+require('style-loader');
 
 module.exports = {
     entry: {
@@ -19,10 +19,7 @@ module.exports = {
                   presets: ['es2015', 'react', 'stage-0']
                 }
             },
-            {
-                test: /\.scss$/,
-                loaders: ['style', 'css', 'sass']
-            }
+            { test: /\.css$/, loader: 'style-loader!css-loader' }
         ]
     }
 };
