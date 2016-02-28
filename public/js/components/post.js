@@ -16,7 +16,7 @@ const propTypes = {
  * @param {Object} props
  * @return {Object}
  */
-const render = ({props}) => {
+const render = ({ props }) => {
 
     return (
         <h3>{props.model.slug}</h3>

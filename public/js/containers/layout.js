@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { stitch } from 'keo/redux';
 import Navigation from '../components/navigation';
 import { getCatalogue } from '../actions';
@@ -21,11 +21,19 @@ const statics = {
 };
 
 /**
+ * @constant propTypes
+ * @type {Object}
+ */
+const propTypes = {
+    children: PropTypes.element.isRequired
+};
+
+/**
  * @method componentDidMount
  * @param {Object} dispatch
  * @return {void}
  */
-const componentDidMount = ({dispatch}) => {
+const componentDidMount = ({ dispatch }) => {
     statics.fetchData(dispatch);
 };
 
@@ -34,7 +42,7 @@ const componentDidMount = ({dispatch}) => {
  * @param {Object} props
  * @return {XML}
  */
-const render = ({props}) => {
+const render = ({ props }) => {
 
     return (
         <section className="layout">
@@ -47,7 +55,7 @@ const render = ({props}) => {
             </main>
         </section>
     );
-    
+
 };
 
-export default stitch({ statics, componentDidMount, render }, state => state);
+export default stitch({ statics, propTypes, componentDidMount, render }, state => state);

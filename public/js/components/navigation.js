@@ -18,4 +18,4 @@ const render = () => {
     );
 };
 
-export default stitch({render});
+export default stitch({ render });

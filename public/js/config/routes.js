@@ -6,7 +6,7 @@ import Home from '../containers/home';
 export default (
     <Router history={browserHistory}>
         <Route path="/" component={Layout}>
-            <IndexRoute component={Home}/>
+            <IndexRoute component={Home} />
         </Route>
     </Router>
 );

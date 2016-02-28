@@ -42,7 +42,8 @@ const render = ({ props }) => {
             <h2>
                 {personalGreeting()}
                 <label>
-                    ({props.catalogue.length} {(pluralize('Post', props.catalogue.length))})
+                    ({props.catalogue.length}
+                    {(pluralize('Post', props.catalogue.length))})
                 </label>
             </h2>
 

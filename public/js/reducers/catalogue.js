@@ -20,8 +20,7 @@ export default (state = INITIAL_STATE, action) => {
         case CATALOGUE:
 
             switch (action.readyState) {
-                case SUCCESS:
-                    return action.result;
+                case SUCCESS: return action.result;
             }
 
     }
