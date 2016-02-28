@@ -1,6 +1,9 @@
 # os
 .DS_Store
 
+# sass
+.sass-cache
+
 # npm
 node_modules
 npm-debug.log
@@ -9,5 +12,4 @@ npm-debug.log
 .idea
 
 # build
-public/.assets
 core/build
