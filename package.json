@@ -1,6 +1,6 @@
 {
   "name": "dory",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Markdown blogging platform with automatic publishing to Surge.sh, using advanced JavaScript/HTML5 techniques for a much loved UX.",
   "scripts": {
     "test": "stylelint public/sass/**/*.scss && eslint public/js/**/*.js",
