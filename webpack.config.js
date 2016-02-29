@@ -9,6 +9,7 @@ module.exports = {
     ],
     output: {
         path: __dirname + '/core/build/assets',
+        publicPath: '/assets/',
         filename: 'dory.js',
         libraryTarget: 'var'
     },
