@@ -3,6 +3,7 @@ import hash from 'object-hash';
 import { stitch } from 'keo/redux';
 import pluralize from 'pluralize';
 import Post from '../components/post';
+import { getPosts } from '../actions';
 
 /**
  * @constant propTypes
@@ -10,6 +11,25 @@ import Post from '../components/post';
  */
 const propTypes = {
     catalogue: PropTypes.array.isRequired
+};
+
+/**
+ * @constant statics
+ * @type {Object}
+ */
+const statics = {
+
+    /**
+     * @method fetchData
+     * @param {Function} dispatch
+     * @param {Object} params
+     * @return {Promise}
+     */
+    fetchData: (dispatch, params) => {
+        const pageNumber = params.pageNumber || 1;
+        return dispatch(getPosts(pageNumber));
+    }
+
 };
 
 /**
@@ -21,12 +41,13 @@ const getDefaultProps = () => {
 };
 
 /**
- * @method personalGreeting
- * @return {String}
+ * @method componentDidMount
+ * @param {Function} dispatch
+ * @param {Object} props
+ * @return {void}
  */
-const personalGreeting = () => {
-    const greetings = ['Welcome', 'Willkommen', 'Bienvenido', 'Bem-vindo', 'Benvenuto', 'Bienvenue'];
-    return greetings[Math.floor(Math.random() * greetings.length)];
+const componentDidMount = ({ dispatch, props }) => {
+    statics.fetchData(dispatch, props.params);
 };
 
 /**
@@ -40,18 +61,17 @@ const render = ({ props }) => {
         <section className="home">
 
             <h2>
-                {personalGreeting()}
+                Welcome
                 <label>
-                    ({props.catalogue.length}
-                    {(pluralize('Post', props.catalogue.length))})
+                    ({props.catalogue.length} {(pluralize('Post', props.catalogue.length))})
                 </label>
             </h2>
 
-            {props.catalogue.map(model => <Post key={ hash(model) } model={model} />)}
+            { props.catalogue.map(model => <Post key={ hash(model) } { ...props } model={ model } />) }
 
         </section>
     );
 
 };
 
-export default stitch({ propTypes, getDefaultProps, render }, state => state);
+export default stitch({ propTypes, getDefaultProps, componentDidMount, render }, state => state);

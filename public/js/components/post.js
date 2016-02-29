@@ -7,7 +7,9 @@ import { stitch } from 'keo';
  */
 const propTypes = {
     model: PropTypes.shape({
-        title: PropTypes.string.isRequired
+        meta: PropTypes.shape({
+            title: PropTypes.string.isRequired
+        }).isRequired
     }).isRequired
 };
 
@@ -19,7 +21,10 @@ const propTypes = {
 const render = ({ props }) => {
 
     return (
-        <h3>{props.model.title}</h3>
+        <section className="post">
+            <h3>{props.model.meta.title}</h3>
+            <p>{props.model.data ? props.model.data.__content : 'Loading...'}</p>
+        </section>
     );
 
 };

@@ -1,4 +1,4 @@
-import { CATALOGUE } from '../config/events';
+import { CATALOGUE, POST } from '../config/events';
 import { SUCCESS } from '../helpers/middleware';
 import { defaultData } from '../helpers/data';
 
@@ -15,12 +15,23 @@ const INITIAL_STATE = defaultData(CATALOGUE) || [];
  */
 export default (state = INITIAL_STATE, action) => {
 
-    switch (action.type) {
+    switch (action.readyState) {
 
-        case CATALOGUE:
+        case SUCCESS:
 
-            switch (action.readyState) {
-                case SUCCESS: return action.result;
+            switch (action.type) {
+
+                case CATALOGUE:
+                    return action.result;
+
+                case POST:
+                    const index = state.findIndex(model => model.slug === action.model.slug);
+                    return [
+                        ...state.slice(0, index),
+                        { ...action.model, data: { ...action.result } },
+                        ...state.slice(index + 1)
+                    ];
+
             }
 
     }

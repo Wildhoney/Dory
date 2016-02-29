@@ -1,5 +1,5 @@
 ---
-name: My First Post
+title: My First Post
 tags: demo
 ---
 
