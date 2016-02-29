@@ -1,7 +1,7 @@
 import 'babel-register';
 import 'babel-polyfill';
 
-import {stat, readFileSync, writeFile, existsSync} from 'fs';
+import {stat, readFileSync, writeFile, existsSync, writeFileSync} from 'fs';
 import {parse} from 'path';
 import glob from 'glob';
 import {safeLoad} from 'js-yaml';
@@ -20,7 +20,7 @@ glob(`${__dirname}/public/posts/*`, {}, async (error, files) => {
     
             return new Promise(async resolve => {
     
-                const {name: slug, base: filename} = parse(file);
+                const {name: slug} = parse(file);
                 const meta = loadFront(file);
                 const stats = await new Promise(resolve => stat(file, (error, stats) => resolve(stats)));
                 const post = blogPosts.find(item => item.slug === slug);
@@ -28,8 +28,10 @@ glob(`${__dirname}/public/posts/*`, {}, async (error, files) => {
                 const modifiedDate = stats.mtime.getTime();
                 const modifiedDates = post && post.createdDate !== modifiedDate ? uniq([ ...post.modifiedDates, modifiedDate ]) : [];
 
+                writeFileSync(`core/build/assets/posts/${slug}.json`, JSON.stringify(meta), 'utf8');
+
                 delete meta.__content;
-                resolve({ slug, meta, filename, createdDate, modifiedDates });
+                resolve({ slug, meta, createdDate, modifiedDates });
     
             });
     

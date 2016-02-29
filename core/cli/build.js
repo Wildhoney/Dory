@@ -1,5 +1,6 @@
 import { exec } from 'shelljs';
 
+exec('mkdir -p core/build/assets/posts');
 exec('webpack');
 exec('sass public/sass/default.scss core/build/assets/dory.css');
 exec('npm run catalogue');
