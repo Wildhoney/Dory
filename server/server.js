@@ -1,64 +1,59 @@
-import { join } from 'path';
 import { readFileSync } from 'fs';
 import { render } from 'mustache';
 import express from 'express';
-import React from 'react';
-import { createStore, applyMiddleware } from 'redux';
-import { Provider } from 'react-redux';
-import { renderToString } from 'react-dom/server';
-import { RouterContext, match } from 'react-router';
-import createLocation from 'history/lib/createLocation';
-import routes from '../public/js/config/routes';
-import reducers from '../public/js/reducers';
-import { promise } from '../public/js/helpers/middleware';
+
+import handleAssets from './components/assets';
+import handleCatalogue from './components/catalogue';
+import handlePost from './components/post';
+import handleUniversal from './components/universal';
 
 const app = express();
-const documentHtml = readFileSync('./public/index.html', 'utf8');
+const options = {
 
-app.use('/assets', express.static(join('./core/build/assets')));
+    /**
+     * @constant assetsPath
+     * @type {String}
+     */
+    assetsPath: './core/build/assets',
 
-app.use((request, response) => {
+    /**
+     * @method fromCore
+     * @param {String} path
+     * @return {String}
+     */
+    fromCore: path => {
+        return readFileSync(`./core/build/${path}`, 'utf8');
+    },
 
-    const location = createLocation(request.url);
-    const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
-    const store = createStoreWithMiddleware(reducers);
+    /**
+     * @method fromPublic
+     * @param {String} path
+     * @return {String}
+     */
+    fromPublic: path => {
+        return readFileSync(`./public/${path}`, 'utf8');
+    },
 
-    match({ routes, location }, (error, redirectLocation, renderProps) => {
+    /**
+     * @method toJson
+     * @param {Object} model
+     * @return {String}
+     */
+    toJson: model => JSON.stringify(model),
 
-        if (error) {
-            return response.status(500).end('Internal server error.');
-        }
-        
-        if (!renderProps) {
-            return response.status(404).end('Not found.');
-        }
+    /**
+     * @method fromJson
+     * @param {String} text
+     * @return {Object}
+     */
+    fromJson: text => JSON.parse(text)
 
-        const InitialComponent = (
-            <Provider store={store}>
-                <RouterContext {...renderProps} />
-            </Provider>
-        );
+};
 
-        const promises = renderProps.components.map(component => {
-
-            if (!component || typeof component.fetchData !== 'function') {
-                return Promise.resolve(true);
-            }
-
-            return component.fetchData(store.dispatch);
-
-        });
-
-        Promise.all(promises).then(data => {
-            const componentHtml = renderToString(InitialComponent);
-            response.end(render(documentHtml, {
-                content: componentHtml,
-                data: JSON.stringify(data.filter(data => typeof data !== 'boolean'))
-            }));
-        });
-
-    });
-
-});
+// Define the routes.
+app.use('/assets', handleAssets(options));
+app.get('/posts/:page', handleCatalogue(options));
+app.get('/post/:slug', handlePost(options));
+app.use(handleUniversal(options));
 
 export default app;
