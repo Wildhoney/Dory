@@ -4,6 +4,7 @@ import { stitch } from 'keo/redux';
 import pluralize from 'pluralize';
 import Post from '../components/post';
 import { getPosts } from '../actions';
+import styles from '../../css/containers/layout.css';
 
 /**
  * @constant propTypes
@@ -58,11 +59,11 @@ const componentDidMount = ({ dispatch, props }) => {
 const render = ({ props }) => {
 
     return (
-        <section className="home">
+        <section>
 
-            <h2>
+            <h2 className={ styles.h2Heading }>
                 Welcome
-                <label>
+                <label className={ styles.h2HeadingLabel }>
                     ({props.catalogue.length} {(pluralize('Post', props.catalogue.length))})
                 </label>
             </h2>

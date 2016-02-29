@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 require('babel-loader');
 require('json-loader');
 
@@ -22,10 +23,15 @@ module.exports = {
                   presets: ['es2015', 'react', 'stage-0']
                 }
             },
-            { test: /\.json$/, loader: 'json-loader' }
-        ]
+            { test: /\.json$/, loader: 'json-loader' },
+            {
+                test: /\.css$/i,
+                loader: ExtractTextPlugin.extract('style', `css?modules&localIdentName=[name]_[local]__[hash:base64:5]`)
+            }
+]
     },
     plugins: [
+        new ExtractTextPlugin('dory.css'),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin()

@@ -1,0 +1,21 @@
+.container {
+    padding-left: 2rem;
+}
+
+.list {
+    list-style-type: none;
+    display: flex;
+
+}
+
+.item {
+    font-size: 1.2rem;
+    font-family: Lato, Arial, Tahoma, sans-serif;
+    padding-right: 20px;
+}
+
+.anchor {
+    text-decoration: none;
+    transition: color 0.25s;
+    color: black;
+}

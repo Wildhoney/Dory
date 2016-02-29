@@ -21,7 +21,7 @@ const propTypes = {
 const render = ({ props }) => {
 
     return (
-        <section className="post">
+        <section>
             <h3>{props.model.meta.title}</h3>
             <p>{props.model.data ? props.model.data.__content : 'Loading...'}</p>
         </section>
