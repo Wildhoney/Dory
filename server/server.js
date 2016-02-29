@@ -14,6 +14,7 @@ import handlePost from './components/post';
 import handleUniversal from './components/universal';
 
 const app = express();
+const isProduction = process.env.NODE_ENV === 'production';
 const options = {
 
     /**
@@ -21,6 +22,12 @@ const options = {
      * @type {String}
      */
     assetsPath: './core/build/assets',
+
+    /**
+     * @constant isProduction
+     * @type {Boolean}
+     */
+    isProduction,
 
     /**
      * @method fromCore
@@ -56,10 +63,14 @@ const options = {
 
 };
 
-// Setup development mode using Webpack.
-const compiler = webpack(webpackConfig);
-app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
-app.use(webpackHotMiddleware(compiler));
+if (!isProduction) {
+
+    // Setup development mode using Webpack when NODE_ENV is not production.
+    const compiler = webpack(webpackConfig);
+    app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
+    app.use(webpackHotMiddleware(compiler));
+
+}
 
 // Define the routes.
 app.use('/assets', handleAssets(options));
