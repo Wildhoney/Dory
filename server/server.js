@@ -1,7 +1,13 @@
-import { readFileSync } from 'fs';
-import { render } from 'mustache';
 import express from 'express';
+import { readFileSync } from 'fs';
 
+// Enable development for things like hot reloading.
+import webpack from 'webpack';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
+import webpackConfig from '../webpack.config.js';
+
+// Handlers for the various endpoints.
 import handleAssets from './components/assets';
 import handleCatalogue from './components/catalogue';
 import handlePost from './components/post';
@@ -49,6 +55,11 @@ const options = {
     fromJson: text => JSON.parse(text)
 
 };
+
+// Setup development mode using Webpack.
+const compiler = webpack(webpackConfig);
+app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
+app.use(webpackHotMiddleware(compiler));
 
 // Define the routes.
 app.use('/assets', handleAssets(options));

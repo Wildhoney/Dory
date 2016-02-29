@@ -1,13 +1,15 @@
+const webpack = require('webpack');
 require('babel-loader');
 require('json-loader');
 
 module.exports = {
-    entry: {
-        dory: ['./public/js/default.js']
-    },
+    entry: [
+        'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
+        './public/js/default.js'
+    ],
     output: {
         path: __dirname + '/core/build/assets',
-        filename: '[name].js',
+        filename: 'dory.js',
         libraryTarget: 'var'
     },
     module: {
@@ -21,5 +23,10 @@ module.exports = {
             },
             { test: /\.json$/, loader: 'json-loader' }
         ]
-    }
+    },
+    plugins: [
+        new webpack.optimize.OccurrenceOrderPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin()
+    ]
 };
