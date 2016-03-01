@@ -1,6 +1,3 @@
 posts:
   dateFormat: MMM Do YYYY
   perPage: 5
-
-parsers:
-  md: core/parsers/markdown.js
