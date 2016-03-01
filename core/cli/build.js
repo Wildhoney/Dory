@@ -1,9 +1,13 @@
 import { exec } from 'shelljs';
 
-exec('mkdir -p core/build/assets/posts');
+// Make the necessary directories.
+exec('mkdir -p core/build/assets');
+exec('mkdir -p core/build/posts');
+
+// Build the assets, and copy the favicon.
 exec('webpack');
-exec('npm run catalogue');
 exec('html-minifier public/index.html --collapse-whitespace > core/build/index.html');
-exec('uglifyjs --compress --mangle --source-map core/build/assets/dory.js.map -- core/build/assets/dory.js > core/build/assets/dory.min.js');
 exec('cp public/favicon.ico core/build/assets/favicon.ico');
-exec('rimraf core/build/assets/dory.js && mv core/build/assets/dory.min.js core/build/assets/dory.js');
+
+// Ensure the catalogue is up-to-date.
+exec('npm run catalogue');

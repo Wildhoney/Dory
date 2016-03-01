@@ -18,7 +18,7 @@
 
 * Automatically pings via [Ping-o-matic](http://pingomatic.com/) to notify of updates;
 * Generates a [`sitemap.xml`](http://www.sitemaps.org/protocol.html) with automatic XSLT styling;
-* Integrates [Disqus](https://disqus.com/) for post commenting when enabled via `.dory.yml`;
+* Integrates [Disqus](https://disqus.com/) for post commenting when enabled via `dory.yml`;
 * Utilises HTML5 [`ServiceWorker`](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) for offline support;
 * Seamlessly applies background sync for posting comments when offline;
 * Implements the HTML5 [Push API](https://developer.mozilla.org/en/docs/Web/API/Push_API) for notifying users of added posts;
