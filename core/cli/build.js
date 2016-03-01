@@ -1,8 +1,13 @@
+import { readFileSync, writeFileSync } from 'fs';
 import { exec } from 'shelljs';
+import { load as loadYaml } from 'yaml-js';
 
-// Make the necessary directories.
+// Make the necessary directory structure.
 exec('mkdir -p core/build/assets');
-exec('mkdir -p core/build/posts');
+
+// Export the configuration file.
+const exportConfig = `export default ${JSON.stringify(loadYaml(readFileSync('./dory.yml')))};`;
+writeFileSync('./public/js/config.js', exportConfig, 'utf8');
 
 // Build the assets, and copy the favicon.
 exec('webpack');
