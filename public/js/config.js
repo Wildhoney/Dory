@@ -1,0 +1,1 @@
+export default {"posts":{"dateFormat":"MMM Do YYYY","perPage":5}};
