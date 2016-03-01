@@ -1,5 +1,7 @@
 import express from 'express';
 import { readFileSync } from 'fs';
+import { loadFront } from 'yaml-front-matter';
+import { load as loadYaml } from 'yaml-js';
 
 // Enable development for things like hot reloading.
 import webpack from 'webpack';
@@ -24,10 +26,25 @@ const options = {
     assetsPath: './core/build/assets',
 
     /**
+     * @constant config
+     * @type {Object}
+     */
+    config: loadYaml(readFileSync('./dory.yml')),
+
+    /**
      * @constant isProduction
      * @type {Boolean}
      */
     isProduction,
+
+    /**
+     * @method fromRoot
+     * @param {String} path
+     * @return {String}
+     */
+    fromRoot: path => {
+        return readFileSync(`./${path}`, 'utf8')  
+    },
 
     /**
      * @method fromCore
@@ -74,8 +91,8 @@ if (!isProduction) {
 
 // Define the routes.
 app.use('/assets', handleAssets(options));
-app.get('/posts/:page', handleCatalogue(options));
-app.get('/post/:slug', handlePost(options));
+app.get('/api/catalogue', handleCatalogue(options));
+app.get('/api/post/:slug', handlePost(options));
 app.use(handleUniversal(options));
 
 export default app;
