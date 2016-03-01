@@ -60,7 +60,10 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "html-minifier": "^1.1.1",
     "json-loader": "^0.5.4",
+    "marked": "^0.3.5",
+    "moment": "^2.11.2",
     "mustache": "^2.2.1",
+    "node-yaml-config": "0.0.4",
     "react-addons-test-utils": "^0.14.7",
     "rimraf": "^2.5.2",
     "shelljs": "^0.6.0",
@@ -70,6 +73,7 @@
     "webpack": "^2.1.0-beta.4",
     "webpack-dev-middleware": "^1.5.1",
     "webpack-hot-middleware": "^2.7.1",
-    "yaml-front-matter": "^3.4.0"
+    "yaml-front-matter": "^3.4.0",
+    "yaml-js": "^0.1.3"
   }
 }
