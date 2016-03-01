@@ -2,6 +2,15 @@ import { loadFront } from 'yaml-front-matter';
 import marked from 'marked';
 
 /**
+ * @constant markedOptions
+ * @type {Object}
+ */
+const markedOptions = {
+    breaks: true,
+    pedantic: true
+};
+
+/**
  * @method getPost
  * @param {Object} options
  * @return {Function}
@@ -17,7 +26,7 @@ export const getPost = options => {
     return slug => {
         const model = catalogue.filter(model => model.slug === slug)[0];
         const markdown = loadFront(options.fromPublic(`/posts/${model.filename}`), 'content');
-        return { ...model, ...markdown, content: marked(markdown.content), filename: undefined };
+        return { ...model, ...markdown, content: marked(markdown.content, markedOptions), filename: undefined };
     };
 
 };

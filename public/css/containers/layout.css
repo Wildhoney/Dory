@@ -21,6 +21,14 @@
     color: #ff1907;
 }
 
+:global(a) {
+    color: #ff1907;
+}
+
+:global(a:hover) {
+    color: black;
+}
+
 .h1Heading {
     composes: mainColour;
     font-family: Lato, Arial, Tahoma, sans-serif;
