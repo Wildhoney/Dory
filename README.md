@@ -1,4 +1,4 @@
-![Dory](/media/logo.png)
+<img src="media/logo.png" width="200" alt="Dory" />
 
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
 [![forthebadge](http://forthebadge.com/images/badges/makes-people-smile.svg)](http://forthebadge.com)
