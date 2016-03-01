@@ -7,9 +7,8 @@ import { stitch } from 'keo';
  */
 const propTypes = {
     model: PropTypes.shape({
-        meta: PropTypes.shape({
-            title: PropTypes.string.isRequired
-        }).isRequired
+        title: PropTypes.string.isRequired,
+        content: PropTypes.string
     }).isRequired
 };
 
@@ -22,8 +21,8 @@ const render = ({ props }) => {
 
     return (
         <section>
-            <h3>{props.model.meta.title}</h3>
-            <p>{props.model.data ? props.model.data.__content : 'Loading...'}</p>
+            <h3>{props.model.title}</h3>
+            <p dangerouslySetInnerHTML={{ __html: props.model.content }} />
         </section>
     );
 

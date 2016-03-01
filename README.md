@@ -16,7 +16,7 @@
 
 * Provides a [universal JavaScript](https://medium.com/@mjackson/universal-javascript-4761051b7ae9) environment using React and Express;
 * Integrates native [Markdown](https://github.com/evilstreak/markdown-js) support for generating blog posts;
-* Instantaneous publishing to [Surge.sh](http://surge.sh/) for each post via Git commits;
+* Instantaneous publishing to [Heroku](https://www.heroku.com/) for each post via [Travis CI](https://travis-ci.org/);
 * Supports [Webpack Hot Reloading](https://github.com/webpack/docs/wiki/hot-module-replacement-with-webpack) for rapid development;
 
 ### On The Horizon 🌅

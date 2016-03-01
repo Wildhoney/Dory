@@ -1,12 +1,14 @@
-import { CATALOGUE, POST } from '../config/events';
+import { CATALOGUE, POSTS } from '../config/events';
 import { SUCCESS } from '../helpers/middleware';
 import { defaultData } from '../helpers/data';
+import { merge } from '../helpers/merge';
 
 /**
  * @constant INITIAL_STATE
  * @type {Array}
  */
-const INITIAL_STATE = defaultData(CATALOGUE) || [];
+// const INITIAL_STATE = defaultData(CATALOGUE) || [];
+const INITIAL_STATE = [];
 
 /**
  * @param {Object} state
@@ -22,15 +24,10 @@ export default (state = INITIAL_STATE, action) => {
             switch (action.type) {
 
                 case CATALOGUE:
-                    return action.result;
+                    return merge(state, action.result);
 
-                case POST:
-                    const index = state.findIndex(model => model.slug === action.model.slug);
-                    return [
-                        ...state.slice(0, index),
-                        { ...action.model, data: { ...action.result } },
-                        ...state.slice(index + 1)
-                    ];
+                case POSTS:
+                    return merge(state, action.result);
 
             }
 

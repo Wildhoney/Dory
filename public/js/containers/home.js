@@ -75,4 +75,4 @@ const render = ({ props }) => {
 
 };
 
-export default stitch({ propTypes, getDefaultProps, componentDidMount, render }, state => state);
+export default stitch({ statics, propTypes, getDefaultProps, componentDidMount, render }, state => state);

@@ -13,6 +13,7 @@ import webpackConfig from '../webpack.config.js';
 import handleAssets from './components/assets';
 import handleCatalogue from './components/catalogue';
 import handlePost from './components/post';
+import handlePosts from './components/posts';
 import handleUniversal from './components/universal';
 
 const app = express();
@@ -36,15 +37,6 @@ const options = {
      * @type {Boolean}
      */
     isProduction,
-
-    /**
-     * @method fromRoot
-     * @param {String} path
-     * @return {String}
-     */
-    fromRoot: path => {
-        return readFileSync(`./${path}`, 'utf8')  
-    },
 
     /**
      * @method fromCore
@@ -80,19 +72,20 @@ const options = {
 
 };
 
-if (!isProduction) {
-
-    // Setup development mode using Webpack when NODE_ENV is not production.
-    const compiler = webpack(webpackConfig);
-    app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
-    app.use(webpackHotMiddleware(compiler));
-
-}
+// if (!isProduction) {
+//
+//     // Setup development mode using Webpack when NODE_ENV is not production.
+//     const compiler = webpack(webpackConfig);
+//     app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
+//     app.use(webpackHotMiddleware(compiler));
+//
+// }
 
 // Define the routes.
 app.use('/assets', handleAssets(options));
 app.get('/api/catalogue', handleCatalogue(options));
 app.get('/api/post/:slug', handlePost(options));
+app.get('/api/posts/:pageNumber', handlePosts(options));
 app.use(handleUniversal(options));
 
 export default app;
