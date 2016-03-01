@@ -6,8 +6,6 @@
     "test": "ava tests/**/*.js && stylelint public/css/*.css public/css/**/*.css public/css/**/**/*.css && eslint public/js/**/*.js",
     "catalogue": "babel core/catalogue.js | node && mkdir -p core/build/assets/posts && cp public/posts/* core/build/assets/posts",
     "build": "babel core/cli/build.js | node",
-    "config": "yaml2json dory.yml > core/build/assets/config.json",
-    "dev": "webpack-dev-server --content-base core/build",
     "start": "babel server/default.js | node"
   },
   "repository": {
