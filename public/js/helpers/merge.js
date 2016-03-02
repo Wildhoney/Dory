@@ -1,5 +1,7 @@
+import by from 'sort-by';
+
 /**
- * Helper method to merge the posts, prioritising models which have "content" properties.
+ * helpers method to merge the posts, prioritising models which have "content" properties.
  *
  * @method merge
  * @param {Array} currentState
@@ -8,29 +10,31 @@
  */
 export const merge = (currentState, updatedState) => {
 
-    return updatedState.reduce((accumulator, post) => {
+    const mergedModels = [ ...currentState, ...updatedState ];
 
-        const index = currentState.findIndex(model => model.slug === model.slug);
-        const isExisting = !!~index;
-        const currentHasContent = isExisting && currentState[index].hasOwnProperty('content');
+    return mergedModels.filter(post => {
 
-        if (isExisting && currentHasContent) {
+        const duplicates = mergedModels.filter(model => model.slug === post.slug);
+        const hasContent = post.hasOwnProperty('content');
+        const anotherHasContent = duplicates.some(model => model.hasOwnProperty('content'));
 
-            // We already have the model with a valid "content" property.
-            return [ ...accumulator ];
-
+        if (hasContent) {
+            // Current model has a "content" property and therefore we'll keep it.
+            return post;
         }
 
-        if (isExisting) {
-
-            // We've just discovered the model with a valid "content" property, so we'll replace the existing.
-            return [...accumulator.slice(0, index), post, ...accumulator.slice(index + 1)];
-
+        if (duplicates.length === 1) {
+            // Current model is the only one therefore we'll keep it.
+            return post;
         }
 
-        // Otherwise we've found a new model and so we'll simply append it.
-        return [ ...accumulator, post ];
+        if (anotherHasContent) {
+            // Property "content" exists in one of the duplicate models.
+            return false;
+        }
 
-    }, currentState);
+        return true;
+
+    }).sort(by('title'));
 
 };

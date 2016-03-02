@@ -8,6 +8,11 @@
     font-size: 10px;
 }
 
+:global(p) {
+  padding-bottom: 10px;
+  text-align: justify;
+}
+
 .header {
     border-bottom: 1px solid rgba(0, 0, 0, .1);
     color: rgba(0, 0, 0, .75);
