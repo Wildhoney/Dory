@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import { stitch } from 'keo/redux';
 import Navigation from '../components/navigation';
 import { getCatalogue } from '../actions';
-import styles from '../../css/containers/layout.css';
 
 /**
  * @constant statics
@@ -46,12 +45,12 @@ const componentDidMount = ({ dispatch }) => {
 const render = ({ props }) => {
 
     return (
-        <section className={ styles.container }>
-            <header className={ styles.header }>
-                <h1 className={ styles.h1Heading }>Dory</h1>
+        <section>
+            <header>
+                <h1>Dory</h1>
                 <Navigation />
             </header>
-            <main className={ styles.main }>
+            <main>
                 {props.children}
             </main>
         </section>

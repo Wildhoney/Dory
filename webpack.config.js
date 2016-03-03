@@ -1,7 +1,5 @@
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-require('babel-loader');
-require('json-loader');
 
 module.exports = {
     entry: [
@@ -16,7 +14,7 @@ module.exports = {
     },
     module: {
         loaders: [
-            { 
+            {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 query: {
@@ -24,10 +22,7 @@ module.exports = {
                 }
             },
             { test: /\.json$/, loader: 'json-loader' },
-            {
-                test: /\.css$/i,
-                loader: ExtractTextPlugin.extract('style', `css?modules&localIdentName=[name]_[local]__[hash:base64:5]`)
-            }
+            { test: /\.scss$/, loader: ExtractTextPlugin.extract('css!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded') }
 ]
     },
     plugins: [

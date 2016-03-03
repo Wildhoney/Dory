@@ -8,6 +8,8 @@ import routes from './config/routes';
 import reducers from './reducers';
 import { promise } from './helpers/middleware.js';
 
+import '../sass/default.scss';
+
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 const store = createStoreWithMiddleware(reducers);
 Promise.polyfill();
