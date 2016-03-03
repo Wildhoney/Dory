@@ -1,0 +1,30 @@
+@import "./config";
+
+&.post {
+  font-family: $main-font;
+  margin-bottom: 40px;
+
+  > h3 {
+    font-weight: 800;
+    font-size: 1.5rem;
+  }
+
+  > datetime {
+    margin-bottom: 10px;
+    display: inline-block;
+    color: rgba(0, 0, 0, .5);
+    font-size: 11px;
+    font-weight: 100;
+  }
+
+  > div {
+    > p {
+      font-size: 1.2rem;
+      padding-bottom: 20px;
+
+      &:last-of-type {
+        padding-bottom: 0;
+      }
+    }
+  }
+}

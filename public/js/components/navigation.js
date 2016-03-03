@@ -12,13 +12,13 @@ const render = () => {
         <nav>
             <ul>
                 <li>
-                    <Link to="/" className={ styles.anchor }>Home</Link>
+                    <Link to="/">Home</Link>
                 </li>
                 <li>
-                    <Link to="/" className={ styles.anchor }>Archive</Link>
+                    <Link to="/">Archive</Link>
                 </li>
                 <li>
-                    <Link to="/" className={ styles.anchor }>Contact</Link>
+                    <Link to="/">Contact</Link>
                 </li>
             </ul>
         </nav>

@@ -58,7 +58,7 @@ const componentDidMount = ({ dispatch, props }) => {
 const render = ({ props }) => {
 
     return (
-        <section>
+        <main className="home">
 
             <h2>
                 Welcome
@@ -69,7 +69,7 @@ const render = ({ props }) => {
 
             { props.catalogue.map(model => <Post key={ hash(model) } { ...props } model={ model } />) }
 
-        </section>
+        </main>
     );
 
 };

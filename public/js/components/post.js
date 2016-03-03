@@ -22,11 +22,11 @@ const propTypes = {
 const render = ({ props }) => {
 
     return (
-        <section>
+        <main className="post component">
             <h3>{props.model.title}</h3>
             <datetime>{ moment(props.model.createdDate).format(config.posts.dateFormat) }</datetime>
             <div dangerouslySetInnerHTML={{ __html: props.model.content }} />
-        </section>
+        </main>
     );
 
 };

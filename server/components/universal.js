@@ -69,13 +69,17 @@ export default options => {
             
             Promise.all(promises).then(data => {
 
-                // Render the HTML using the components determined by the React router.
-                const componentHtml = renderToString(InitialComponent);
+                try {
+                    // Render the HTML using the components determined by the React router.
+                    const componentHtml = renderToString(InitialComponent);
 
-                response.end(render(documentHtml, {
-                    content: componentHtml,
-                    data: options.toJson(data.filter(data => typeof data !== 'boolean'))
-                }));
+                    response.end(render(documentHtml, {
+                        content: componentHtml,
+                        data: options.toJson(data.filter(data => typeof data !== 'boolean'))
+                    }));
+                } catch (e) {
+                    console.log(e);
+                }
 
             });
 

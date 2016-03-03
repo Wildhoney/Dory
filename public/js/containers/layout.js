@@ -45,14 +45,12 @@ const componentDidMount = ({ dispatch }) => {
 const render = ({ props }) => {
 
     return (
-        <section>
+        <section className="layout">
             <header>
                 <h1>Dory</h1>
                 <Navigation />
             </header>
-            <main>
-                {props.children}
-            </main>
+            {props.children}
         </section>
     );
 

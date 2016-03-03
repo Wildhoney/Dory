@@ -17,6 +17,7 @@ Promise.polyfill();
 document.addEventListener('DOMContentLoaded', () => {
 
     const mountNode = document.querySelector('.dory');
+    
     render((
         <Provider store={store}>
             {routes}
