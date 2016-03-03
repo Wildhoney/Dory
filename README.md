@@ -12,6 +12,8 @@
 
 ---
 
+![v0.1.3 Screenshot](media/0.1.3.png)
+
 ## Features
 
 * Provides a [universal JavaScript](https://medium.com/@mjackson/universal-javascript-4761051b7ae9) environment using React and Express;
