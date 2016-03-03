@@ -66,7 +66,7 @@ export default options => {
                 const hasFetchData = component && typeof component.fetchData === 'function';
                 return hasFetchData ? component.fetchData(store.dispatch, renderProps.params) : Promise.resolve(true);
             });
-
+            
             Promise.all(promises).then(data => {
 
                 // Render the HTML using the components determined by the React router.
