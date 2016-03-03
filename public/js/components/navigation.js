@@ -8,8 +8,6 @@ import { Link } from 'react-router';
  */
 const render = ({ props }) => {
 
-    console.log(props.options);
-
     return (
         <nav>
             <ul>

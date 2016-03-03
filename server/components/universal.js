@@ -3,7 +3,6 @@ import { Provider } from 'react-redux';
 import { renderToString } from 'react-dom/server';
 import { render } from 'mustache';
 import { createStore, applyMiddleware } from 'redux';
-import { jsesc as escape } from 'jsesc';
 import { RouterContext, match } from 'react-router';
 import createLocation from 'history/lib/createLocation';
 import routes from '../../public/js/config/routes';
@@ -79,7 +78,7 @@ export default options => {
                         data: options.toJson(data.filter(data => typeof data !== 'boolean'))
                     }));
                 } catch (e) {
-                    console.log(e);
+                    console.log('Error!', e);
                 }
 
             });
