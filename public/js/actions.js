@@ -17,3 +17,12 @@ export function getCatalogue() {
 export function getPosts(pageNumber) {
     return { type: event.POSTS, promise: fetch(`api/posts/${pageNumber}`) };
 }
+
+/**
+ * @method setMenu
+ * @param {Boolean} open
+ * @return {Object}
+ */
+export function setMenu(open) {
+    return { type: event.MENU, open };
+}

@@ -6,7 +6,9 @@ import { Link } from 'react-router';
  * @method render
  * @return {XML}
  */
-const render = () => {
+const render = ({ props }) => {
+
+    console.log(props.options);
 
     return (
         <nav>

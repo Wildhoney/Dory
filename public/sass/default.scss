@@ -41,6 +41,10 @@ html {
             text-transform: uppercase;
             border-right: 1px solid rgba(0, 0, 0, .1);
             padding-right: 2rem;
+
+            @media screen and (max-width: $break-small) {
+              border-right: 0;
+            }
           }
         }
 

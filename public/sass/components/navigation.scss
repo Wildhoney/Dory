@@ -7,6 +7,24 @@
     list-style-type: none;
     display: flex;
 
+    @media screen and (max-width: $break-small) {
+      flex-direction: column;
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 100vh;
+      width: 60vw;
+      background-color: white;
+      box-shadow: 0 0 25px rgba(0, 0, 0, .25);
+
+      > li {
+        height: 50px;
+        line-height: 50px;
+        border-bottom: 1px solid rgba(0, 0, 0, .1);
+        padding: 0 2rem;
+      }
+    }
+
     > li {
       font-size: 1.2rem;
       font-family: Lato, Arial, Tahoma, sans-serif;
