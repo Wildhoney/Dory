@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { renderToString } from 'react-dom/server';
 import { render } from 'mustache';
 import { createStore, applyMiddleware } from 'redux';
+import { jsesc as escape } from 'jsesc';
 import { RouterContext, match } from 'react-router';
 import createLocation from 'history/lib/createLocation';
 import routes from '../../public/js/config/routes';
@@ -42,10 +43,10 @@ export default options => {
             })();
 
             if (statusCode) {
-                
+
                 // Determine if we have a different status code to yield.
                 return response.status(statusCode).end(ERRORS[statusCode]);
-                
+
             }
 
             /**
@@ -66,7 +67,7 @@ export default options => {
                 const hasFetchData = component && typeof component.fetchData === 'function';
                 return hasFetchData ? component.fetchData(store.dispatch, renderProps.params) : Promise.resolve(true);
             });
-            
+
             Promise.all(promises).then(data => {
 
                 try {
@@ -86,5 +87,5 @@ export default options => {
         });
 
     }
-    
+
 };

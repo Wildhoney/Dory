@@ -1,4 +1,5 @@
 import { loadFront } from 'yaml-front-matter';
+import removeNewLines from 'newline-remove';
 import marked from 'marked';
 
 /**
@@ -26,7 +27,7 @@ export const getPost = options => {
     return slug => {
         const model = catalogue.filter(model => model.slug === slug)[0];
         const markdown = loadFront(options.fromPublic(`/posts/${model.filename}`), 'content');
-        return { ...model, ...markdown, content: marked(markdown.content, markedOptions), filename: undefined };
+        return { ...model, ...markdown, content: removeNewLines(marked(markdown.content, markedOptions)), filename: undefined };
     };
 
 };
@@ -41,5 +42,5 @@ export default options => {
         const bySlug = getPost(options);
         response.end(options.toJson(bySlug(request.params.slug)));
     };
-    
+
 };
