@@ -8,7 +8,6 @@ import { merge } from '../helpers/merge';
  * @type {Array}
  */
 const INITIAL_STATE = [ ...defaultData(CATALOGUE, []), ...defaultData(POSTS, []) ];
-console.log(INITIAL_STATE);
 
 /**
  * @param {Object} state
