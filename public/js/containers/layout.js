@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { stitch } from 'keo/redux';
 import Navigation from '../components/navigation';
 import { getCatalogue } from '../actions';
+import config from '../config';
 
 /**
  * @constant statics
@@ -25,16 +26,10 @@ const statics = {
  * @type {Object}
  */
 const propTypes = {
-    children: PropTypes.element.isRequired
-};
-
-/**
- * @method componentDidMount
- * @param {Object} dispatch
- * @return {void}
- */
-const componentDidMount = ({ dispatch }) => {
-    statics.fetchData(dispatch);
+    children: PropTypes.element.isRequired,
+    options: PropTypes.shape({
+        menuOpen: PropTypes.bool.isRequired
+    })
 };
 
 /**
@@ -44,11 +39,14 @@ const componentDidMount = ({ dispatch }) => {
  */
 const render = ({ props }) => {
 
+    const isOpen = props.options.menuOpen;
+    const sectionClasses = `layout ${isOpen ? 'open' : 'closed'}`;
+
     return (
-        <section className="layout">
+        <section className={ sectionClasses }>
             <header>
-                <h1>Dory</h1>
-                <Navigation />
+                <h1>{config.title}</h1>
+                <Navigation {...props} />
             </header>
             {props.children}
         </section>
@@ -56,4 +54,4 @@ const render = ({ props }) => {
 
 };
 
-export default stitch({ statics, propTypes, componentDidMount, render }, state => state);
+export default stitch({ statics, propTypes, render }, state => state);

@@ -41,16 +41,6 @@ const getDefaultProps = () => {
 };
 
 /**
- * @method componentDidMount
- * @param {Function} dispatch
- * @param {Object} props
- * @return {void}
- */
-const componentDidMount = ({ dispatch, props }) => {
-    statics.fetchData(dispatch, props.params);
-};
-
-/**
  * @method render
  * @param {Object} props
  * @return {XML}
@@ -74,4 +64,4 @@ const render = ({ props }) => {
 
 };
 
-export default stitch({ statics, propTypes, getDefaultProps, componentDidMount, render }, state => state);
+export default stitch({ statics, propTypes, getDefaultProps, render }, state => state);

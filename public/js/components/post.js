@@ -23,7 +23,7 @@ const render = ({ props }) => {
 
     return (
         <main className="post component">
-            <h3>{props.model.title}</h3>
+            <h3><a className="invert" href="">{props.model.title}</a></h3>
             <datetime>{ moment(props.model.createdDate).format(config.posts.dateFormat) }</datetime>
             <div dangerouslySetInnerHTML={{ __html: props.model.content }} />
         </main>

@@ -1,1 +1,1 @@
-export default {"posts":{"dateFormat":"LLLL","perPage":5}};
+export default {"title":"Dory","posts":{"dateFormat":"LLLL","perPage":5}};

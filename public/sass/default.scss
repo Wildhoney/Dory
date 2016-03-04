@@ -7,10 +7,36 @@
 }
 
 a {
-  color: $main-colour;
+  $transition: .15s color;
 
-  &:hover {
+  &.invert {
     color: black;
+    text-decoration: none;
+    transition: $transition;
+
+    &:hover {
+      color: $main-colour;
+    }
+  }
+
+  &:not(.invert) {
+    color: $main-colour;
+    transition: $transition;
+
+    &:hover {
+      color: black;
+    }
+  }
+}
+
+@mixin apply-mobile() {
+  transition: right $mobile-menu-animation;
+  right: 0;
+  position: relative;
+  width: 100%;
+
+  &.open {
+    right: $mobile-menu-width;
   }
 }
 
@@ -19,7 +45,14 @@ html {
 
   > body {
     > section.dory {
+      overflow: hidden;
+
       > section.layout {
+
+        @media screen and (max-width: $break-small) {
+          @include apply-mobile();
+        }
+
         > header {
           @import "./components/navigation";
 

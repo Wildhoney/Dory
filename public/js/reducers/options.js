@@ -1,4 +1,4 @@
-import { TOGGLE_MENU } from '../config/events';
+import { MENU } from '../config/events';
 
 /**
  * @constant INITIAL_STATE
@@ -17,8 +17,8 @@ export default (state = INITIAL_STATE, action) => {
 
     switch (action.type) {
 
-        case TOGGLE_MENU:
-            return { ...state, open: action.open };
+        case MENU:
+            return { ...state, menuOpen: action.open };
 
     }
 

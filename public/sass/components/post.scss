@@ -7,14 +7,18 @@
   > h3 {
     font-weight: 800;
     font-size: 1.5rem;
+    margin-bottom: 5px;
   }
 
   > datetime {
     margin-bottom: 10px;
     display: inline-block;
     color: rgba(0, 0, 0, .5);
-    font-size: 11px;
+    font-size: 1.2rem;
     font-weight: 100;
+    background: url('/assets/images/icons/calendar-page.svg') no-repeat left 1px;
+    padding-left: 1.8rem;
+    background-size: 1.2rem;
   }
 
   > div {

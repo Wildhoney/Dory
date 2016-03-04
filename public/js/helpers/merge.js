@@ -35,6 +35,6 @@ export const merge = (currentState, updatedState) => {
 
         return true;
 
-    }).sort(by('title'));
+    });
 
 };

@@ -7,7 +7,7 @@ import { merge } from '../helpers/merge';
  * @constant INITIAL_STATE
  * @type {Array}
  */
-const INITIAL_STATE = [ ...defaultData(CATALOGUE, []), ...defaultData(POSTS, []) ];
+const INITIAL_STATE = merge(defaultData(CATALOGUE, []), defaultData(POSTS, []));
 
 /**
  * @param {Object} state
