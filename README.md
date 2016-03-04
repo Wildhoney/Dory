@@ -12,7 +12,7 @@
 
 ---
 
-![v0.1.3 Screenshot](media/0.1.3.png)
+![v0.1.4 Screenshot](media/0.1.4.png)
 
 ## Features
 
