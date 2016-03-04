@@ -2,19 +2,13 @@ import express from 'express';
 import { readFileSync } from 'fs';
 import { loadFront } from 'yaml-front-matter';
 import { load as loadYaml } from 'yaml-js';
+import { configure } from './routes';
 
 // Enable development for things like hot reloading.
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../webpack.config.js';
-
-// Handlers for the various endpoints.
-import handleAssets from './components/assets';
-import handleCatalogue from './components/catalogue';
-import handlePost from './components/post';
-import handlePosts from './components/posts';
-import handleUniversal from './components/universal';
 
 const app = express();
 const isProduction = process.env.NODE_ENV === 'production';
@@ -25,6 +19,12 @@ const options = {
      * @type {String}
      */
     assetsPath: './core/build/assets',
+
+    /**
+     * @constant publicPath
+     * @type {String}
+     */
+    publicPath: './public',
 
     /**
      * @constant config
@@ -82,10 +82,6 @@ if (!isProduction) {
 }
 
 // Define the routes.
-app.use('/assets', handleAssets(options));
-app.get('/api/catalogue', handleCatalogue(options));
-app.get('/api/post/:slug', handlePost(options));
-app.get('/api/posts/:pageNumber', handlePosts(options));
-app.use(handleUniversal(options));
+configure(options)(app);
 
 export default app;

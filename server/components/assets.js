@@ -1,10 +1,11 @@
 import express from 'express';
-import { join } from 'path';
 
 /**
- * @param {Object} options
+ * @param {String} path
  * @return {Function}
  */
-export default options => {
-    return  express.static(join(options.assetsPath));
+export default path => {
+    return () => {
+        return express.static(path);
+    };
 };

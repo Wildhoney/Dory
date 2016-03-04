@@ -28,15 +28,15 @@ $mobile-width: 60vw;
     background-position: center center;
 
     &.home {
-      background-image: url('/assets/images/icons/house-black-silhouette-without-door.svg');
+      background-image: url('/images/icons/house-black-silhouette-without-door.svg');
     }
 
     &.archive {
-      background-image: url('/assets/images/icons/library-books.svg');
+      background-image: url('/images/icons/library-books.svg');
     }
 
     &.contact {
-      background-image: url('/assets/images/icons/messages-silhouette.svg');
+      background-image: url('/images/icons/messages-silhouette.svg');
     }
 
     a {
@@ -63,7 +63,7 @@ $mobile-width: 60vw;
       top: 0;
       border-bottom: 0;
       border-left: 1px solid rgba(0, 0, 0, .1);
-      background: url('/assets/images/burger.svg') no-repeat center center;
+      background: url('/images/icons/burger-menu.svg') no-repeat center center;
       cursor: pointer;
     }
   }

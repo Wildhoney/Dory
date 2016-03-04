@@ -7,8 +7,8 @@ module.exports = {
         './public/js/default.js'
     ],
     output: {
-        path: __dirname + '/core/build/assets',
-        publicPath: '/assets/',
+        path: __dirname + '/core/build',
+        publicPath: '/',
         filename: 'dory.js',
         libraryTarget: 'var'
     },
@@ -22,7 +22,7 @@ module.exports = {
                 }
             },
             { test: /\.json$/, loader: 'json-loader' },
-            { test: /\.scss$/, loader: ExtractTextPlugin.extract('css!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded') }
+            { test: /\.scss$/, loader: ExtractTextPlugin.extract('css!autoprefixer?browsers=last 2 version!sass?outputStyle=compact') }
 ]
     },
     plugins: [
