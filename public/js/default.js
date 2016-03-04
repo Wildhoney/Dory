@@ -1,4 +1,5 @@
 import 'array.from';
+import ready from 'document-ready-promise';
 import Promise from 'es6-promise';
 import React from 'react';
 import { render } from 'react-dom';
@@ -14,7 +15,7 @@ const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 const store = createStoreWithMiddleware(reducers);
 Promise.polyfill();
 
-document.addEventListener('DOMContentLoaded', () => {
+ready().then(() => {
 
     const mountNode = document.querySelector('.dory');
 

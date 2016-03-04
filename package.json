@@ -32,6 +32,7 @@
   "dependencies": {
     "array.from": "^1.0.0",
     "axios": "^0.9.1",
+    "document-ready-promise": "^3.0.1",
     "es6-promise": "^3.0.2",
     "keo": "^2.1.1",
     "lodash": "^4.2.1",
