@@ -19,6 +19,8 @@ addons:
 
 deploy:
   provider: heroku
+  all_branches: true
+  skip_cleanup: true
   app: dory-app
   on:
     repo: Wildhoney/Dory

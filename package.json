@@ -6,6 +6,8 @@
     "test": "babel core/cli/test.js | node",
     "catalogue": "babel core/cli/catalogue.js | node",
     "build": "babel core/cli/build.js | node",
+    "clean" :"babel core/cli/clean.js | node",
+    "prepublish": "npm run clean",
     "start": "babel server/default.js | node"
   },
   "repository": {
