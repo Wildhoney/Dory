@@ -1,4 +1,4 @@
-<img src="media/logo.png" width="200" alt="Dory" />
+<img src="media/logo.png" width="260" alt="Dory" />
 
 > <sub><sup>Dory should have a blog to write before she forgets.</sup></sub><br />
 > <sub><sup>So don't be like her else you'll have many regrets.</sup></sub><br />
