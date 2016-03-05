@@ -3,7 +3,7 @@
   "version": "0.1.4",
   "description": "Markdown blogging platform with automatic publishing to Surge.sh, using advanced JavaScript/HTML5 techniques for a much loved UX.",
   "scripts": {
-    "test": "babel core/cli/test.js | node",
+    "test": "ava tests/**/*.test.js",
     "catalogue": "babel core/cli/catalogue.js | node",
     "build": "babel core/cli/build.js | node",
     "clean": "babel core/cli/clean.js | node",

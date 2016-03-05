@@ -1,4 +1,5 @@
 import test from 'ava';
+import by from 'sort-by';
 import 'babel-register';
 import { merge } from '../../public/js/helpers/merge';
 
@@ -20,7 +21,7 @@ test('It can merge objects by prioritising models with "content" over those with
         { title: 'My Sixth Post', slug: 'sixth-post', content: 'Sixth Content' }
     ];
 
-    const merged = merge(currentState, updatedState);
+    const merged = merge(currentState, updatedState).sort(by('title'));
 
     t.same(merged, [
         { title: 'My Fifth Post', slug: 'fifth-post' },
@@ -30,7 +31,5 @@ test('It can merge objects by prioritising models with "content" over those with
         { title: 'My Sixth Post', slug: 'sixth-post', content: 'Sixth Content' },
         { title: 'My Third Post', slug: 'third-post', content: 'Third Content' }
     ]);
-
-    t.pass();
 
 });
