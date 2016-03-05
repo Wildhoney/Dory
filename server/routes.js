@@ -23,12 +23,10 @@ export function configure(options) {
      * @return {Function}
      */
     const sendFile = file => {
-
         return (request, response) => {
             response.set('content-type', mime.lookup(request.url));
             response.send(file);
         };
-
     };
 
     return app => {
