@@ -12,6 +12,9 @@ before_script:
 script:
   - npm i
 
+before_deploy:
+  - npm run build
+
 sudo: false
 
 addons:
