@@ -7,7 +7,8 @@
     "catalogue": "babel core/cli/catalogue.js | node",
     "build": "babel core/cli/build.js | node",
     "clean": "babel core/cli/clean.js | node",
-    "start": "babel server/default.js | node"
+    "start": "babel server/default.js | node",
+    "predeploy": "npm run build"
   },
   "repository": {
     "type": "git",
