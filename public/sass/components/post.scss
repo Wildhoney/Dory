@@ -27,6 +27,11 @@
     padding-left: 4px;
 
     > a {
+      > label {
+        @media screen and (max-width: $break-small) {
+          display: none;
+        }
+      }
       > img {
         width: 16px;
         float: right;

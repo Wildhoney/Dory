@@ -42,7 +42,10 @@ export const Author = stitch(({ props }) => {
 
     return (
         <div className="author">
-            by <Link to="/" rel="author">{avatar}{author}</Link>
+            by <Link to="/" rel="author">
+                {avatar}
+                <label>{author}</label>
+            </Link>
         </div>
     );
 
