@@ -29,13 +29,19 @@ const render = ({ props, dispatch }) => {
             <a className="icon" onClick={ () => dispatch(setMenu(!isOpen)) } />
             <ul className={ ulClasses }>
                 <li className="home">
-                    <Link to="/" className="invert">Home</Link>
+                    <Link to="/" className="invert">
+                        Home
+                    </Link>
                 </li>
                 <li className="archive">
-                    <Link to="/" className="invert">Archive</Link>
+                    <Link to="/" className="invert">
+                        Archive
+                    </Link>
                 </li>
                 <li className="contact">
-                    <Link to="/" className="invert">Contact</Link>
+                    <Link to="/" className="invert">
+                        Contact
+                    </Link>
                 </li>
             </ul>
         </nav>

@@ -33,11 +33,13 @@ const statics = {
 };
 
 /**
- * @method getDefaultProps
- * @return {Object}
+ * @method dispatch
+ * @param {Function} dispatch
+ * @param {Object} props
+ * @return {void}
  */
-const getDefaultProps = () => {
-    return { catalogue: [] };
+const componentDidMount = ({ dispatch, props }) => {
+    statics.fetchData(dispatch, props.params);
 };
 
 /**
@@ -48,7 +50,7 @@ const getDefaultProps = () => {
 const render = ({ props }) => {
 
     return (
-        <main className="home">
+        <main className="page home">
 
             <h2>
                 Welcome
@@ -64,4 +66,4 @@ const render = ({ props }) => {
 
 };
 
-export default stitch({ statics, propTypes, getDefaultProps, render }, state => state);
+export default stitch({ statics, propTypes, componentDidMount, render }, state => state);

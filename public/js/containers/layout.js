@@ -33,6 +33,15 @@ const propTypes = {
 };
 
 /**
+ * @method dispatch
+ * @param {Function} dispatch
+ * @return {void}
+ */
+const componentDidMount = ({ dispatch }) => {
+    statics.fetchData(dispatch);
+};
+
+/**
  * @method render
  * @param {Object} props
  * @return {XML}
@@ -49,9 +58,16 @@ const render = ({ props }) => {
                 <Navigation {...props} />
             </header>
             {props.children}
+            <footer>
+                Powered by <a href="https://github.com/Wildhoney/Dory">Dory</a>.
+                <ul>
+                    <li className="rss">
+                    </li>
+                </ul>
+            </footer>
         </section>
     );
 
 };
 
-export default stitch({ statics, propTypes, render }, state => state);
+export default stitch({ statics, propTypes, componentDidMount, render }, state => state);
