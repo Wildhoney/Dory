@@ -94,6 +94,7 @@ html {
 
           &.page {
             @import "./containers/home";
+            @import "./containers/post";
           }
 
           main.component {
