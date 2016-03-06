@@ -22,18 +22,48 @@
   }
 
   > div {
-    > p {
+
+    &.author {
+      display: inline-block;
       font-size: 1.2rem;
-      padding-bottom: $content-padding;
+      padding-left: 4px;
 
-      &:last-of-type {
-        padding-bottom: 0;
+      > a {
+        padding-left: 4px;
+
+        > img {
+          width: 16px;
+          float: right;
+          margin-left: 6px;
+          border-radius: 50%;
+        }
       }
+    }
 
-      > img {
-        width: 100%;
-        padding: 1px;
-        border: 1px solid $border-colour;
+    &.content {
+      $minimum-paragraph-width: 300px;
+
+      > p {
+        font-size: 1.2rem;
+        margin-bottom: $content-padding;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+
+        > img {
+          width: 100%;
+          padding: 1px;
+          border: 1px solid $border-colour;
+          max-width: 500px;
+          float: left;
+          margin: 0 15px 15px 0;
+
+          @media screen and (max-width: ($break-small + $minimum-paragraph-width)) {
+            float: none;
+            margin-bottom: 0;
+          }
+        }
       }
     }
   }
