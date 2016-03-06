@@ -25,7 +25,7 @@ export const getPost = options => {
      * @return {Object}
      */
     return slug => {
-        const model = catalogue.filter(model => model.slug === slug)[0];
+        const model = catalogue.find(model => model.slug === slug);
         const markdown = loadFront(options.fromPublic(`/posts/${model.filename}`), 'content');
         const content = removeNewLines(marked(markdown.content, markedOptions));
 

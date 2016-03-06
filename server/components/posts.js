@@ -1,3 +1,4 @@
+import by from 'sort-by';
 import { loadFront } from 'yaml-front-matter';
 import { getPost } from './post';
 
@@ -7,7 +8,7 @@ import { getPost } from './post';
  */
 export default options => {
     
-    const catalogue = options.fromJson(options.fromPublic('/catalogue.json'));
+    const catalogue = options.fromJson(options.fromPublic('/catalogue.json')).sort(by('createdDate')).reverse();
 
     return (request, response) => {
 

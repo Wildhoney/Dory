@@ -16,6 +16,21 @@ const propTypes = {
 };
 
 /**
+ * @method getDefaultProps
+ * @return {Object}
+ */
+const getDefaultProps = () => {
+    return {
+        model: {
+            slug: '',
+            title: '',
+            createdDate: Date.now(),
+            content: ''
+        }
+    };
+};
+
+/**
  * @method render
  * @param {Object} props
  * @return {Object}
@@ -36,4 +51,4 @@ const render = ({ props }) => {
 
 };
 
-export default stitch({ propTypes, render });
+export default stitch({ propTypes, getDefaultProps, render });

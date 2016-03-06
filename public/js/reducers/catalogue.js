@@ -1,4 +1,4 @@
-import { CATALOGUE, POSTS } from '../config/events';
+import { CATALOGUE, POSTS, POST } from '../config/events';
 import { SUCCESS } from '../helpers/middleware';
 import { defaultData } from '../helpers/data';
 import { merge } from '../helpers/merge';
@@ -27,6 +27,10 @@ export default (state = INITIAL_STATE, action) => {
 
                 case POSTS:
                     return merge(state, action.result);
+
+                case POST:
+                    return merge(state, [action.result]);
+
 
             }
 

@@ -19,6 +19,15 @@ export function getPosts(pageNumber) {
 }
 
 /**
+ * @method getPost
+ * @param {String} slug
+ * @return {Object}
+ */
+export function getPost(slug) {
+    return { type: event.POST, promise: fetch(`/api/post/${slug}`) };
+}
+
+/**
  * @method setMenu
  * @param {Boolean} open
  * @return {Object}

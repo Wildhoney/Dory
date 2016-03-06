@@ -18,9 +18,9 @@
 
 You first need to fork the repository to your own GitHub account &mdash; and then clone it.
 
-* `npm install`;
-* `npm run build`;
-* `npm run start`;
+* `npm install`
+* `npm run build`
+* `npm run start`
 
 ## Features
 

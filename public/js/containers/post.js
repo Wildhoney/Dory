@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { stitch } from 'keo/redux';
-// import { getPosts } from '../actions';
+import Post from '../components/post';
+import { getPost } from '../actions';
 
 /**
  * @constant propTypes
@@ -22,9 +23,9 @@ const statics = {
      * @param {Object} params
      * @return {Promise}
      */
-    // fetchData: (dispatch, params) => {
-        // return dispatch(getPost(params.slug));
-    // }
+    fetchData: (dispatch, params) => {
+        return dispatch(getPost(params.slug));
+    }
 
 };
 
@@ -35,7 +36,7 @@ const statics = {
  * @return {void}
  */
 const componentDidMount = ({ dispatch, props }) => {
-    // statics.fetchData(dispatch, props.params);
+    statics.fetchData(dispatch, props.params);
 };
 
 /**
@@ -45,11 +46,11 @@ const componentDidMount = ({ dispatch, props }) => {
  */
 const render = ({ props }) => {
 
+    const model = props.catalogue.find(post => post.slug === props.params.slug);
+
     return (
         <main className="page post">
-
-            <h2>{props.params.slug}</h2>
-
+            <Post { ...props } model={ model } />
         </main>
     );
 
