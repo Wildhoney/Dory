@@ -18,11 +18,13 @@ test('It can merge objects by prioritising models with "content" over those with
         { title: 'My Second Post', slug: 'second-post', content: 'Second Content' },
         { title: 'My Third Post', slug: 'third-post' },
         { title: 'My Fifth Post', slug: 'fifth-post' },
+        { title: 'My Sixth Post', slug: 'sixth-post', content: 'Sixth Content' },
         { title: 'My Sixth Post', slug: 'sixth-post', content: 'Sixth Content' }
     ];
 
     const merged = merge(currentState, updatedState).sort(by('title'));
 
+    t.is(merged.length, 6);
     t.same(merged, [
         { title: 'My Fifth Post', slug: 'fifth-post' },
         { title: 'My First Post', slug: 'first-post', content: 'First Content' },
