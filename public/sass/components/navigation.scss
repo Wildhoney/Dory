@@ -28,15 +28,15 @@ $mobile-width: 60vw;
     background-position: center center;
 
     &.home {
-      background-image: url('/images/icons/house-black-silhouette-without-door.svg');
+      background-image: url('/images/icons/home.svg');
     }
 
     &.archive {
-      background-image: url('/images/icons/library-books.svg');
+      background-image: url('/images/icons/archive-black-box.svg');
     }
 
     &.contact {
-      background-image: url('/images/icons/messages-silhouette.svg');
+      background-image: url('/images/icons/pencil.svg');
     }
 
     a {
@@ -63,7 +63,8 @@ $mobile-width: 60vw;
       top: 0;
       border-bottom: 0;
       border-left: 1px solid rgba(0, 0, 0, .1);
-      background: url('/images/icons/burger-menu.svg') no-repeat center center;
+      background: url('/images/icons/reorder-option.svg') no-repeat center center;
+      background-size: 20px;
       cursor: pointer;
     }
   }

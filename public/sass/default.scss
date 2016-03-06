@@ -84,8 +84,12 @@ html {
         > main {
           padding: 20px;
 
+          &.page {
+            @import "./containers/home";
+          }
+
           main.component {
-            @import "./components/post.scss";
+            @import "./components/post";
           }
 
           > h2 {
@@ -100,6 +104,12 @@ html {
               color: rgba(0, 0, 0, .25);
             }
           }
+        }
+
+        > footer {
+          border-top: 1px solid rgba(0, 0, 0, .1);
+          padding: 10px 20px;
+          font-family: $main-font;
         }
       }
     }
