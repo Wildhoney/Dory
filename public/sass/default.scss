@@ -42,12 +42,18 @@ a {
 
 html {
   font-size: 10px;
+  position: relative;
+  min-height: 100%;
 
   > body {
+    min-height: 100vh;
+
     > section.dory {
       overflow: hidden;
+      min-height: 100vh;
 
       > section.layout {
+        min-height: 100vh;
 
         @media screen and (max-width: $break-small) {
           @include apply-mobile();
@@ -60,20 +66,22 @@ html {
           color: rgba(0, 0, 0, .75);
           display: flex;
           align-items: center;
-          padding: 0 2rem;
-          height: 5rem;
+          height: $header-height;
 
           > h1 {
-            color: $main-colour;
             font-family: $main-font;
             font-size: 2.2rem;
             font-weight: 800;
             display: inline-block;
-            height: 5rem;
-            line-height: 5rem;
             text-transform: uppercase;
             border-right: 1px solid rgba(0, 0, 0, .1);
-            padding-right: 2rem;
+
+            > a {
+              text-decoration: none;
+              height: $header-height;
+              line-height: $header-height;
+              padding: 0 2rem;
+            }
 
             @media screen and (max-width: $break-small) {
               border-right: 0;
@@ -82,7 +90,7 @@ html {
         }
 
         > main {
-          padding: 20px;
+          padding: $content-padding $content-padding ($footer-height + $content-padding);
 
           &.page {
             @import "./containers/home";
@@ -107,16 +115,18 @@ html {
         }
 
         > footer {
-          $size: 35px;
-
           border-top: 1px solid rgba(0, 0, 0, .1);
-          height: $size;
-          line-height: $size;
+          height: $footer-height;
+          line-height: $footer-height;
           font-family: $main-font;
+          width: 100%;
           overflow: hidden;
+          position: absolute;
+          bottom: 0;
+          left: 0;
 
           > aside {
-            padding-left: 20px;
+            padding-left: $content-padding;
             float: left;
           }
 
@@ -126,8 +136,8 @@ html {
             overflow: hidden;
 
             li {
-              width: $size;
-              height: $size;
+              width: $footer-height;
+              height: $footer-height;
               background-size: 10px;
               background-position: center center;
               background-repeat: no-repeat;
@@ -136,11 +146,15 @@ html {
 
               a {
                 display: block;
-                height: $size;
+                height: $footer-height;
               }
 
               &.rss {
                 background-image: url('/images/icons/rss-feed-button.svg');
+              }
+
+              &.contact {
+                background-image: url('/images/icons/pencil.svg');
               }
             }
           }

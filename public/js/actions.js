@@ -6,7 +6,7 @@ import { fetch } from './helpers/request';
  * @return {Object}
  */
 export function getCatalogue() {
-    return { type: event.CATALOGUE, promise: fetch('api/catalogue') };
+    return { type: event.CATALOGUE, promise: fetch('/api/catalogue') };
 }
 
 /**
@@ -15,7 +15,7 @@ export function getCatalogue() {
  * @return {Object}
  */
 export function getPosts(pageNumber) {
-    return { type: event.POSTS, promise: fetch(`api/posts/${pageNumber}`) };
+    return { type: event.POSTS, promise: fetch(`/api/posts/${pageNumber}`) };
 }
 
 /**

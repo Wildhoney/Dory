@@ -24,7 +24,7 @@
   > div {
     > p {
       font-size: 1.2rem;
-      padding-bottom: 20px;
+      padding-bottom: $content-padding;
 
       &:last-of-type {
         padding-bottom: 0;

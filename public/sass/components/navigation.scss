@@ -1,16 +1,13 @@
 @import "../config";
 
-$mobile-width: 60vw;
-
 @mixin apply-mobile() {
   flex-direction: column;
   position: fixed;
   right: -$mobile-menu-width;
   top: 0;
   height: 100vh;
-  box-shadow: inset 5px 0 10px -5px rgba(0, 0, 0, 0.05);
   width: $mobile-menu-width;
-  border-left: 1px solid rgba(0, 0, 0, .1);
+  border-left: 1px solid $border-colour;
   border-right: 0;
   transition: right $mobile-menu-animation;
 
@@ -19,7 +16,7 @@ $mobile-width: 60vw;
   }
 
   > li {
-    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    border-bottom: 1px solid $border-colour;
     padding: 0 2rem;
     height: 20vw;
     position: relative;
@@ -62,7 +59,7 @@ $mobile-width: 60vw;
       right: 0;
       top: 0;
       border-bottom: 0;
-      border-left: 1px solid rgba(0, 0, 0, .1);
+      border-left: 1px solid $border-colour;
       background: url('/images/icons/reorder-option.svg') no-repeat center center;
       background-size: 20px;
       cursor: pointer;
@@ -80,7 +77,7 @@ $mobile-width: 60vw;
     > li {
       font-size: 1.2rem;
       font-family: Lato, Arial, Tahoma, sans-serif;
-      padding-right: 20px;
+      padding-right: $content-padding;
     }
   }
 }

@@ -1,6 +1,16 @@
+// Colours.
 $main-colour: #ff1907;
 $main-font: Lato, Arial, Tahoma, sans-serif;
+$border-colour: rgba(0, 0, 0, .1);
+
+// Responsive layout.
 $break-small: 480px;
 
+// Mobile menu.
 $mobile-menu-width: 20vw;
 $mobile-menu-animation: .25s;
+
+// Dimensions.
+$header-height: 5rem;
+$footer-height: 35px;
+$content-padding: 20px;

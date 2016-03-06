@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { stitch } from 'keo';
+import { Link } from 'react-router';
 import moment from 'moment';
 import config from '../config';
 
@@ -23,8 +24,12 @@ const render = ({ props }) => {
 
     return (
         <main className="post component">
-            <h3><a className="invert" href="">{props.model.title}</a></h3>
-            <datetime>{ moment(props.model.createdDate).format(config.posts.dateFormat) }</datetime>
+            <h3>
+                <Link to={`/post/${props.model.slug}`} className="invert">
+                    {props.model.title}
+                </Link>
+            </h3>
+            <datetime>{ moment(props.model.createdDate).format(config.dateFormat) }</datetime>
             <div dangerouslySetInnerHTML={{ __html: props.model.content }} />
         </main>
     );

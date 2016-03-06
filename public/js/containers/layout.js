@@ -55,7 +55,7 @@ const render = ({ props }) => {
     return (
         <section className={ sectionClasses }>
             <header>
-                <h1>{config.title}</h1>
+                <h1><Link to="/">{config.title}</Link></h1>
                 <Navigation {...props} />
             </header>
             {props.children}
@@ -63,6 +63,7 @@ const render = ({ props }) => {
                 <aside>Powered by <a href="https://github.com/Wildhoney/Dory">Dory</a>.</aside>
                 <ul>
                     <li className="rss"><Link to="/" /></li>
+                    <li className="contact"><Link to="/" /></li>
                 </ul>
             </footer>
         </section>
