@@ -2,7 +2,7 @@ import { MENU } from '../config/events';
 
 /**
  * @constant INITIAL_STATE
- * @type {Array}
+ * @type {Object}
  */
 const INITIAL_STATE = {
     menuOpen: false

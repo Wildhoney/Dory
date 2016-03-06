@@ -27,3 +27,14 @@ export const defaultData = (type, defaultData) => {
     const byType = state => state.type === type && state.readyState === SUCCESS;
     return (defaultStates.find(byType) || {}).result || defaultData;
 };
+
+/**
+ * @method hasPost
+ * @param {Array} catalogue
+ * @param {Object} post
+ * @return {Boolean}
+ */
+export const hasPost = (catalogue, post) => {
+    const model = catalogue.find(model => model.slug === post.slug);
+    return !!(model && model.hasOwnProperty('content'));
+};
