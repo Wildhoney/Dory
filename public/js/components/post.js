@@ -35,15 +35,14 @@ const getDefaultProps = () => {
  * @constant Author
  * @type {XML}
  */
-const Author = stitch(({ props }) => {
+export const Author = stitch(({ props }) => {
 
     const {author} = props.model;
     const avatar = props.model.email ? <img src={url(props.model.email)} alt={`${author}'s avatar`} /> : '';
 
     return (
         <div className="author">
-            by
-            <Link to="/">{avatar}{author}</Link>
+            by <Link to="/" rel="author">{avatar}{author}</Link>
         </div>
     );
 
@@ -64,10 +63,10 @@ const render = ({ props }) => {
                 </Link>
             </h3>
             <datetime>
-                { moment(props.model.createdDate).format(config.dateFormat) }
+                {moment(props.model.createdDate).format(config.dateFormat)}
             </datetime>
-            {props.model.author ? <Author {...props} /> : ''}
-            <div className="content" dangerouslySetInnerHTML={{ __html: props.model.content }} />
+            {props.model.author ? <Author model={props.model.author} /> : ''}
+            <article dangerouslySetInnerHTML={{ __html: props.model.content  }} />
         </main>
     );
 
