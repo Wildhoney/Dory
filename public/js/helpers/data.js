@@ -9,7 +9,7 @@ import { SUCCESS } from './middleware';
 const defaultStates = typeof DEFAULT_DATA === 'undefined' ? [] : (() => {
 
     try {
-        return JSON.parse(DEFAULT_DATA);
+        return JSON.parse(global.atob(DEFAULT_DATA));
     } catch (e) {
         console.log(e);
         return [];

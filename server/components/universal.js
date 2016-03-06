@@ -4,6 +4,7 @@ import { renderToString } from 'react-dom/server';
 import { render } from 'mustache';
 import { createStore, applyMiddleware } from 'redux';
 import { RouterContext, match } from 'react-router';
+import { Base64 } from 'js-base64';
 import createLocation from 'history/lib/createLocation';
 import routes from '../../public/js/config/routes';
 import reducers from '../../public/js/reducers';
@@ -75,7 +76,7 @@ export default options => {
 
                     response.end(render(documentHtml, {
                         content: componentHtml,
-                        data: options.toJson(data.filter(data => typeof data !== 'boolean'))
+                        data: Base64.encode(options.toJson(data.filter(data => typeof data !== 'boolean')))
                     }));
                 } catch (e) {
                     console.log('Error!', e);

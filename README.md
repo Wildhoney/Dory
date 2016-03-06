@@ -22,6 +22,13 @@ You first need to fork the repository to your own GitHub account &mdash; and the
 * `npm run build`
 * `npm run start`
 
+## Post
+
+### YAML
+
+* `author`: Places the author's name underneath the post's title;
+* `email`: Used to place author's avatar from [Gravatar](https://en.gravatar.com/);
+
 ## Features
 
 * Provides a [universal JavaScript](https://medium.com/@mjackson/universal-javascript-4761051b7ae9) environment using React and Express;
