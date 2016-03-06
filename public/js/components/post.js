@@ -65,7 +65,7 @@ const render = ({ props }) => {
             <datetime>
                 {moment(props.model.createdDate).format(config.dateFormat)}
             </datetime>
-            {props.model.author ? <Author model={props.model.author} /> : ''}
+            {props.model.author ? <Author {...props} /> : ''}
             <article dangerouslySetInnerHTML={{ __html: props.model.content  }} />
         </main>
     );
