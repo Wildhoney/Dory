@@ -18,10 +18,9 @@
 
 You first need to fork the repository to your own GitHub account &mdash; and then clone it.
 
-* npm install
-* npm run build
-
-Ensure `NODE_ENV` is set to *anything* except *production* for Webpack hot reloading, you can then begin the server using `npm run start` which will bring up your blog on port 5000.
+* `npm install`;
+* `npm run build`;
+* `npm run start`;
 
 ## Features
 
