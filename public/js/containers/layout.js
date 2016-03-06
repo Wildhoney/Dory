@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { stitch } from 'keo/redux';
+import { Link } from 'react-router';
 import Navigation from '../components/navigation';
 import { getCatalogue } from '../actions';
 import config from '../config';
@@ -59,10 +60,9 @@ const render = ({ props }) => {
             </header>
             {props.children}
             <footer>
-                Powered by <a href="https://github.com/Wildhoney/Dory">Dory</a>.
+                <aside>Powered by <a href="https://github.com/Wildhoney/Dory">Dory</a>.</aside>
                 <ul>
-                    <li className="rss">
-                    </li>
+                    <li className="rss"><Link to="/" /></li>
                 </ul>
             </footer>
         </section>

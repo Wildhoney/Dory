@@ -107,9 +107,43 @@ html {
         }
 
         > footer {
+          $size: 35px;
+
           border-top: 1px solid rgba(0, 0, 0, .1);
-          padding: 10px 20px;
+          height: $size;
+          line-height: $size;
           font-family: $main-font;
+          overflow: hidden;
+
+          > aside {
+            padding-left: 20px;
+            float: left;
+          }
+
+          > ul {
+            list-style-type: none;
+            float: right;
+            overflow: hidden;
+
+            li {
+              width: $size;
+              height: $size;
+              background-size: 10px;
+              background-position: center center;
+              background-repeat: no-repeat;
+              border-left: 1px solid rgba(0, 0, 0, .1);
+              display: inline-block;
+
+              a {
+                display: block;
+                height: $size;
+              }
+
+              &.rss {
+                background-image: url('/images/icons/rss-feed-button.svg');
+              }
+            }
+          }
         }
       }
     }
