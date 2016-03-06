@@ -5,6 +5,7 @@
   "scripts": {
     "test": "ava tests/**/*.test.js",
     "catalogue": "babel core/cli/catalogue.js | node",
+    "config": "babel core/cli/config.js | node",
     "build": "babel core/cli/build.js | node",
     "clean": "babel core/cli/clean.js | node",
     "start": "babel server/default.js | node"
