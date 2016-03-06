@@ -18,9 +18,9 @@
   > li {
     border-bottom: 1px solid $border-colour;
     padding: 0 2rem;
-    height: 20vw;
+    height: $header-height;
     position: relative;
-    background-size: 3rem;
+    background-size: $icon-size-medium;
     background-repeat: no-repeat;
     background-position: center center;
 
@@ -61,7 +61,7 @@
       border-bottom: 0;
       border-left: 1px solid $border-colour;
       background: url('/images/icons/reorder-option.svg') no-repeat center center;
-      background-size: 20px;
+      background-size: $icon-size-medium;
       cursor: pointer;
     }
   }

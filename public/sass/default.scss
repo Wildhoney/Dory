@@ -139,7 +139,7 @@ html {
             li {
               width: $footer-height;
               height: $footer-height;
-              background-size: 10px;
+              background-size: $icon-size-small;
               background-position: center center;
               background-repeat: no-repeat;
               border-left: 1px solid rgba(0, 0, 0, .1);

@@ -29,6 +29,12 @@
       &:last-of-type {
         padding-bottom: 0;
       }
+
+      > img {
+        width: 100%;
+        padding: 1px;
+        border: 1px solid $border-colour;
+      }
     }
   }
 }

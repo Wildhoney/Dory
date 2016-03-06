@@ -3,14 +3,18 @@ $main-colour: #ff1907;
 $main-font: Lato, Arial, Tahoma, sans-serif;
 $border-colour: rgba(0, 0, 0, .1);
 
-// Responsive layout.
-$break-small: 480px;
-
-// Mobile menu.
-$mobile-menu-width: 20vw;
-$mobile-menu-animation: .25s;
-
-// Dimensions.
+// General layout.
 $header-height: 5rem;
 $footer-height: 35px;
 $content-padding: 20px;
+
+// Responsive layout.
+$break-small: 480px;
+
+// Icons.
+$icon-size-small: 10px;
+$icon-size-medium: 20px;
+
+// Mobile menu.
+$mobile-menu-width: $header-height;
+$mobile-menu-animation: .25s;
