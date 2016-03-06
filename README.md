@@ -14,6 +14,15 @@
 
 ![v0.1.4 Screenshot](media/0.1.4.png)
 
+## Getting Started
+
+You first need to fork the repository to your own GitHub account &mdash; and then clone it.
+
+* npm install
+* npm run build
+
+Ensure `NODE_ENV` is set to *anything* except *production* for Webpack hot reloading, you can then begin the server using `npm run start` which will bring up your blog on port 5000.
+
 ## Features
 
 * Provides a [universal JavaScript](https://medium.com/@mjackson/universal-javascript-4761051b7ae9) environment using React and Express;
@@ -21,7 +30,7 @@
 * Instantaneous publishing to [Heroku](https://www.heroku.com/) for each post via [Travis CI](https://travis-ci.org/);
 * Supports [Webpack Hot Reloading](https://github.com/webpack/docs/wiki/hot-module-replacement-with-webpack) for rapid development;
 
-### On The Horizon 🌅
+### Upcoming
 
 * Automatically pings via [Ping-o-matic](http://pingomatic.com/) to notify of updates;
 * Generates a [`sitemap.xml`](http://www.sitemaps.org/protocol.html) with automatic XSLT styling;
