@@ -1,4 +1,12 @@
 title: Dory
-posts:
-  dateFormat: LLLL
-  perPage: 5
+
+# Amount of posts to be displayed on the homepage before pagination is visible.
+perPage: 5
+
+# Format to be used throughout the website using Moment.js parsing.
+# See: http://momentjs.com/docs/#/displaying/
+dateFormat: LLLL
+
+# Determines whether the abstract is shown on the homepage or not. Values relate to how many paragraphs
+# are displayed, where zero is the entire post being shown.
+displayAbstract: 0
