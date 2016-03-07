@@ -34,6 +34,16 @@ const statics = {
 };
 
 /**
+ * @method shouldComponentUpdate
+ * @param {Object} nextProps
+ * @param {Object} props
+ * @return {Boolean}
+ */
+const shouldComponentUpdate = ({ nextProps, props }) => {
+    return nextProps.catalogue !== props.catalogue;
+};
+
+/**
  * @method dispatch
  * @param {Function} dispatch
  * @param {Object} props
@@ -60,7 +70,7 @@ const render = ({ props }) => {
                 </label>
             </h2>
 
-            {props.catalogue.map(model => {
+            {props.catalogue.asMutable().map(model => {
                 return <Post key={ hash(model) } { ...props } synopsis={config.displaySynopsis} model={ model } />
             })}
 
@@ -69,4 +79,4 @@ const render = ({ props }) => {
 
 };
 
-export default stitch({ statics, propTypes, componentDidMount, render }, state => state);
+export default stitch({ statics, propTypes, shouldComponentUpdate, componentDidMount, render }, state => state);

@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { stitch } from 'keo';
+import { stitch } from 'keo/strict';
 import { Link } from 'react-router';
 import moment from 'moment';
 import { url } from 'gravatar';
@@ -23,7 +23,7 @@ const propTypes = {
  */
 const getDefaultProps = () => {
     return {
-        synopsis: 0,
+        synopsis: false,
         model: {
             slug: '',
             title: '',
@@ -35,6 +35,8 @@ const getDefaultProps = () => {
 
 /**
  * @method shouldComponentUpdate
+ * @param {Object} nextProps
+ * @param {Object} props
  * @return {Boolean}
  */
 const shouldComponentUpdate = ({ nextProps, props }) => {

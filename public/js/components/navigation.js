@@ -14,6 +14,16 @@ const propTypes = {
 };
 
 /**
+ * @method shouldComponentUpdate
+ * @param {Object} nextProps
+ * @param {Object} props
+ * @return {Boolean}
+ */
+const shouldComponentUpdate = ({ nextProps, props }) => {
+    return nextProps.options !== props.options;
+};
+
+/**
  * @method render
  * @param {Object} props
  * @param {Function} dispatch
@@ -49,4 +59,4 @@ const render = ({ props, dispatch }) => {
 
 };
 
-export default stitch({ propTypes, render });
+export default stitch({ propTypes, shouldComponentUpdate, render });

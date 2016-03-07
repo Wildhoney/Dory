@@ -1,10 +1,11 @@
+import Immutable from 'seamless-immutable';
 import { MENU } from '../config/events';
 
 /**
  * @constant INITIAL_STATE
  * @type {Object}
  */
-const INITIAL_STATE = Object.freeze({
+const INITIAL_STATE = new Immutable({
     menuOpen: false
 });
 
@@ -18,7 +19,7 @@ export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
 
         case MENU:
-            return Object.freeze({ ...state, menuOpen: action.open });
+            return new Immutable({ ...state, menuOpen: action.open });
 
     }
 
