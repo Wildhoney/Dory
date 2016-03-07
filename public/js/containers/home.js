@@ -4,6 +4,7 @@ import { stitch } from 'keo/redux';
 import pluralize from 'pluralize';
 import Post from '../components/post';
 import { getPosts } from '../actions';
+import config from '../config';
 
 /**
  * @constant propTypes
@@ -59,7 +60,9 @@ const render = ({ props }) => {
                 </label>
             </h2>
 
-            { props.catalogue.map(model => <Post key={ hash(model) } { ...props } model={ model } />) }
+            {props.catalogue.map(model => {
+                return <Post key={ hash(model) } { ...props } synopsis={config.synopsisParagraphs} model={ model } />
+            })}
 
         </main>
     );

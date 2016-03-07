@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { stitch } from 'keo';
+import { stitch, memoize } from 'keo';
 import { Link } from 'react-router';
 import moment from 'moment';
 import { url } from 'gravatar';
@@ -10,6 +10,7 @@ import config from '../config';
  * @type {Object}
  */
 const propTypes = {
+    synopsis: PropTypes.number,
     model: PropTypes.shape({
         title: PropTypes.string.isRequired,
         content: PropTypes.string
@@ -22,6 +23,7 @@ const propTypes = {
  */
 const getDefaultProps = () => {
     return {
+        synopsis: 0,
         model: {
             slug: '',
             title: '',
@@ -30,6 +32,16 @@ const getDefaultProps = () => {
         }
     };
 };
+
+/**
+ * @method synopsis
+ * @param {String} content
+ * @param {Number} amountRequired
+ * @return {String}
+ */
+const synopsis = memoize((content, amountRequired) => {
+    return content.match(/<p>.+?<\/p>/ig).slice(0, amountRequired).join('');
+});
 
 /**
  * @constant Author
@@ -57,7 +69,11 @@ export const Author = stitch(({ props }) => {
  * @return {Object}
  */
 const render = ({ props }) => {
-    
+
+    // Determine whether or not we're using the abstract for the post.
+    const {content} = props.model;
+    const html = props.synopsis === 0 ? content : synopsis(content, props.synopsis);
+
     return (
         <main className="post component">
             <h3>
@@ -69,7 +85,7 @@ const render = ({ props }) => {
                 {moment(props.model.createdDate).format(config.dateFormat)}
             </datetime>
             {props.model.author ? <Author {...props} /> : ''}
-            <article dangerouslySetInnerHTML={{ __html: props.model.content  }} />
+            <article dangerouslySetInnerHTML={{ __html: html }} />
         </main>
     );
 
