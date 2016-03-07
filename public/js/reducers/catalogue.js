@@ -7,7 +7,7 @@ import { merge } from '../helpers/merge';
  * @constant INITIAL_STATE
  * @type {Array}
  */
-const INITIAL_STATE = merge(defaultData(CATALOGUE, []), defaultData(POSTS, []));
+const INITIAL_STATE = Object.freeze(merge(defaultData(CATALOGUE, []), defaultData(POSTS, [])));
 
 /**
  * @param {Object} state
@@ -22,14 +22,12 @@ export default (state = INITIAL_STATE, action) => {
 
             switch (action.type) {
 
-                case CATALOGUE:
-                    return merge(state, action.result);
-
                 case POSTS:
-                    return merge(state, action.result);
+                case CATALOGUE:
+                    return Object.freeze(merge(state, action.result));
 
                 case POST:
-                    return merge(state, [action.result]);
+                    return Object.freeze(merge(state, [action.result]));
 
 
             }

@@ -55,7 +55,7 @@ const render = ({ props }) => {
     return (
         <section className={ sectionClasses }>
             <header>
-                <h1><Link to="/">{config.title}</Link></h1>
+                <h1><Link to="/">Dory</Link></h1>
                 <Navigation {...props} />
             </header>
             {props.children}

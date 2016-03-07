@@ -28,8 +28,9 @@ export const getPost = options => {
         const model = catalogue.find(model => model.slug === slug);
         const markdown = loadFront(options.fromPublic(`/posts/${model.filename}`), 'content');
         const content = removeNewLines(marked(markdown.content, markedOptions));
+        const synopsis = markdown.synopsis ? marked(markdown.synopsis, markedOptions) : undefined;
 
-        return { ...model, ...markdown, content, filename: undefined };
+        return { ...model, ...markdown, content, synopsis, filename: undefined };
     };
 
 };

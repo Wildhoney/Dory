@@ -7,6 +7,5 @@ perPage: 5
 # See: http://momentjs.com/docs/#/displaying/
 dateFormat: LLLL
 
-# Determines whether the synopsis is shown on the homepage or not. Values relate to how many paragraphs
-# are displayed, where zero is the entire post being shown.
-synopsisParagraphs: 0
+# Determines whether the synopsis is shown on the homepage or not.
+displaySynopsis: true

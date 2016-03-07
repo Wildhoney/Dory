@@ -29,6 +29,8 @@
 
     > a {
       > label {
+        pointer-events: none;
+        
         @media screen and (max-width: $break-small) {
           display: none;
         }

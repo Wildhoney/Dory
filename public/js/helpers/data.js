@@ -11,7 +11,6 @@ const defaultStates = typeof DEFAULT_DATA === 'undefined' ? [] : (() => {
     try {
         return JSON.parse(global.atob(DEFAULT_DATA));
     } catch (e) {
-        console.log(e);
         return [];
     }
 

@@ -9,6 +9,8 @@
 a {
   $transition: .15s color;
 
+  outline: none;
+
   &.invert {
     color: black;
     text-decoration: none;

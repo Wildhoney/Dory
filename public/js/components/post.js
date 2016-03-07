@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { stitch, memoize } from 'keo';
+import { stitch } from 'keo';
 import { Link } from 'react-router';
 import moment from 'moment';
 import { url } from 'gravatar';
@@ -10,7 +10,7 @@ import config from '../config';
  * @type {Object}
  */
 const propTypes = {
-    synopsis: PropTypes.number,
+    synopsis: PropTypes.bool.isRequired,
     model: PropTypes.shape({
         title: PropTypes.string.isRequired,
         content: PropTypes.string
@@ -34,33 +34,21 @@ const getDefaultProps = () => {
 };
 
 /**
- * @method synopsis
- * @param {String} content
- * @param {Number} amountRequired
- * @return {String}
+ * @method shouldComponentUpdate
+ * @return {Boolean}
  */
-const synopsis = memoize((content, amountRequired) => {
-    return content.match(/<p>.+?<\/p>/ig).slice(0, amountRequired).join('');
-});
+const shouldComponentUpdate = ({ nextProps, props }) => {
+    return nextProps.model !== props.model;
+};
 
 /**
  * @constant Author
  * @type {XML}
  */
 export const Author = stitch(({ props }) => {
-
     const {author} = props.model;
     const avatar = props.model.email ? <img src={url(props.model.email)} alt={`${author}'s avatar`} /> : '';
-
-    return (
-        <div className="author">
-            by <Link to="/" rel="author">
-                {avatar}
-                <label>{author}</label>
-            </Link>
-        </div>
-    );
-
+    return <div className="author">by <Link to="/" rel="author"><label>{author}</label>{avatar}</Link></div>
 });
 
 /**
@@ -71,24 +59,18 @@ export const Author = stitch(({ props }) => {
 const render = ({ props }) => {
 
     // Determine whether or not we're using the abstract for the post.
-    const {content} = props.model;
-    const html = props.synopsis === 0 ? content : synopsis(content, props.synopsis);
+    const isSynopsis = (props.synopsis && props.model.hasOwnProperty('synopsis'));
+    const post = isSynopsis ? props.model.synopsis : props.model.content;
 
     return (
         <main className="post component">
-            <h3>
-                <Link to={`/post/${props.model.slug}`} className="invert">
-                    {props.model.title}
-                </Link>
-            </h3>
-            <datetime>
-                {moment(props.model.createdDate).format(config.dateFormat)}
-            </datetime>
+            <h3><Link to={`/post/${props.model.slug}`} className="invert">{props.model.title}</Link></h3>
+            <datetime>{moment(props.model.createdDate).format(config.dateFormat)}</datetime>
             {props.model.author ? <Author {...props} /> : ''}
-            <article dangerouslySetInnerHTML={{ __html: html }} />
+            <article dangerouslySetInnerHTML={{ __html: post }} />
         </main>
     );
 
 };
 
-export default stitch({ propTypes, getDefaultProps, render });
+export default stitch({ propTypes, shouldComponentUpdate, getDefaultProps, render });

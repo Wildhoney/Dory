@@ -61,7 +61,7 @@ const render = ({ props }) => {
             </h2>
 
             {props.catalogue.map(model => {
-                return <Post key={ hash(model) } { ...props } synopsis={config.synopsisParagraphs} model={ model } />
+                return <Post key={ hash(model) } { ...props } synopsis={config.displaySynopsis} model={ model } />
             })}
 
         </main>

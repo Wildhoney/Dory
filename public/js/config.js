@@ -1,1 +1,1 @@
-export default {"title":"Dory","perPage":5,"dateFormat":"LLLL","synopsisParagraphs":1};
+export default {"title":"Dory","perPage":5,"dateFormat":"LLLL","displaySynopsis":true};
