@@ -71,6 +71,7 @@ export default options => {
             Promise.all(promises).then(data => {
 
                 try {
+
                     // Render the HTML using the components determined by the React router.
                     const componentHtml = renderToString(InitialComponent);
 
@@ -78,6 +79,7 @@ export default options => {
                         content: componentHtml,
                         data: Base64.encode(options.toJson(data.filter(data => typeof data !== 'boolean')))
                     }));
+                    
                 } catch (e) {
                     console.log('Error!', e);
                 }

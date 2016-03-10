@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { stitch } from 'keo/strict';
+import { stitch } from 'keo';
 import { Link } from 'react-router';
 import moment from 'moment';
 import { url } from 'gravatar';
@@ -34,16 +34,6 @@ const getDefaultProps = () => {
 };
 
 /**
- * @method shouldComponentUpdate
- * @param {Object} nextProps
- * @param {Object} props
- * @return {Boolean}
- */
-const shouldComponentUpdate = ({ nextProps, props }) => {
-    return nextProps.model !== props.model;
-};
-
-/**
  * @constant Author
  * @type {XML}
  */
@@ -75,4 +65,4 @@ const render = ({ props }) => {
 
 };
 
-export default stitch({ propTypes, shouldComponentUpdate, getDefaultProps, render });
+export default stitch({ propTypes, getDefaultProps, render });
