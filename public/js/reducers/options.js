@@ -1,11 +1,12 @@
 import Immutable from 'seamless-immutable';
 import { MENU } from '../config/events';
+import { fromServer } from '../helpers/state';
 
 /**
  * @constant INITIAL_STATE
  * @type {Object}
  */
-const INITIAL_STATE = new Immutable({
+const INITIAL_STATE = new Immutable(fromServer('options') || {
     menuOpen: false
 });
 

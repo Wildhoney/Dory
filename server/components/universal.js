@@ -68,7 +68,7 @@ export default options => {
                 return hasFetchData ? component.fetchData(store.dispatch, renderProps.params) : Promise.resolve(true);
             });
 
-            Promise.all(promises).then(data => {
+            Promise.all(promises).then(() => {
 
                 try {
 
@@ -77,7 +77,7 @@ export default options => {
 
                     response.end(render(documentHtml, {
                         content: componentHtml,
-                        data: Base64.encode(options.toJson(data.filter(data => typeof data !== 'boolean')))
+                        data: Base64.encode(JSON.stringify(store.getState()))
                     }));
                     
                 } catch (e) {

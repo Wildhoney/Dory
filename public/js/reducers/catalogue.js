@@ -2,12 +2,13 @@ import Immutable from 'seamless-immutable';
 import { uniqBy, prop } from 'ramda';
 import { CATALOGUE, POSTS, POST } from '../config/events';
 import { SUCCESS } from '../helpers/middleware';
+import { fromServer } from '../helpers/state';
 
 /**
  * @constant INITIAL_STATE
  * @type {Immutable}
  */
-const INITIAL_STATE = new Immutable([]);
+const INITIAL_STATE = new Immutable(fromServer('catalogue') || []);
 
 /**
  * @method distinct
