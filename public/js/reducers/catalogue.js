@@ -1,8 +1,7 @@
 import Immutable from 'seamless-immutable';
+import { uniqBy, prop } from 'ramda';
 import { CATALOGUE, POSTS, POST } from '../config/events';
 import { SUCCESS } from '../helpers/middleware';
-import { defaultData } from '../helpers/data';
-import { uniqBy, prop } from 'ramda';
 
 /**
  * @constant INITIAL_STATE
@@ -27,12 +26,14 @@ export default (state = INITIAL_STATE, action) => {
 
         case SUCCESS:
 
-            const result = Array.from(action.result);
+            const result = Array.isArray(action.result) ? action.result : [action.result];
 
             switch (action.type) {
 
                 case POST:
                 case POSTS:
+                    return new Immutable(distinct([ ...result, ...state ]));
+
                 case CATALOGUE:
                     return new Immutable(distinct([ ...state, ...result ]));
 
