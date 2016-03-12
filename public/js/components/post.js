@@ -56,10 +56,22 @@ const render = ({ props }) => {
 
     return (
         <main className="post component">
-            <h3><Link to={`/post/${props.model.slug}`} className="invert">{props.model.title}</Link></h3>
-            <datetime>{moment(props.model.createdDate).format(config.dateFormat)}</datetime>
+
+            <h3>
+                <Link to={`/post/${props.model.slug}`}
+                      className="invert" rel={`${props.model.paid ? 'nofollow' : ''}`}>
+                    {props.model.title}
+                </Link>
+            </h3>
+
+            <datetime>
+                {moment(props.model.createdDate).format(config.dateFormat)}
+            </datetime>
+
             {props.model.author ? <Author {...props} /> : ''}
+
             <article dangerouslySetInnerHTML={{ __html: post }} />
+
         </main>
     );
 

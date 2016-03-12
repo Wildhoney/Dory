@@ -28,6 +28,7 @@ You first need to fork the repository to your own GitHub account &mdash; and the
 
 * `author`: Places the author's name underneath the post's title;
 * `email`: Used to place author's avatar from [Gravatar](https://en.gravatar.com/);
+* `paid`: Adds `rel="nofollow"` to all anchors that link to the post;
 
 ## Features
 

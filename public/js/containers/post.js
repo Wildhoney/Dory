@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { stitch } from 'keo/redux';
+import DocumentTitle from '../components/document-title';
 import Post from '../components/post';
 import { getPost } from '../actions';
 
@@ -49,9 +50,11 @@ const render = ({ props }) => {
     const model = props.catalogue.find(post => post.slug === props.params.slug);
 
     return (
-        <main className="page post">
-            <Post { ...props } model={ model } />
-        </main>
+        <DocumentTitle title={model.title}>
+            <main className="page post">
+                <Post {...props} model={model} />
+            </main>
+        </DocumentTitle>
     );
 
 };

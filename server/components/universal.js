@@ -1,6 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { renderToString } from 'react-dom/server';
+import DocumentTitle from 'react-document-title';
 import { render } from 'mustache';
 import { createStore, applyMiddleware } from 'redux';
 import { RouterContext, match } from 'react-router';
@@ -77,9 +78,10 @@ export default options => {
 
                     response.end(render(documentHtml, {
                         content: componentHtml,
+                        title: DocumentTitle.rewind(),
                         data: Base64.encode(JSON.stringify(store.getState()))
                     }));
-                    
+
                 } catch (e) {
                     console.log('Error!', e);
                 }

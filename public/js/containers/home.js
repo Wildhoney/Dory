@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
-import hash from 'object-hash';
 import { stitch } from 'keo/redux';
+import DocumentTitle from '../components/document-title';
+import hash from 'object-hash';
 import pluralize from 'pluralize';
 import Post from '../components/post';
 import { getPosts } from '../actions';
@@ -51,20 +52,22 @@ const componentDidMount = ({ dispatch, props }) => {
 const render = ({ props }) => {
 
     return (
-        <main className="page home">
+        <DocumentTitle title="Home">
+            <main className="page home">
 
-            <h2>
-                Welcome
-                <label>
-                    ({props.catalogue.length} {(pluralize('Post', props.catalogue.length))})
-                </label>
-            </h2>
+                <h2>
+                    Welcome
+                    <label>
+                        ({props.catalogue.length} {(pluralize('Post', props.catalogue.length))})
+                    </label>
+                </h2>
 
-            {props.catalogue.asMutable().map(model => {
-                return <Post key={ hash(model) } { ...props } synopsis={config.displaySynopsis} model={ model } />
-            })}
+                {props.catalogue.asMutable().map(model => {
+                    return <Post key={ hash(model) } { ...props } synopsis={config.displaySynopsis} model={ model } />
+                })}
 
-        </main>
+            </main>
+        </DocumentTitle>
     );
 
 };
