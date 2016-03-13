@@ -4,7 +4,7 @@ import DocumentTitle from '../components/document-title';
 import hash from 'object-hash';
 import pluralize from 'pluralize';
 import Post from '../components/post';
-import Button from '../components/button';
+import Pagination from '../components/pagination';
 import { getPosts } from '../actions';
 import config from '../config';
 
@@ -13,7 +13,10 @@ import config from '../config';
  * @type {{posts: Number}}
  */
 const propTypes = {
-    catalogue: PropTypes.array.isRequired
+    catalogue: PropTypes.array.isRequired,
+    params: PropTypes.shape({
+        pageNumber: PropTypes.string
+    })
 };
 
 /**
@@ -64,16 +67,10 @@ const render = ({ props }) => {
                 </h2>
 
                 {props.catalogue.slice(0, config.perPage).asMutable().map(model => {
-                    return <Post key={ hash(model) } { ...props } synopsis={config.displaySynopsis} model={ model } />
+                    return <Post key={hash(model)} {...props} synopsis={config.displaySynopsis} model={model} />
                 })}
 
-                <Button className="active">
-                    Previous
-                </Button>
-
-                <Button>
-                    Next
-                </Button>
+                <Pagination pageNumber={Number(props.params.pageNumber || 1)} />
 
             </main>
         </DocumentTitle>

@@ -16,16 +16,23 @@ $padding: 20px;
     }
 
     > button {
-        height: $height;
-        line-height: $height;
-        padding: 0 $padding;
         border: 0;
         background: transparent;
-        cursor: pointer;
         outline: none;
         font-family: $main-font;
         font-size: 14px;
         color: black;
+
+        > a {
+            color: black;
+            top: 0;
+            padding: 0 $padding;
+            height: $height;
+            line-height: $height;
+            display: block;
+            cursor: pointer;
+            text-decoration: none;
+        }
     }
 
     &.icon > button {
@@ -37,5 +44,9 @@ $padding: 20px;
 
     &.active > button {
         color: white;
+
+        > a {
+            color: white;
+        }
     }
 }

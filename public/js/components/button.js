@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { stitch } from 'keo';
+import { Link } from 'react-router';
 
 /**
  * @method propTypes
@@ -8,6 +9,7 @@ import { stitch } from 'keo';
 const propTypes = {
     onClick: PropTypes.func,
     icon: PropTypes.string,
+    path: PropTypes.string,
     children: PropTypes.node.isRequired
 };
 
@@ -16,7 +18,7 @@ const propTypes = {
  * @return {Object}
  */
 const getDefaultProps = () => {
-    return { icon: '', onClick: () => {}, className: '' };
+    return { icon: '', onClick: () => {}, className: '', path: null };
 };
 
 /**
@@ -27,11 +29,13 @@ const getDefaultProps = () => {
 const render = ({ props }) => {
 
     const style = { backgroundImage: `url(${props.icon})` };
+    const children = props.path ? <Link to={props.path}>{props.children}</Link>
+                                : <a>{props.children}</a>;
 
     return (
         <main className={`component button ${props.className} ${props.icon && 'icon'}`.trim()}>
             <button style={style} onClick={ event => props.onClick(event) }>
-                {props.children}
+                {children}
             </button>
         </main>
     );

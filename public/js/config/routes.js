@@ -9,6 +9,7 @@ export default (
     <Router history={browserHistory} onUpdate={() => global.scrollTo(0, 0)}>
         <Route path="/" component={Layout}>
             <IndexRoute component={Home} />
+            <Route component={Home} path="/page/:pageNumber" />
             <Route component={Post} path="/post/:slug" />
             <Route component={NotFound} path="*" />
         </Route>
