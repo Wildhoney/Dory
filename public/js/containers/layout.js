@@ -62,7 +62,7 @@ const render = ({ props }) => {
             <footer>
                 <aside>Powered by <a href="https://github.com/Wildhoney/Dory">Dory</a>.</aside>
                 <ul>
-                    <li className="rss"><Link to="/" /></li>
+                    <li className="rss"><a href="/rss" /></li>
                     <li className="contact"><Link to="/" /></li>
                 </ul>
             </footer>
