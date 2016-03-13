@@ -26,9 +26,10 @@ export default options => {
 
     return (request, response) => {
 
-        const pageNumber = request.params.pageNumber;
+        const pageNumber = Number(request.params.pageNumber);
         const perPage = options.config.perPage;
-        const posts = getPosts(options).slice(0, perPage);
+        const index = (pageNumber - 1) * perPage;
+        const posts = getPosts(options).slice(index, index + perPage);
 
         response.end(options.toJson(posts));
 

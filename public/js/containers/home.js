@@ -62,7 +62,7 @@ const render = ({ props }) => {
                     </label>
                 </h2>
 
-                {props.catalogue.asMutable().map(model => {
+                {props.catalogue.slice(0, config.perPage).asMutable().map(model => {
                     return <Post key={ hash(model) } { ...props } synopsis={config.displaySynopsis} model={ model } />
                 })}
 
