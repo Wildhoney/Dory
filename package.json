@@ -53,6 +53,7 @@
     "mustache": "^2.2.1",
     "newline-remove": "^1.0.2",
     "object-hash": "^1.1.2",
+    "ordinal": "^1.0.0",
     "pluralize": "^1.2.1",
     "ramda": "^0.19.1",
     "react-document-title": "^2.0.1",

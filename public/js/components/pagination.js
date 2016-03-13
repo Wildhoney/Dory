@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { stitch } from 'keo';
+import config from '../config';
 import Button from './button';
 
 /**
@@ -7,6 +8,7 @@ import Button from './button';
  * @type {Object}
  */
 const propTypes = {
+    catalogue: PropTypes.array.isRequired,
     pageNumber: PropTypes.number
 };
 
@@ -25,6 +27,7 @@ const getDefaultProps = () => {
  */
 const render = ({ props }) => {
 
+    const maxPage = props.catalogue.length / config.perPage;
     const previousPage = props.pageNumber + 1;
     const nextPage = props.pageNumber - 1;
 
@@ -42,7 +45,7 @@ const render = ({ props }) => {
 
     return (
         <main className="component pagination">
-            {previousButton}
+            {previousPage <= maxPage && previousButton}
             {nextPage > 0 && nextButton}
         </main>
     );

@@ -1,5 +1,5 @@
 ---
-title: Proin egestas egestas felis varius mattis
+title: First Post
 tags: demo
 author: Adam Timberlake
 email: adam.timberlake@gmail.com

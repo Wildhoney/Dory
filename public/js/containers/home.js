@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
 import { stitch } from 'keo/redux';
+import by from 'sort-by';
+import ordinal from 'ordinal';
 import DocumentTitle from '../components/document-title';
 import hash from 'object-hash';
 import pluralize from 'pluralize';
@@ -18,6 +20,12 @@ const propTypes = {
         pageNumber: PropTypes.string
     })
 };
+
+/**
+ * @constant resolved
+ * @type {Array}
+ */
+const resolved = [];
 
 /**
  * @constant statics
@@ -39,13 +47,38 @@ const statics = {
 };
 
 /**
+ * @method once
+ * @type {Function}
+ */
+const once = ((pageNumber, fn) => {
+
+    if (!resolved.includes(pageNumber)) {
+        fn();
+        resolved.push(pageNumber);
+    }
+
+});
+
+/**
  * @method dispatch
  * @param {Function} dispatch
  * @param {Object} props
  * @return {void}
  */
 const componentDidMount = ({ dispatch, props }) => {
-    statics.fetchData(dispatch, props.params);
+    const pageNumber = props.params.pageNumber || 1;
+    once(pageNumber, () => statics.fetchData(dispatch, props.params));
+};
+
+/**
+ * @method componentDidUpdate
+ * @param {Function} dispatch
+ * @param {Object} props
+ * @return {void}
+ */
+const componentDidUpdate = ({ dispatch, props }) => {
+    const pageNumber = props.params.pageNumber || 1;
+    once(pageNumber, () => statics.fetchData(dispatch, props.params));
 };
 
 /**
@@ -55,8 +88,14 @@ const componentDidMount = ({ dispatch, props }) => {
  */
 const render = ({ props }) => {
 
+    const pageNumber = Number(props.params.pageNumber || 1);
+    const perPage = config.perPage;
+    const index = (pageNumber - 1) * perPage;
+    const posts = [ ...props.catalogue ].sort(by('createdDate')).reverse().slice(index, index + perPage);
+    const morePages = props.catalogue.length > posts.length;
+
     return (
-        <DocumentTitle title="Home">
+        <DocumentTitle title={pageNumber === 1 ? 'Home' : `Home (${ordinal(pageNumber)} Page)`}>
             <main className="page home">
 
                 <h2>
@@ -66,11 +105,11 @@ const render = ({ props }) => {
                     </label>
                 </h2>
 
-                {props.catalogue.slice(0, config.perPage).asMutable().map(model => {
+                {posts.map(model => {
                     return <Post key={hash(model)} {...props} synopsis={config.displaySynopsis} model={model} />
                 })}
 
-                <Pagination pageNumber={Number(props.params.pageNumber || 1)} />
+                {morePages && <Pagination {...props} pageNumber={pageNumber} />}
 
             </main>
         </DocumentTitle>
@@ -78,4 +117,4 @@ const render = ({ props }) => {
 
 };
 
-export default stitch({ statics, propTypes, componentDidMount, render }, state => state);
+export default stitch({ statics, propTypes, componentDidMount, componentDidUpdate, render }, state => state);

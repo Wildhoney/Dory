@@ -1,1 +1,1 @@
-export default {"title":"Dory","url":"http://dory-app.herokuapp.com/","description":"The official Dory blog.","perPage":1,"dateFormat":"LLLL","displaySynopsis":true,"feedLimit":15};
+export default {"title":"Dory","url":"http://dory-app.herokuapp.com/","description":"The official Dory blog.","perPage":10,"dateFormat":"LLLL","displaySynopsis":true,"feedLimit":15};
