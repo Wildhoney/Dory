@@ -14,6 +14,7 @@ const render = ({ props }) => {
             <main className="page not-found">
 
                 <h2>Not Found</h2>
+                <p>We apologise but we cannot find the page you're looking for.</p>
 
             </main>
         </DocumentTitle>

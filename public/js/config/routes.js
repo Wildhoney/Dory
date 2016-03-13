@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, IndexRoute, NotFoundRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import Layout from '../containers/layout';
 import Home from '../containers/home';
 import Post from '../containers/post';

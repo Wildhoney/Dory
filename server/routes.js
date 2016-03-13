@@ -4,6 +4,7 @@ import handleAssets from './components/assets';
 import handleCatalogue from './components/catalogue';
 import handlePost from './components/post';
 import handlePosts from './components/posts';
+import handleFeed from './components/feed';
 import handleUniversal from './components/universal';
 
 /**
@@ -30,6 +31,9 @@ export function configure(options) {
     };
 
     return app => {
+
+        // Non-React routes.
+        app.get('/rss', handleFeed(options));
 
         // Define the API routes.
         app.get('/api/catalogue', handleCatalogue(options));
