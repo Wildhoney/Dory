@@ -102,6 +102,7 @@ html {
 
           main.component {
             @import "./components/post";
+            @import "./components/button";
           }
 
           > h2 {

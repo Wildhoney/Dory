@@ -4,6 +4,7 @@ import DocumentTitle from '../components/document-title';
 import hash from 'object-hash';
 import pluralize from 'pluralize';
 import Post from '../components/post';
+import Button from '../components/button';
 import { getPosts } from '../actions';
 import config from '../config';
 
@@ -65,6 +66,14 @@ const render = ({ props }) => {
                 {props.catalogue.slice(0, config.perPage).asMutable().map(model => {
                     return <Post key={ hash(model) } { ...props } synopsis={config.displaySynopsis} model={ model } />
                 })}
+
+                <Button className="active">
+                    Previous
+                </Button>
+
+                <Button>
+                    Next
+                </Button>
 
             </main>
         </DocumentTitle>

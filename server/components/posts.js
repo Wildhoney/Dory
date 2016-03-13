@@ -8,14 +8,8 @@ import { getPost } from './post';
  * @return {Array}
  */
 export const getPosts = options => {
-
     const posts = options.fromJson(options.fromPublic('/catalogue.json')).sort(by('createdDate')).reverse();
-
-    return posts.map(post => {
-        const bySlug = getPost(options);
-        return bySlug(post.slug);
-    });
-
+    return posts.map(post => getPost(options)(post.slug));
 };
 
 /**

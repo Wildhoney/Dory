@@ -1,0 +1,41 @@
+@import "../config.scss";
+
+$height: 40px;
+$padding: 20px;
+
+&.button {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, .045);
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-bottom: 2px solid rgba(0, 0, 0, .15);
+    border-top: 1px solid rgba(0, 0, 0, .025);
+
+    &.active {
+        background-color: $main-colour;
+        border-bottom: 2px solid rgba(0, 0, 0, .2);
+    }
+
+    > button {
+        height: $height;
+        line-height: $height;
+        padding: 0 $padding;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        outline: none;
+        font-family: $main-font;
+        font-size: 14px;
+        color: black;
+    }
+
+    &.icon > button {
+        padding-left: $padding * 1.7;
+        background-size: $height / 3;
+        background-repeat: no-repeat;
+        background-position: ($padding / 2) center;
+    }
+
+    &.active > button {
+        color: white;
+    }
+}
