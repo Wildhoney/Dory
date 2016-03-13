@@ -3,7 +3,7 @@ url: http://dory-app.herokuapp.com/
 description: The official Dory blog.
 
 # Amount of posts to be displayed on the homepage before pagination is visible.
-perPage: 10
+perPage: 2
 
 # Format to be used throughout the website using Moment.js parsing.
 # See: http://momentjs.com/docs/#/displaying/
