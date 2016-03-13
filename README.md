@@ -10,6 +10,8 @@
 &nbsp;
 ![License MIT](http://img.shields.io/badge/License-MIT-lightgrey.svg?style=flat-square)
 
+**Dory** is a universal JavaScript React blogging platform running on top of Express. By combining powerful features such as automatic RSS generation, HTML5 offline support, push notifications, with an expressive development environment using hot reloading, SASS and Markdown, Dory allows you to quickly dive into blogging.
+
 ---
 
 ![v0.1.4 Screenshot](media/0.1.4.png)
@@ -36,6 +38,7 @@ You first need to fork the repository to your own GitHub account &mdash; and the
 * Integrates native [Markdown](https://github.com/evilstreak/markdown-js) support for generating blog posts;
 * Instantaneous publishing to [Heroku](https://www.heroku.com/) for each post via [Travis CI](https://travis-ci.org/);
 * Supports [Webpack Hot Reloading](https://github.com/webpack/docs/wiki/hot-module-replacement-with-webpack) for rapid development;
+* Generates a valid [RSS](https://en.wikipedia.org/wiki/RSS) feed when you publish articles;
 
 ### Upcoming
 
@@ -45,7 +48,7 @@ You first need to fork the repository to your own GitHub account &mdash; and the
 * Utilises HTML5 [`ServiceWorker`](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) for offline support;
 * Seamlessly applies background sync for posting comments when offline;
 * Implements the HTML5 [Push API](https://developer.mozilla.org/en/docs/Web/API/Push_API) for notifying users of added posts;
-* Generates a valid [RSS](https://en.wikipedia.org/wiki/RSS) feed when you publish articles;
+* Allows integration of generic pages &ndash; such as about and contact us;
 * [Have an idea?](https://github.com/Wildhoney/Dory/issues/new)
 
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
