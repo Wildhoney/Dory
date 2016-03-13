@@ -1,4 +1,6 @@
 title: Dory
+url: http://dory-app.herokuapp.com/
+description: The official Dory blog.
 
 # Amount of posts to be displayed on the homepage before pagination is visible.
 perPage: 5
@@ -9,3 +11,6 @@ dateFormat: LLLL
 
 # Determines whether the synopsis is shown on the homepage or not.
 displaySynopsis: true
+
+# How many posts are displayed on the RSS feed.
+feedLimit: 15
