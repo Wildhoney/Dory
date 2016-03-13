@@ -39,7 +39,7 @@ export default options => {
              */
             const statusCode = (() => {
                 if (error) return 500;
-                if (!renderProps) return 404;
+                if (!renderProps) return 400;
                 return false;
             })();
 
@@ -55,8 +55,8 @@ export default options => {
              * @type {XML}
              */
             const InitialComponent = (
-                <Provider store={ store }>
-                    <RouterContext { ...renderProps } />
+                <Provider store={store}>
+                    <RouterContext {...renderProps} />
                 </Provider>
             );
 
@@ -64,7 +64,7 @@ export default options => {
              * @constant promises
              * @type {Promise[]}
              */
-            const promises = renderProps.components.map(component => {
+            const promises = renderProps && renderProps.components.map(component => {
                 const hasFetchData = component && typeof component.fetchData === 'function';
                 return hasFetchData ? component.fetchData(store.dispatch, renderProps.params) : Promise.resolve(true);
             });
