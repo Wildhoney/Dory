@@ -1,0 +1,7 @@
+@import "../config.scss";
+
+&.not-found {
+  > p {
+    font-family: $main-font;
+  }
+}
