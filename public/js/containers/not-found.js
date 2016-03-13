@@ -13,7 +13,7 @@ const render = ({ props }) => {
         <DocumentTitle title="Not Found">
             <main className="page not-found">
 
-                <h2>Not Found</h2>
+                <h2>Page Not Found</h2>
                 <p>We apologise but we cannot find the page you're looking for.</p>
 
             </main>
