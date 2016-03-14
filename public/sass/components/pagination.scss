@@ -1,0 +1,43 @@
+@import "../config.scss";
+
+$height: 30px;
+$padding: 10px;
+
+&.pagination {
+
+  > ul {
+    list-style-type: none;
+    border: 1px solid $border-colour;
+    display: inline-block;
+
+    > li {
+      display: inline-block;
+      height: $height;
+      line-height: $height;
+      font-family: $main-font;
+      padding: 0 $padding;
+      font-size: 1.2rem;
+      border-right: 1px solid $border-colour;
+
+      &.page-number {
+        background-color: rgba(0, 0, 0, .05);
+        border-right: 0;
+      }
+
+      &:last-of-type {
+        border-right: 0;
+        border-left: 1px solid $border-colour;
+      }
+
+      > a {
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      &.disabled > a {
+        pointer-events: none;
+        color: rgba(0, 0, 0, .35);
+      }
+    }
+  }
+}

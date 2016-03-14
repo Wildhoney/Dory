@@ -102,7 +102,7 @@ html {
 
           main.component {
             @import "./components/post";
-            @import "./components/button";
+            @import "./components/pagination";
           }
 
           > h2 {

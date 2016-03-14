@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, Redirect, browserHistory } from 'react-router';
 import Layout from '../containers/layout';
 import Home from '../containers/home';
 import Post from '../containers/post';
@@ -9,6 +9,7 @@ export default (
     <Router history={browserHistory} onUpdate={() => global.scrollTo(0, 0)}>
         <Route path="/" component={Layout}>
             <IndexRoute component={Home} />
+            <Redirect path="/page/1" to="/" />
             <Route component={Home} path="/page/:pageNumber" />
             <Route component={Post} path="/post/:slug" />
             <Route component={NotFound} path="*" />

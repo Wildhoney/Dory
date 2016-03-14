@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { stitch } from 'keo';
+import { Link } from 'react-router';
 import config from '../config';
-import Button from './button';
 
 /**
  * @constant propTypes
@@ -27,26 +27,27 @@ const getDefaultProps = () => {
  */
 const render = ({ props }) => {
 
-    const maxPage = props.catalogue.length / config.perPage;
+    const maxPage = Math.ceil(props.catalogue.length / config.perPage);
     const previousPage = props.pageNumber + 1;
     const nextPage = props.pageNumber - 1;
 
-    const previousButton = (
-        <Button path={`/page/${previousPage}`} className="active">
-            Previous
-        </Button>
-    );
-
-    const nextButton = (
-        <Button path={nextPage === 1 ? '/' : `/page/${nextPage}`}>
-            Next
-        </Button>
-    );
-
     return (
         <main className="component pagination">
-            {previousPage <= maxPage && previousButton}
-            {nextPage > 0 && nextButton}
+            <ul>
+                <li className={`${previousPage > maxPage ? 'disabled' : ''}`}>
+                    <Link to={`/page/${previousPage}`}>
+                        &laquo; Previous
+                    </Link>
+                </li>
+                <li className="page-number">
+                    Page {props.pageNumber} of {maxPage}
+                </li>
+                <li className={`${nextPage <= 0 ? 'disabled' : ''}`}>
+                    <Link to={`/page/${nextPage}`}>
+                        Next &raquo;
+                    </Link>
+                </li>
+            </ul>
         </main>
     );
 
