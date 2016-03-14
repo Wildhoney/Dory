@@ -21,7 +21,7 @@ export default options => {
     return (request, response) => {
 
         const pageNumber = Number(request.params.pageNumber);
-        const sortProperty = String(request.params.sortProperty) || 'createdDate';
+        const sortProperty = request.params.sortProperty || 'createdDate';
         const isAscending = request.params.sortOrder === 'desc';
         const perPage = Number(request.params.perPage) || options.config.perPage;
 
