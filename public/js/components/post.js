@@ -41,8 +41,9 @@ export const Author = stitch(({ props }) => {
 
     const {author} = props.model;
 
-    const avatar = !props.model.email ? '' : (
-        <img src={url(props.model.email)} alt={`${author}'s avatar`} onError={() => console.log('Error...')} />
+    const avatar = !props.model.email || !navigator.onLine ? '' : (
+        <img src={url(props.model.email)} alt={`${author}'s avatar`}
+             onError={event => event.target.remove()} />
     );
 
     return (
