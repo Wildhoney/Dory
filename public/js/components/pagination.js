@@ -34,7 +34,7 @@ const render = ({ props }) => {
     return (
         <main className="component pagination">
             <ul>
-                <li className={`${previousPage > maxPage ? 'disabled' : ''}`}>
+                <li className={`previous ${previousPage > maxPage ? 'disabled' : ''}`}>
                     <Link to={`/page/${previousPage}`}>
                         &laquo; Previous
                     </Link>
@@ -42,7 +42,7 @@ const render = ({ props }) => {
                 <li className="page-number">
                     Page {props.pageNumber} of {maxPage}
                 </li>
-                <li className={`${nextPage <= 0 ? 'disabled' : ''}`}>
+                <li className={`next ${nextPage <= 0 ? 'disabled' : ''}`}>
                     <Link to={`/page/${nextPage}`}>
                         Next &raquo;
                     </Link>
