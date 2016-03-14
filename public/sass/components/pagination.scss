@@ -1,6 +1,7 @@
 @import "../config.scss";
 
-$height: 30px;
+$default-height: 30px;
+$mobile-height: 50px;
 $padding: 10px;
 
 &.pagination {
@@ -10,18 +11,34 @@ $padding: 10px;
     border: 1px solid $border-colour;
     display: inline-block;
 
+    @media screen and (max-width: $break-small) {
+      width: 100%;
+      height: $mobile-height;
+    }
+
     > li {
       display: inline-block;
-      height: $height;
-      line-height: $height;
+      height: $default-height;
+      line-height: $default-height;
       font-family: $main-font;
-      padding: 0 $padding;
       font-size: 1.2rem;
       border-right: 1px solid $border-colour;
+      text-align: center;
+
+      @media screen and (max-width: $break-small) {
+        width: 25%;
+        height: $mobile-height;
+        line-height: $mobile-height;
+      }
 
       &.page-number {
         background-color: rgba(0, 0, 0, .05);
         border-right: 0;
+        padding: 0 $padding;
+
+        @media screen and (max-width: $break-small) {
+          width: 50%;
+        }
       }
 
       &:last-of-type {
@@ -32,6 +49,8 @@ $padding: 10px;
       > a {
         cursor: pointer;
         text-decoration: none;
+        padding: 0 $padding;
+        display: block;
       }
 
       &.disabled > a {

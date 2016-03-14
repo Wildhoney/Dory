@@ -36,7 +36,10 @@
         }
       }
       > img {
-        width: 16px;
+        $size: 16px;
+
+        width: $size;
+        height: $size;
         float: right;
         margin-left: 6px;
         border-radius: 50%;

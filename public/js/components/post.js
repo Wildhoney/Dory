@@ -38,9 +38,15 @@ const getDefaultProps = () => {
  * @type {XML}
  */
 export const Author = stitch(({ props }) => {
+
     const {author} = props.model;
-    const avatar = props.model.email ? <img src={url(props.model.email)} alt={`${author}'s avatar`} /> : '';
+
+    const avatar = !props.model.email ? '' : (
+        <img src={url(props.model.email)} alt={`${author}'s avatar`} onError={() => console.log('x')} />
+    );
+
     return <div className="author">by <Link to="/" rel="author"><label>{author}</label>{avatar}</Link></div>
+
 });
 
 /**
