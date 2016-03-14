@@ -8,7 +8,7 @@ import { getPost } from './post';
  * @return {Array}
  */
 export const getPosts = options => {
-    const posts = options.fromJson(options.fromPublic('/catalogue.json')).sort(by('createdDate')).reverse();
+    const posts = options.fromJson(options.fromPublic('/catalogue.json'));
     return posts.map(post => getPost(options)(post.slug));
 };
 
@@ -21,11 +21,15 @@ export default options => {
     return (request, response) => {
 
         const pageNumber = Number(request.params.pageNumber);
-        const perPage = options.config.perPage;
-        const index = (pageNumber - 1) * perPage;
-        const posts = getPosts(options).slice(index, index + perPage);
+        const sortProperty = String(request.params.sortProperty) || 'createdDate';
+        const isAscending = request.params.sortOrder === 'desc';
+        const perPage = Number(request.params.perPage) || options.config.perPage;
 
-        response.end(options.toJson(posts));
+        const index = (pageNumber - 1) * perPage;
+        const posts = getPosts(options).sort(by(sortProperty));
+
+        response.end(options.toJson((isAscending ? [...posts] : [...posts.reverse()])
+                            .slice(index, index + perPage)));
 
     };
     

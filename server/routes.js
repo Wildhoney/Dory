@@ -39,7 +39,9 @@ export function configure(options) {
         app.get('/api/catalogue', handleCatalogue(options));
         app.get('/api/catalogue', handleCatalogue(options));
         app.get('/api/post/:slug', handlePost(options));
-        app.get('/api/posts/:pageNumber', handlePosts(options));
+        app.get('/api/posts/page-:pageNumber', handlePosts(options));
+        app.get('/api/posts/page-:pageNumber/limit-:perPage', handlePosts(options));
+        app.get('/api/posts/page-:pageNumber/by-:sortProperty-:sortOrder/limit-:perPage', handlePosts(options));
 
         // Followed by the asset routes.
         app.get('/dory.js', sendFile(script));

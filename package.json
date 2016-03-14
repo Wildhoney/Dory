@@ -39,6 +39,7 @@
   },
   "homepage": "https://github.com/Wildhoney/Dory#readme",
   "dependencies": {
+    "array-includes": "^3.0.2",
     "array.from": "^1.0.0",
     "axios": "^0.9.1",
     "document-ready-promise": "^3.0.1",

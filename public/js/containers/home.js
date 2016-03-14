@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { stitch } from 'keo/redux';
+import includes from 'array-includes';
 import by from 'sort-by';
 import ordinal from 'ordinal';
 import DocumentTitle from '../components/document-title';
@@ -40,24 +41,20 @@ const statics = {
      * @return {Promise}
      */
     fetchData: (dispatch, params) => {
+
         const pageNumber = params.pageNumber || 1;
+        const hasAlready = includes(resolved, pageNumber);
+
+        if (hasAlready) {
+            return Promise.resolve(true);
+        }
+
+        resolved.push(pageNumber);
         return dispatch(getPosts(pageNumber));
+
     }
 
 };
-
-/**
- * @method once
- * @type {Function}
- */
-const once = ((pageNumber, fn) => {
-
-    if (!resolved.includes(pageNumber)) {
-        fn();
-        resolved.push(pageNumber);
-    }
-
-});
 
 /**
  * @method dispatch
@@ -66,8 +63,7 @@ const once = ((pageNumber, fn) => {
  * @return {void}
  */
 const componentDidMount = ({ dispatch, props }) => {
-    const pageNumber = props.params.pageNumber || 1;
-    once(pageNumber, () => statics.fetchData(dispatch, props.params));
+    statics.fetchData(dispatch, props.params);
 };
 
 /**
@@ -77,8 +73,7 @@ const componentDidMount = ({ dispatch, props }) => {
  * @return {void}
  */
 const componentDidUpdate = ({ dispatch, props }) => {
-    const pageNumber = props.params.pageNumber || 1;
-    once(pageNumber, () => statics.fetchData(dispatch, props.params));
+    statics.fetchData(dispatch, props.params);
 };
 
 /**

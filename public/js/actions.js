@@ -1,5 +1,6 @@
 import * as event from './config/events';
 import { fetch } from './helpers/request';
+import config from './config';
 
 /**
  * @method getCatalogue
@@ -15,7 +16,7 @@ export function getCatalogue() {
  * @return {Object}
  */
 export function getPosts(pageNumber) {
-    return { type: event.POSTS, promise: fetch(`/api/posts/${pageNumber}`) };
+    return { type: event.POSTS, promise: fetch(`/api/posts/page-${pageNumber}`) };
 }
 
 /**
