@@ -95,7 +95,7 @@ html {
           padding: $content-padding $content-padding ($footer-height + $content-padding);
 
           &.page {
-            @import "./containers/home";
+            @import "./containers/posts";
             @import "./containers/post";
             @import "./containers/not-found";
           }

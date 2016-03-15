@@ -9,7 +9,8 @@ import config from '../config';
  */
 const propTypes = {
     catalogue: PropTypes.array.isRequired,
-    pageNumber: PropTypes.number
+    pageNumber: PropTypes.number,
+    disableFirstPage: PropTypes.bool
 };
 
 /**
@@ -17,7 +18,7 @@ const propTypes = {
  * @return {Object}
  */
 const getDefaultProps = () => {
-    return { pageNumber: 1 };
+    return { pageNumber: 1, disableFirstPage: false };
 };
 
 /**
@@ -35,7 +36,7 @@ const render = ({ props }) => {
         <main className="component pagination">
             <ul>
                 <li className={`previous ${previousPage > maxPage ? 'disabled' : ''}`}>
-                    <Link to={`/page/${previousPage}`}>
+                    <Link to={`/archive/page-${previousPage}`}>
                         &laquo; Previous
                     </Link>
                 </li>
@@ -43,7 +44,7 @@ const render = ({ props }) => {
                     Page {props.pageNumber} of {maxPage}
                 </li>
                 <li className={`next ${nextPage <= 0 ? 'disabled' : ''}`}>
-                    <Link to={`/page/${nextPage}`}>
+                    <Link to={props.disableFirstPage && nextPage === 1 ? '/' : `/archive/page-${nextPage}`}>
                         Next &raquo;
                     </Link>
                 </li>

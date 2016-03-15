@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import moment from 'moment';
 import { url } from 'gravatar';
 import config from '../config';
+import { isOnline } from '../helpers/utility';
 
 /**
  * @constant propTypes
@@ -39,11 +40,10 @@ const getDefaultProps = () => {
  */
 export const Author = stitch(({ props }) => {
 
-    const {author} = props.model;
+    const {author, email} = props.model;
 
-    const avatar = !props.model.email || !navigator.onLine ? '' : (
-        <img src={url(props.model.email)} alt={`${author}'s avatar`}
-             onError={event => event.target.remove()} />
+    const avatar = !email || !isOnline() ? '' : (
+        <img src={url(email)} alt={`${author}'s avatar`} onError={event => event.target.remove()} />
     );
 
     return (

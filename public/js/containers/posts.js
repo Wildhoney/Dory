@@ -23,12 +23,6 @@ const propTypes = {
 };
 
 /**
- * @constant resolved
- * @type {Array}
- */
-const resolved = [];
-
-/**
  * @constant statics
  * @type {Object}
  */
@@ -41,17 +35,7 @@ const statics = {
      * @return {Promise}
      */
     fetchData: (dispatch, params) => {
-
-        const pageNumber = params.pageNumber || 1;
-        const hasAlready = includes(resolved, pageNumber);
-
-        if (hasAlready) {
-            return Promise.resolve(true);
-        }
-
-        resolved.push(pageNumber);
-        return dispatch(getPosts(pageNumber));
-
+        return dispatch(getPosts(params.pageNumber || 1));
     }
 
 };
@@ -70,10 +54,12 @@ const componentDidMount = ({ dispatch, props }) => {
  * @method componentDidUpdate
  * @param {Function} dispatch
  * @param {Object} props
+ * @param {Object} prevProps
  * @return {void}
  */
-const componentDidUpdate = ({ dispatch, props }) => {
-    statics.fetchData(dispatch, props.params);
+const componentDidUpdate = ({ dispatch, props, prevProps }) => {
+    const hasChangedPage = prevProps.params.pageNumber !== props.params.pageNumber;
+    hasChangedPage && statics.fetchData(dispatch, props.params);
 };
 
 /**
@@ -90,8 +76,8 @@ const render = ({ props }) => {
     const morePages = props.catalogue.length > posts.length;
 
     return (
-        <DocumentTitle title={pageNumber === 1 ? 'Home' : `Home (${ordinal(pageNumber)} Page)`}>
-            <main className="page home">
+        <DocumentTitle title={pageNumber === 1 ? 'Posts' : `Posts (${ordinal(pageNumber)} Page)`}>
+            <main className="page posts">
 
                 <h2>
                     Welcome
@@ -104,7 +90,7 @@ const render = ({ props }) => {
                     return <Post key={hash(model)} {...props} synopsis={config.displaySynopsis} model={model} />
                 })}
 
-                {morePages && <Pagination {...props} pageNumber={pageNumber} />}
+                {morePages && <Pagination {...props} pageNumber={pageNumber} disableFirstPage={true} />}
 
             </main>
         </DocumentTitle>
