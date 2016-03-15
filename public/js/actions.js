@@ -1,5 +1,5 @@
 import * as event from './config/events';
-import { fetch } from './helpers/request';
+import { fetch } from './utilities/request';
 import config from './config';
 
 /**

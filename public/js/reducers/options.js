@@ -1,6 +1,6 @@
 import Immutable from 'seamless-immutable';
 import { MENU } from '../config/events';
-import { fromServer } from '../helpers/state';
+import { fromServer } from '../utilities/state';
 
 /**
  * @constant INITIAL_STATE

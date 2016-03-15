@@ -1,6 +1,6 @@
 import test from 'ava';
 import reducer from '../../public/js/reducers/options';
-import { SUCCESS } from '../../public/js/helpers/middleware';
+import { SUCCESS } from '../../public/js/utilities/middleware';
 import { MENU } from '../../public/js/config/events';
 
 test('it toggles the menu;', t => {

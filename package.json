@@ -3,7 +3,7 @@
   "version": "0.1.9",
   "description": "Markdown blogging platform with automatic publishing to Surge.sh, using advanced JavaScript/HTML5 techniques for a much loved UX.",
   "scripts": {
-    "test": "npm run lint && ava tests/**/*.test.js --tap | tap-nyan",
+    "test": "ava tests/**/*.test.js --tap | tap-nyan && npm run lint",
     "lint": "stylelint public/sass/*.scss public/sass/**/*.scss public/sass/**/**/*.scss --syntax scss",
     "catalogue": "babel core/cli/catalogue.js | node",
     "config": "babel core/cli/config.js | node",

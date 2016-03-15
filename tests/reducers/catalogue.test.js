@@ -1,6 +1,6 @@
 import test from 'ava';
 import reducer from '../../public/js/reducers/catalogue';
-import { SUCCESS } from '../../public/js/helpers/middleware';
+import { SUCCESS } from '../../public/js/utilities/middleware';
 import { POST, POSTS, CATALOGUE } from '../../public/js/config/events';
 
 test('it adds posts to the catalogue;', t => {
