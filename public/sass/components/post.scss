@@ -21,7 +21,7 @@ $spacing-bottom: 40px;
     color: rgba(0, 0, 0, .5);
     font-size: 1.2rem;
     font-weight: 100;
-    background: url('/images/icons/calendar-with-spring-binder-and-date-blocks.svg') no-repeat left 1px;
+    background: url("/images/icons/calendar-with-spring-binder-and-date-blocks.svg") no-repeat left 1px;
     padding-left: 1.8rem;
     background-size: 1.2rem;
   }
@@ -70,7 +70,7 @@ $spacing-bottom: 40px;
         float: left;
         margin: 0 15px 15px 0;
 
-        @media screen and (max-width: ($break-small + $minimum-paragraph-width)) {
+        @media screen and (max-width: $break-small + $minimum-paragraph-width) {
           float: none;
           margin-bottom: 0;
         }
