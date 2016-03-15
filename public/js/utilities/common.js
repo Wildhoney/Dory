@@ -10,6 +10,6 @@
  */
 export const isOnline = () => {
     const navigator = global.navigator;
-    const isDeterminable = typeof navigator !== 'undefined' && 'onLine' in navigator;
+    const isDeterminable = typeof navigator !== 'undefined' && 'onLine' in Object(navigator);
     return isDeterminable ? navigator.onLine : true;
 };

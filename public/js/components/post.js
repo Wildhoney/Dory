@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import moment from 'moment';
 import { url } from 'gravatar';
 import config from '../config';
-import { isOnline } from '../utilities/utility';
+import { isOnline } from '../utilities/common';
 
 /**
  * @constant propTypes
