@@ -1,5 +1,7 @@
 &.posts {
   > main.post.component:last-of-type {
     margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
   }
 }

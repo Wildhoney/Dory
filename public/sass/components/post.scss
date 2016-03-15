@@ -1,8 +1,12 @@
 @import "../config";
 
+$spacing-bottom: 40px;
+
 &.post {
   font-family: $main-font;
-  margin-bottom: 40px;
+  margin-bottom: $spacing-bottom / 2;
+  padding-bottom: $spacing-bottom / 2;
+  border-bottom: 1px solid $border-colour;
   overflow: hidden;
 
   > h3 {
@@ -30,7 +34,7 @@
     > a {
       > label {
         pointer-events: none;
-        
+
         @media screen and (max-width: $break-small) {
           display: none;
         }
