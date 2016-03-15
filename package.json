@@ -1,6 +1,6 @@
 {
   "name": "dory",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Markdown blogging platform with automatic publishing to Surge.sh, using advanced JavaScript/HTML5 techniques for a much loved UX.",
   "scripts": {
     "test": "ava tests/**/*.test.js --tap | tap-nyan && npm run lint",
@@ -26,7 +26,9 @@
         "always"
       ],
       "babel/array-bracket-spacing": "off",
-      "no-unused-vars": [1],
+      "no-unused-vars": [
+        1
+      ],
       "default-case": "off",
       "no-unused-expressions": "off",
       "react/prop-types": "off",
