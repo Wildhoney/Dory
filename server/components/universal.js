@@ -9,7 +9,7 @@ import { Base64 } from 'js-base64';
 import createLocation from 'history/lib/createLocation';
 import routes from '../../public/js/config/routes';
 import reducers from '../../public/js/reducers';
-import { promise } from '../../public/js/utilities/middleware';
+import promise from '../../public/js/utilities/middleware';
 
 /**
  * @constant ERRORS
