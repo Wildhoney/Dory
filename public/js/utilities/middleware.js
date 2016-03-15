@@ -20,7 +20,7 @@ export const REQUEST = 'request';
  * @method result
  * @return {Function}
  */
-export function promise() {
+export default () => {
 
     return next => action => {
 
@@ -34,7 +34,7 @@ export function promise() {
 
         return promise.then(
             result => next({ ...rest, result, readyState: SUCCESS }),
-            error  => next({ ...rest, error, readyState: FAILURE })
+            error => next({ ...rest, error, readyState: FAILURE })
         );
     };
-}
+};

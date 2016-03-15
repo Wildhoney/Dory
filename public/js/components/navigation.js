@@ -22,12 +22,11 @@ const propTypes = {
 const render = ({ props, dispatch }) => {
 
     const isOpen = props.options.menuOpen;
-    const ulClasses = `${isOpen ? 'open' : 'closed'}`;
 
     return (
         <nav>
-            <a className="icon" onClick={ () => dispatch(setMenu(!isOpen)) } />
-            <ul className={ ulClasses }>
+            <a className="icon" onClick={() => dispatch(setMenu(!isOpen))} />
+            <ul className={`${isOpen ? 'open' : 'closed'}`}>
                 <li className="home">
                     <Link to="/" className="invert">
                         Home

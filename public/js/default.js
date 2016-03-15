@@ -7,7 +7,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import routes from './config/routes';
 import reducers from './reducers';
-import { promise } from './utilities/middleware.js';
+import promise from './utilities/middleware.js';
 
 import '../sass/default.scss';
 
@@ -17,7 +17,7 @@ Promise.polyfill();
 
 ready().then(() => {
 
-    const mountNode = document.querySelector('.dory');
+    const mountNode = global.document.querySelector('.dory');
 
     render((
         <Provider store={store}>

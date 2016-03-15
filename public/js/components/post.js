@@ -23,6 +23,7 @@ const propTypes = {
  * @return {Object}
  */
 const getDefaultProps = () => {
+
     return {
         synopsis: false,
         model: {
@@ -32,6 +33,7 @@ const getDefaultProps = () => {
             content: ''
         }
     };
+
 };
 
 /**
@@ -40,7 +42,7 @@ const getDefaultProps = () => {
  */
 export const Author = stitch(({ props }) => {
 
-    const {author, email} = props.model;
+    const { author, email } = props.model;
 
     const avatar = !email || !isOnline() ? '' : (
         <img src={url(email)} alt={`${author}'s avatar`} onError={event => event.target.remove()} />
@@ -69,8 +71,7 @@ const render = ({ props }) => {
         <main className="post component">
 
             <h3>
-                <Link to={`/post/${props.model.slug}`}
-                      className="invert" rel={`${props.model.paid ? 'nofollow' : ''}`}>
+                <Link to={`/post/${props.model.slug}`} className="invert" rel={`${props.model.paid ? 'nofollow' : ''}`}>
                     {props.model.title}
                 </Link>
             </h3>

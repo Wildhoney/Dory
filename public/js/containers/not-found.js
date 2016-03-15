@@ -1,13 +1,12 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { stitch } from 'keo';
 import DocumentTitle from '../components/document-title';
 
 /**
  * @method render
- * @param {Object} props
  * @return {XML}
  */
-const render = ({ props }) => {
+const render = () => {
 
     return (
         <DocumentTitle title="Not Found">

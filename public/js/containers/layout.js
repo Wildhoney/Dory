@@ -3,7 +3,6 @@ import { stitch } from 'keo/redux';
 import { Link } from 'react-router';
 import Navigation from '../components/navigation';
 import { getCatalogue } from '../actions';
-import config from '../config';
 
 /**
  * @constant statics
@@ -53,7 +52,7 @@ const render = ({ props }) => {
     const sectionClasses = `layout ${isOpen ? 'open' : 'closed'}`;
 
     return (
-        <section className={ sectionClasses }>
+        <section className={sectionClasses}>
             <header>
                 <h1><Link to="/">Dory</Link></h1>
                 <Navigation {...props} />

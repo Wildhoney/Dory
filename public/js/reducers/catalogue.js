@@ -23,11 +23,11 @@ const distinct = uniqBy(prop('slug'));
  */
 export default (state = INITIAL_STATE, action) => {
 
+    const result = Array.isArray(action.result) ? action.result : [action.result];
+
     switch (action.readyState) {
 
         case SUCCESS:
-
-            const result = Array.isArray(action.result) ? action.result : [action.result];
 
             switch (action.type) {
 

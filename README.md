@@ -8,6 +8,8 @@
 &nbsp;
 ![npm](http://img.shields.io/npm/v/dory.svg?style=flat-square)
 &nbsp;
+[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
+&nbsp;
 ![License MIT](http://img.shields.io/badge/License-MIT-lightgrey.svg?style=flat-square)
 
 **Dory** is a responsive, [universal](https://medium.com/@mjackson/universal-javascript-4761051b7ae9#.z4idbohho), React blogging platform powered by Express. By combining awesome features such as automatic RSS generation, [HTML5 offline support](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API), push notifications, with a powerful development environment using [hot reloading](https://github.com/gaearon/react-hot-loader), SASS and Markdown, Dory allows developers to quickly dive into the depths of blogging.

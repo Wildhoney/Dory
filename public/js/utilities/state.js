@@ -2,6 +2,7 @@
  * @constant renderedState
  * @type {Object}
  */
+ /* eslint no-undef: 0 */
 const parseState = typeof DEFAULT_DATA === 'undefined' ? {} : JSON.parse(atob(DEFAULT_DATA));
 
 /**

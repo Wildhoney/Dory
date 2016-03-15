@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import { stitch } from 'keo/redux';
-import includes from 'array-includes';
 import by from 'sort-by';
 import ordinal from 'ordinal';
 import DocumentTitle from '../components/document-title';
@@ -87,10 +86,10 @@ const render = ({ props }) => {
                 </h2>
 
                 {posts.map(model => {
-                    return <Post key={hash(model)} {...props} synopsis={config.displaySynopsis} model={model} />
+                    return <Post key={hash(model)} {...props} synopsis={config.displaySynopsis} model={model} />;
                 })}
 
-                {morePages && <Pagination {...props} pageNumber={pageNumber} disableFirstPage={true} />}
+                {morePages && <Pagination {...props} pageNumber={pageNumber} disableFirstPage={Boolean(true)} />}
 
             </main>
         </DocumentTitle>

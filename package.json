@@ -4,7 +4,7 @@
   "description": "Markdown blogging platform with automatic publishing to Surge.sh, using advanced JavaScript/HTML5 techniques for a much loved UX.",
   "scripts": {
     "test": "ava tests/**/*.test.js --tap | tap-nyan && npm run lint",
-    "lint": "stylelint public/sass/*.scss public/sass/**/*.scss public/sass/**/**/*.scss --syntax scss",
+    "lint": "stylelint public/sass/*.scss public/sass/**/*.scss public/sass/**/**/*.scss --syntax scss && xo public/js/**/*.js",
     "catalogue": "babel core/cli/catalogue.js | node",
     "config": "babel core/cli/config.js | node",
     "build": "babel core/cli/build.js | node",
@@ -14,6 +14,27 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Wildhoney/Dory.git"
+  },
+  "xo": {
+    "space": 4,
+    "esnext": true,
+    "extends": "xo-react",
+    "rules": {
+      "padded-blocks": "off",
+      "babel/object-curly-spacing": [
+        2,
+        "always"
+      ],
+      "babel/array-bracket-spacing": "off",
+      "no-unused-vars": [1],
+      "default-case": "off",
+      "no-unused-expressions": "off",
+      "react/prop-types": "off",
+      "react/jsx-indent": "off",
+      "react/jsx-space-before-closing": "off",
+      "react/no-danger": "off",
+      "react/jsx-no-bind": "off"
+    }
   },
   "ava": {
     "files": [
@@ -40,7 +61,6 @@
   },
   "homepage": "https://github.com/Wildhoney/Dory#readme",
   "dependencies": {
-    "array-includes": "^3.0.2",
     "array.from": "^1.0.0",
     "axios": "^0.9.1",
     "document-ready-promise": "^3.0.1",
@@ -63,7 +83,6 @@
     "react-router": "^2.0.0",
     "redux": "^3.3.1",
     "seamless-immutable": "^5.1.0",
-    "shelljs": "^0.6.0",
     "sort-by": "^1.1.1",
     "yaml-front-matter": "^3.4.0",
     "yaml-js": "^0.1.3"
@@ -74,7 +93,6 @@
     "babel": "^6.5.2",
     "babel-cli": "^6.6.4",
     "babel-core": "^6.5.2",
-    "babel-eslint": "^5.0.0",
     "babel-loader": "^6.2.4",
     "babel-polyfill": "^6.3.14",
     "babel-preset-es2015": "^6.6.0",
@@ -83,9 +101,9 @@
     "babel-register": "^6.7.2",
     "css-loader": "^0.23.1",
     "enzyme": "^2.0.0",
-    "eslint": "^2.2.0",
-    "eslint-config-airbnb": "^6.0.2",
-    "eslint-plugin-react": "^4.1.0",
+    "eslint-config-xo": "^0.12.0",
+    "eslint-config-xo-react": "^0.5.0",
+    "eslint-plugin-react": "^4.2.2",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-minifier": "^1.1.1",
     "jsdom": "^8.1.0",
@@ -94,6 +112,7 @@
     "node-yaml-config": "0.0.4",
     "react-addons-test-utils": "^0.14.7",
     "sass-loader": "^3.1.2",
+    "shelljs": "^0.6.0",
     "sinon": "^1.17.3",
     "style-loader": "^0.13.0",
     "stylelint": "^5.0.0",
@@ -101,6 +120,7 @@
     "tap-nyan": "0.0.2",
     "webpack": "^2.1.0-beta.4",
     "webpack-dev-middleware": "^1.5.1",
-    "webpack-hot-middleware": "^2.7.1"
+    "webpack-hot-middleware": "^2.7.1",
+    "xo": "^0.13.0"
   }
 }
