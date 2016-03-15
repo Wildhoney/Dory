@@ -24,6 +24,11 @@ $spacing-bottom: 40px;
     background: url("/images/icons/calendar-with-spring-binder-and-date-blocks.svg") no-repeat left 1px;
     padding-left: 1.8rem;
     background-size: 1.2rem;
+
+    @media screen and (max-width: $break-small) {
+      margin-bottom: 5px;
+      display: block;
+    }
   }
 
   > div.author {
@@ -31,22 +36,32 @@ $spacing-bottom: 40px;
     font-size: 1.2rem;
     padding-left: 4px;
 
+    @media screen and (max-width: $break-small) {
+      padding-left: 0;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
     > a {
       > label {
         pointer-events: none;
-
-        @media screen and (max-width: $break-small) {
-          display: none;
-        }
       }
       > img {
-        $size: 16px;
+        $default-size: 16px;
+        $mobile-size: 12px;
 
-        width: $size;
-        height: $size;
+        width: $default-size;
+        height: $default-size;
         float: right;
         margin-left: 6px;
         border-radius: 50%;
+
+        @media screen and (max-width: $break-small) {
+          float: left;
+          margin: 2px 7px 0 0;
+          width: $mobile-size;
+          height: $mobile-size;
+        }
       }
     }
   }

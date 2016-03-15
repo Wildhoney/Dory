@@ -85,8 +85,15 @@ const render = ({ props }) => {
                     </label>
                 </h2>
 
-                {posts.map(model => {
-                    return <Post key={hash(model)} {...props} synopsis={config.displaySynopsis} model={model} />;
+                {posts.map((model, index) => {
+                    
+                    const className = index === 0 ? 'first' : index === (posts.length - 1) ? 'last' : '';
+
+                    return (
+                        <Post key={hash(model)} {...props} className={className}
+                              synopsis={config.displaySynopsis} model={model} />
+                        
+                    );
                 })}
 
                 {morePages && <Pagination {...props} pageNumber={pageNumber} disableFirstPage={Boolean(true)} />}
