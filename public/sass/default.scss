@@ -63,6 +63,7 @@ html {
 
         > header {
           @import "./components/navigation";
+          @import "./components/loading";
 
           position: fixed;
           width: 100%;

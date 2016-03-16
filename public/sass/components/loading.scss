@@ -1,0 +1,43 @@
+@import "../config";
+
+$default-size: $mobile-menu-width - 2rem;
+
+@mixin apply-mobile() {
+  right: $mobile-menu-width;
+}
+
+> div.status-icon {
+  width: $mobile-menu-width;
+  height: $mobile-menu-width;
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-left 2s;
+  border-left: 1px solid white;
+
+  &.loading {
+    border-left: 1px solid $border-colour;
+  }
+
+  > img {
+    width: $default-size;
+    height: $default-size;
+    transition: opacity 2s, visibility 2s;
+    opacity: 0;
+    visibility: hidden;
+
+  }
+
+  &.loading {
+    > img {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  @media screen and (max-width: $break-small) {
+    @include apply-mobile();
+  }
+}

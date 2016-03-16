@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { stitch } from 'keo/redux';
 import { Link } from 'react-router';
 import Navigation from '../components/navigation';
+import Loading from '../components/loading';
 import { getCatalogue } from '../actions';
 
 /**
@@ -27,6 +28,7 @@ const statics = {
  */
 const propTypes = {
     children: PropTypes.element.isRequired,
+    loading: PropTypes.array.isRequired,
     options: PropTypes.shape({
         menuOpen: PropTypes.bool.isRequired
     })
@@ -56,6 +58,7 @@ const render = ({ props }) => {
             <header>
                 <h1><Link to="/">Dory</Link></h1>
                 <Navigation {...props} />
+                <Loading {...props} />
             </header>
             {props.children}
             <footer>
