@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
-import { stitch } from 'keo/redux';
+import { stitch } from 'keo';
+import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import Navigation from '../components/navigation';
 import Loading from '../components/loading';
@@ -36,12 +37,21 @@ const propTypes = {
 };
 
 /**
+ * @method getDefaultProps
+ * @return {Object}
+ */
+const getDefaultProps = () => {
+    return { fetchData: dispatch => statics.fetchData(dispatch) };
+};
+
+/**
  * @method dispatch
+ * @param {Object} props
  * @param {Function} dispatch
  * @return {void}
  */
-const componentDidMount = ({ dispatch }) => {
-    statics.fetchData(dispatch);
+const componentDidMount = ({ props, dispatch }) => {
+    props.fetchData(dispatch);
 };
 
 /**
@@ -73,4 +83,5 @@ const render = ({ props }) => {
 
 };
 
-export default stitch({ statics, propTypes, componentDidMount, render }, state => state);
+export const Component = stitch({ statics, propTypes, getDefaultProps, componentDidMount, render });
+export default connect(state => state)(Component);

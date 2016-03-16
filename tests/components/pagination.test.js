@@ -1,6 +1,5 @@
 import test from 'ava';
 import React from 'react';
-import moment from 'moment';
 import { shallow } from 'enzyme';
 import Pagination from '../../public/js/components/pagination';
 import config from '../../public/js/config';
