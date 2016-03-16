@@ -4,8 +4,16 @@
     <xsl:template match="/">
         <html>
             <head>
+
                 <title><xsl:value-of select="rss/channel/title" /> - RSS</title>
+
+                <meta charset="UTF-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <link rel="alternate" type="application/rss+xml" href="/rss" />
                 <link rel="stylesheet" type="text/css" href="/dory.css" />
+                <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700" rel="stylesheet" type="text/css" />
+                <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+
             </head>
             <body>
 
