@@ -3,6 +3,8 @@
 @mixin apply-mobile() {
   flex-direction: column;
   position: fixed;
+  z-index: 2;
+  background-color: white;
   right: -$mobile-menu-width;
   top: 0;
   height: 100vh;
