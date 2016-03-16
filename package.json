@@ -4,7 +4,7 @@
   "description": "Markdown blogging platform with automatic publishing to Surge.sh, using advanced JavaScript/HTML5 techniques for a much loved UX.",
   "scripts": {
     "test": "ava tests/**/*.test.js --tap | tap-nyan && npm run lint",
-    "lint": "stylelint public/sass/*.scss public/sass/**/*.scss public/sass/**/**/*.scss --syntax scss && xo public/js/**/*.js",
+    "lint": "stylelint public/sass/*.scss public/sass/**/*.scss public/sass/**/**/*.scss && xo public/js/**/*.js",
     "catalogue": "babel core/cli/catalogue.js | node",
     "config": "babel core/cli/config.js | node",
     "build": "babel core/cli/build.js | node",
@@ -31,6 +31,7 @@
       ],
       "default-case": "off",
       "no-unused-expressions": "off",
+      "no-case-declarations": "off",
       "react/prop-types": "off",
       "react/jsx-indent": "off",
       "react/jsx-space-before-closing": "off",
