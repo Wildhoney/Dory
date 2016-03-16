@@ -14,7 +14,7 @@
 
 ---
 
-![v0.1.4 Screenshot](media/0.1.4.png)
+![v0.1.11 Screenshot](media/0.1.11.png)
 
 ## Getting Started
 
