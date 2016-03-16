@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import Navigation from '../components/navigation';
 import Loading from '../components/loading';
 import { getCatalogue } from '../actions';
+import config from '../config';
 
 /**
  * @constant statics
@@ -50,19 +51,18 @@ const componentDidMount = ({ dispatch }) => {
  */
 const render = ({ props }) => {
 
-    const isOpen = props.options.menuOpen;
-    const sectionClasses = `layout ${isOpen ? 'open' : 'closed'}`;
-
     return (
-        <section className={sectionClasses}>
+        <section className={`layout ${props.options.menuOpen ? 'open' : 'closed'}`}>
             <header>
-                <h1><Link to="/">Dory</Link></h1>
+                <h1><Link to="/">{config.title}</Link></h1>
                 <Navigation {...props} />
                 <Loading {...props} />
             </header>
             {props.children}
             <footer>
-                <aside>Powered by <a href="https://github.com/Wildhoney/Dory">Dory</a>.</aside>
+                <aside>
+                    Powered by <a href="https://github.com/Wildhoney/Dory">Dory</a>.
+                </aside>
                 <ul>
                     <li className="rss"><a href="/rss" /></li>
                     <li className="contact"><Link to="/" /></li>
