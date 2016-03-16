@@ -16,6 +16,7 @@ export function configure(options) {
 
     const script = options.fromCore('/dory.js');
     const styles = options.fromCore('/dory.css');
+    const xsl = options.fromPublic('/templates/feed.xsl');
     const favIcon = readFileSync(`${options.publicPath}/favicon.ico`);
 
     /**
@@ -34,6 +35,7 @@ export function configure(options) {
 
         // Non-React routes.
         app.get('/rss', handleFeed(options));
+        app.get('/rss/xsl', sendFile(xsl));
 
         // Define the API routes.
         app.get('/api/catalogue', handleCatalogue(options));
