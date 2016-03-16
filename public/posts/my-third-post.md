@@ -7,7 +7,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae dictum liber
 
 Quisque mollis a metus et porttitor. Pellentesque at nibh sed magna facilisis porttitor. In tincidunt suscipit nisi, ac luctus nunc venenatis nec. Mauris non nunc sed nibh porta accumsan. Nullam vel eros magna. Sed suscipit arcu ut magna lacinia, quis interdum elit viverra. Maecenas vulputate, lacus sed auctor laoreet, nisl mauris consequat ex, in auctor ante ex non dui. Aenean dapibus arcu elit, non ullamcorper mauris molestie ac. Aenean commodo tincidunt condimentum. Vestibulum laoreet erat quis odio viverra, eu sodales nulla placerat. Nam efficitur luctus lacinia.
 
-![Red Square](/images/red-square.jpg)
+![Rio de Janeiro](/images/rio-sunrise.jpg)
 
 Donec id auctor dolor. Donec convallis vitae eros ac scelerisque. Curabitur semper posuere tincidunt. Pellentesque mattis pellentesque lorem et posuere. Vestibulum enim mauris, maximus in leo sed, iaculis aliquet elit. Mauris purus enim, placerat quis faucibus quis, varius quis ex. Duis fermentum metus in mi efficitur, et suscipit diam convallis. Nulla aliquet neque eget leo condimentum consequat. Vivamus rhoncus arcu vulputate porta mollis.
 

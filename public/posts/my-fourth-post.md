@@ -1,10 +1,12 @@
 ---
 title: Fourth Post
+author: Adam Timberlake
+email: adam.timberlake@gmail.com
 ---
 
 Aliquam eget ullamcorper massa. Nam id dolor ac quam euismod feugiat nec sit amet purus. Nulla ut convallis urna. Suspendisse potenti. Praesent sodales eros eu sagittis varius. Vivamus at posuere odio. Etiam nec lobortis augue, ac efficitur quam. Vivamus sit amet convallis nisi. In lobortis nisi ac faucibus consectetur. Ut laoreet ultrices quam eu imperdiet. Morbi molestie accumsan risus, ac consectetur purus dignissim vitae. Sed ultricies lacus orci. Suspendisse efficitur mollis mauris, nec ornare nulla convallis ut. Pellentesque vel ultrices odio, quis aliquam tortor.
 
-![Rio de Janeiro](/images/rio-sunrise.jpg)
+![Red Square](/images/red-square.jpg)
 
 Cras tortor est, ullamcorper eu mi at, tempor tristique quam. Pellentesque facilisis sodales feugiat. Morbi aliquam feugiat urna. Phasellus non leo porttitor, imperdiet dui ac, lobortis turpis. Nulla facilisi. Nulla ante est, rhoncus sit amet venenatis sit amet, pellentesque in leo. In non ultricies tellus. Proin vel molestie mauris.
 
