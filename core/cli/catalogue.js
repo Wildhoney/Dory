@@ -21,7 +21,6 @@ glob(`${__dirname}/public/posts/*`, {}, async (error, files) => {
             return new Promise(async resolve => {
 
                 const {name: slug, base: filename} = parse(file);
-                const meta = loadFront(file, 'content');
                 const stats = await new Promise(resolve => stat(file, (error, stats) => resolve(stats)));
                 const post = blogPosts.find(item => item.filename === filename);
                 const createdDate = post && post.createdDate || stats.ctime.getTime();
@@ -29,7 +28,7 @@ glob(`${__dirname}/public/posts/*`, {}, async (error, files) => {
                 const modifiedDates = post && post.createdDate !== modifiedDate ? uniq([ ...post.modifiedDates, modifiedDate ]) : [];
 
                 // Remove the "content" property from the catalogue file, as these are potentially huge.
-                resolve({ slug, createdDate, modifiedDates, ...meta, filename, content: undefined });
+                resolve({ slug, createdDate, modifiedDates, filename });
 
             });
 
