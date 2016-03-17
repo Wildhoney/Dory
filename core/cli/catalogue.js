@@ -4,9 +4,7 @@ import 'babel-polyfill';
 import { stat, readFileSync, writeFile, existsSync, writeFileSync } from 'fs';
 import { parse } from 'path';
 import glob from 'glob';
-import { safeLoad } from 'js-yaml';
 import { uniq } from 'lodash';
-import { loadFront } from 'yaml-front-matter';
 
 const catalogue = `${__dirname}/public/catalogue.json`;
 
