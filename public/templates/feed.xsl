@@ -18,14 +18,16 @@
             <body>
 
                 <section class="dory">
-                    <section class="layout">
+                    <section class="layout feed">
 
                         <header>
-                            <h1>
-                                <a href="/">
-                                    <xsl:value-of select="rss/channel/title" /><label>RSS</label>
-                                </a>
-                            </h1>
+                            <div>
+                                <h1>
+                                    <a href="/">
+                                        <xsl:value-of select="rss/channel/title" /><label>RSS</label>
+                                    </a>
+                                </h1>
+                            </div>
                         </header>
 
                         <main class="page posts">
@@ -64,6 +66,14 @@
                             </xsl:for-each>
 
                         </main>
+
+                        <footer>
+                            <span>
+                                <aside>
+                                    Powered by <a href="https://github.com/Wildhoney/Dory">Dory</a>.
+                                </aside>
+                            </span>
+                        </footer>
 
                     </section>
                 </section>
