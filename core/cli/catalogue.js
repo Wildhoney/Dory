@@ -25,7 +25,6 @@ glob(`${__dirname}/public/posts/*`, {}, async (error, files) => {
                 const modifiedDate = stats.mtime.getTime();
                 const modifiedDates = post && post.createdDate !== modifiedDate ? uniq([ ...post.modifiedDates, modifiedDate ]) : [];
 
-                // Remove the "content" property from the catalogue file, as these are potentially huge.
                 resolve({ slug, createdDate, modifiedDates, filename });
 
             });
