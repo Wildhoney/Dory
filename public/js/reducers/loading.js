@@ -22,7 +22,7 @@ export default (state = INITIAL_STATE, action) => {
         case SUCCESS:
         case FAILURE:
             const completedIndex = state.indexOf(action.type);
-            return new Immutable(state.filter((model, index) => index === completedIndex));
+            return new Immutable(state.filter((model, index) => index !== completedIndex));
 
     }
 
