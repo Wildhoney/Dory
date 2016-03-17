@@ -15,7 +15,8 @@ const propTypes = {
     model: PropTypes.shape({
         title: PropTypes.string.isRequired,
         content: PropTypes.string
-    }).isRequired
+    }).isRequired,
+    className: PropTypes.string
 };
 
 /**
@@ -68,7 +69,7 @@ const render = ({ props }) => {
     const post = isSynopsis ? props.model.synopsis : props.model.content;
 
     return (
-        <main className="post component">
+        <main className={`post component ${props.className}`.trim()}>
 
             <h3>
                 <Link to={`/post/${props.model.slug}`} className="invert" rel={`${props.model.paid ? 'nofollow' : ''}`}>

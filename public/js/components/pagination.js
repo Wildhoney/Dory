@@ -41,7 +41,7 @@ const render = ({ props }) => {
                     </Link>
                 </li>
                 <li className="page-number">
-                    Page {props.pageNumber} of {maxPage}
+                    Page {props.pageNumber} of {maxPage === Infinity ? String.fromCharCode(8734) : maxPage}
                 </li>
                 <li className={`next ${nextPage <= 0 ? 'disabled' : ''}`}>
                     <Link to={props.disableFirstPage && nextPage === 1 ? '/' : `/archive/page-${nextPage}`}>

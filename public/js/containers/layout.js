@@ -65,19 +65,23 @@ const render = ({ props }) => {
     return (
         <section className={`layout ${props.options.menuOpen ? 'open' : 'closed'}`}>
             <header>
-                <h1><Link to="/">{config.title}</Link></h1>
-                <Navigation {...props} />
-                <Loading {...props} />
+                <span>
+                    <h1><Link to="/">{config.title}</Link></h1>
+                    <Navigation {...props} />
+                    <Loading {...props} />
+                </span>
             </header>
             {props.children}
             <footer>
-                <aside>
-                    Powered by <a href="https://github.com/Wildhoney/Dory">Dory</a>.
-                </aside>
-                <ul>
-                    <li className="rss"><a href="/rss" /></li>
-                    <li className="contact"><Link to="/" /></li>
-                </ul>
+                <span>
+                    <aside>
+                        Powered by <a href="https://github.com/Wildhoney/Dory">Dory</a>.
+                    </aside>
+                    <ul>
+                        <li className="rss"><a href="/rss" /></li>
+                        <li className="contact"><Link to="/" /></li>
+                    </ul>
+                </span>
             </footer>
         </section>
     );

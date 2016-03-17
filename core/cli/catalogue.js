@@ -1,6 +1,5 @@
 import 'babel-register';
 import 'babel-polyfill';
-
 import { stat, readFileSync, writeFile, existsSync, writeFileSync } from 'fs';
 import { parse } from 'path';
 import glob from 'glob';

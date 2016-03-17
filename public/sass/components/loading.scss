@@ -10,16 +10,13 @@ $default-size: $mobile-menu-width - 2rem;
   width: $mobile-menu-width;
   height: $mobile-menu-width;
   position: absolute;
+  margin-right: 2rem;
   right: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: border-left 2s;
   border-left: 1px solid white;
-
-  &.loading {
-    border-left: 1px solid $border-colour;
-  }
 
   > img {
     width: $default-size;
@@ -39,5 +36,11 @@ $default-size: $mobile-menu-width - 2rem;
 
   @media screen and (max-width: $break-small) {
     @include apply-mobile();
+
+    margin-right: 0;
+
+    &.loading {
+      border-left: 1px solid $border-colour;
+    }
   }
 }
