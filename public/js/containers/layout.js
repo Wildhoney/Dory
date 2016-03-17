@@ -33,7 +33,8 @@ const propTypes = {
     loading: PropTypes.array.isRequired,
     options: PropTypes.shape({
         menuOpen: PropTypes.bool.isRequired
-    })
+    }),
+    fetchData: PropTypes.func
 };
 
 /**

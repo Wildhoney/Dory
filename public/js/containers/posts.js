@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
-import { stitch } from 'keo/redux';
+import { stitch } from 'keo';
+import { connect } from 'react-redux';
 import by from 'sort-by';
 import ordinal from 'ordinal';
 import DocumentTitle from '../components/document-title';
@@ -17,8 +18,9 @@ import config from '../config';
 const propTypes = {
     catalogue: PropTypes.array.isRequired,
     params: PropTypes.shape({
-        pageNumber: PropTypes.string
-    })
+        pageNumber: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+    }).isRequired,
+    fetchData: PropTypes.func
 };
 
 /**
@@ -40,13 +42,21 @@ const statics = {
 };
 
 /**
+ * @method getDefaultProps
+ * @return {Object}
+ */
+const getDefaultProps = () => {
+    return { fetchData: (dispatch, params) => statics.fetchData(dispatch, params) };
+};
+
+/**
  * @method dispatch
  * @param {Function} dispatch
  * @param {Object} props
  * @return {void}
  */
 const componentDidMount = ({ dispatch, props }) => {
-    statics.fetchData(dispatch, props.params);
+    props.fetchData(dispatch, props.params);
 };
 
 /**
@@ -80,9 +90,7 @@ const render = ({ props }) => {
 
                 <h2>
                     Welcome
-                    <label>
-                        ({props.catalogue.length} {(pluralize('Post', props.catalogue.length))})
-                    </label>
+                    <label>({props.catalogue.length} {(pluralize('Post', props.catalogue.length))})</label>
                 </h2>
 
                 {posts.map((model, index) => {
@@ -99,4 +107,5 @@ const render = ({ props }) => {
 
 };
 
-export default stitch({ statics, propTypes, componentDidMount, componentDidUpdate, render }, state => state);
+export const Component = stitch({ statics, propTypes, getDefaultProps, componentDidMount, componentDidUpdate, render });
+export default connect(state => state)(Component);

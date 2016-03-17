@@ -14,7 +14,6 @@ test('Should be able to render layout;', t => {
     };
 
     const wrapper = mount(<Component {...props} />);
-
     t.is(props.fetchData.callCount, 1);
 
     t.true(wrapper.find('section.layout').hasClass('closed'));
