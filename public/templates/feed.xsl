@@ -21,13 +21,13 @@
                     <section class="layout feed">
 
                         <header>
-                            <div>
+                            <span>
                                 <h1>
                                     <a href="/">
                                         <xsl:value-of select="rss/channel/title" /><label>RSS</label>
                                     </a>
                                 </h1>
-                            </div>
+                            </span>
                         </header>
 
                         <main class="page posts">
