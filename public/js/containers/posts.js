@@ -94,9 +94,10 @@ const render = ({ props }) => {
                 </h2>
 
                 {posts.map((model, index) => {
-                    const isLast = index === (posts.length - 1) ? 'last' : '';
-                    const className = index === 0 ? 'first' : isLast;
-                    return <Post key={hash(model)} {...props} className={className} model={model} synopsis={config.displaySynopsis} />;
+                    const firstClassName = index === (posts.length - 1) ? 'last' : '';
+                    const lastClassName = index === 0 ? 'first' : '';
+                    const classNames = `${firstClassName} ${lastClassName}`;
+                    return <Post key={hash(model)} {...props} className={classNames} model={model} synopsis={config.displaySynopsis} />;
                 })}
 
                 {morePages && <Pagination {...props} pageNumber={pageNumber} disableFirstPage={Boolean(true)} />}
