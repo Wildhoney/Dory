@@ -19,6 +19,9 @@ ready().then(() => {
 
     const mountNode = global.document.querySelector('.dory');
 
+    // Register the Server Worker for caching assets and articles.
+    'serviceWorker' in navigator && navigator.serviceWorker.register('/cache.js');
+
     render((
         <Provider store={store}>
             {routes}

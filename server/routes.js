@@ -18,6 +18,7 @@ export function configure(options) {
     const styles = options.fromCore('/dory.css');
     const xsl = options.fromPublic('/templates/feed.xsl');
     const favIcon = readFileSync(`${options.publicPath}/favicon.ico`);
+    const serviceWorker = options.fromCore('/cache.js');
 
     /**
      * @method sendFile
@@ -49,6 +50,7 @@ export function configure(options) {
         app.get('/dory.js', sendFile(script));
         app.get('/dory.css', sendFile(styles));
         app.get('/favicon.ico', sendFile(favIcon));
+        app.get('/cache.js', sendFile(serviceWorker));
         app.use('(/images|.json$)', handleAssets(`${options.publicPath}/images`)(options));
 
         // ...And finally the universal application.

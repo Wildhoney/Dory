@@ -2,14 +2,14 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    entry: [
-        'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true',
-        './public/js/default.js'
-    ],
+    entry: {
+        dory: ['./public/js/default.js', 'webpack-hot-middleware/client'],
+        cache: ['./public/js/workers/cache.js', 'webpack-hot-middleware/client']
+    },
     output: {
         path: __dirname + '/core/build',
         publicPath: '/',
-        filename: 'dory.js',
+        filename: '[name].js',
         libraryTarget: 'var'
     },
     module: {

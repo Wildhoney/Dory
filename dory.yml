@@ -17,3 +17,6 @@ feedLimit: 15
 
 # Whether to use infinite scroll on the posts container for mobile.
 useInfiniteScroll: false
+
+# Controls the version of the Service Worker for offline support.
+cacheRevision: 1
