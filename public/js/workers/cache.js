@@ -1,5 +1,6 @@
 import { parse } from 'url';
 import config from '../config';
+import catalogue from '../../catalogue.json';
 
 /**
  * @constant CACHE_NAME
@@ -19,6 +20,27 @@ const cacheList = [
 ];
 
 (function main(caches, worker) {
+
+    worker.addEventListener('install', event => {
+
+        return event.waitUntil(caches.open(CACHE_NAME).then(cache => {
+
+            // Cache each available page, but in a non-blocking lazy fashion.
+            const maxPages = Math.ceil(catalogue.length / config.perPage);
+            const pages = new Array(maxPages).fill().map((_, i) => i + 1);
+            pages.forEach(pageNumber => cache.addAll([`/archive/page-${pageNumber}`, `/api/posts/page-${pageNumber}`]));
+
+            return cache.addAll([
+                '/dory.js',
+                '/dory.css',
+                '/favicon.ico',
+                '/archive/page-2',
+                '/api/posts/page-2'
+            ]);
+
+        }));
+
+    });
 
     worker.addEventListener('fetch', event => {
 
@@ -41,7 +63,7 @@ const cacheList = [
 
                 return networkResponse;
 
-            }).catch(() => cache.match(request));
+            }).catch(() => cache.match(request).catch(() => fetch(request.url)));
 
         }));
     });
