@@ -31,25 +31,6 @@ a {
   }
 }
 
-@mixin apply-mobile() {
-  transition: right $mobile-menu-animation;
-  right: 0;
-  position: relative;
-  width: 100%;
-
-  > header {
-    transition: left $mobile-menu-animation;
-  }
-
-  &.open {
-    right: $mobile-menu-width;
-
-    > header {
-      left: -$mobile-menu-width;
-    }
-  }
-}
-
 html {
   font-size: 10px;
   position: relative;
@@ -69,11 +50,22 @@ html {
         min-height: 100vh;
 
         @media screen and (max-width: $break-small) {
-          @include apply-mobile();
+          transition: right $mobile-menu-animation;
+          right: 0;
+          position: relative;
+          width: 100%;
+
+          &.open {
+            right: $mobile-menu-width;
+
+            > header {
+              left: -$mobile-menu-width;
+            }
+          }
         }
 
         > header {
-          position: fixed;
+          position: absolute;
           width: 100%;
           left: 0;
           background-color: white;
@@ -84,6 +76,11 @@ html {
           height: $header-height;
           display: flex;
           justify-content: center;
+
+          @media screen and (max-width: $break-small) {
+            transition: left $mobile-menu-animation;
+            position: fixed;
+          }
 
           > span {
             @import "./components/navigation";

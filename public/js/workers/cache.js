@@ -25,10 +25,12 @@ const cacheList = [
 
         return event.waitUntil(caches.open(CACHE_NAME).then(cache => {
 
-            // Cache each available page, but in a non-blocking lazy fashion.
             const maxPages = Math.ceil(catalogue.length / config.perPage);
             const pages = new Array(maxPages).fill().map((_, i) => i + 1);
-            pages.forEach(pageNumber => cache.addAll([`/archive/page-${pageNumber}`, `/api/posts/page-${pageNumber}`]));
+
+            // Cache each available page, but in a non-blocking lazy fashion.
+            catalogue.forEach(c => cache.add(`/post/${c.slug}`));
+            pages.forEach(p => cache.addAll([`/archive/page-${p}`, `/api/posts/page-${p}`]));
 
             return cache.addAll([
                 '/dory.js',
@@ -63,7 +65,7 @@ const cacheList = [
 
                 return networkResponse;
 
-            }).catch(() => cache.match(request).catch(() => fetch(request.url)));
+            }).catch(() => cache.match(request));
 
         }));
     });

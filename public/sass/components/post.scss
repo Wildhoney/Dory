@@ -85,6 +85,7 @@ $spacing-bottom: 40px;
         max-width: 500px;
         float: left;
         margin: 0 15px 15px 0;
+        position: relative;
 
         @media screen and (max-width: $break-small + $minimum-paragraph-width) {
           float: none;
