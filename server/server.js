@@ -65,14 +65,14 @@ const options = {
 
 };
 
-// if (!isProduction()) {
-//
-//     // Setup development mode using Webpack when NODE_ENV is not production.
-//     const compiler = webpack(webpackConfig);
-//     app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
-//     app.use(webpackHotMiddleware(compiler));
-//
-// }
+if (!isProduction()) {
+
+    // Setup development mode using Webpack when NODE_ENV is not production.
+    const compiler = webpack(webpackConfig);
+    app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
+    app.use(webpackHotMiddleware(compiler));
+
+}
 
 // Define the routes.
 configure(options)(app);

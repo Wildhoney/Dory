@@ -12,7 +12,7 @@ import { isProduction } from '../helpers/common';
  * @constant github
  * @type {Object}
  */
-const github = compose(authenticate)(new GitHubApi({ version: '3.0.0', debug: isProduction(), headers: {
+const github = compose(authenticate)(new GitHubApi({ version: '3.0.0', debug: !isProduction(), headers: {
     'user-agent': 'Dory (https://github.com/Wildhoney/Dory)'
 }}));
 
