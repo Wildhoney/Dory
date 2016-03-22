@@ -1,5 +1,6 @@
 import express from 'express';
 import { readFileSync } from 'fs';
+import { parse } from 'ini';
 import { loadFront } from 'yaml-front-matter';
 import { load as loadYaml } from 'yaml-js';
 import { configure } from './routes';
@@ -31,6 +32,20 @@ const options = {
      * @type {Object}
      */
     config: loadYaml(readFileSync('./dory.yml')),
+
+    /**
+     * @constant git
+     * @type {Object}
+     */
+    repository: () => {
+
+        const config = parse(readFileSync('./.git/config', 'utf-8'));
+        const remoteOrigin = String(config['remote "origin"'].url);
+        const matches = remoteOrigin.match(/:(.+?)\/(.+)\.git/i);
+
+        return { user: matches[1], repo: matches[2] };
+        
+    },
 
     /**
      * @constant isProduction

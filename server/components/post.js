@@ -32,6 +32,8 @@ const markedOptions = {
  */
 export const getPost = options => {
 
+    const { user, repo } = options.repository();
+
     return slug => {
 
         const path = `posts/${slug}.md`;
@@ -41,9 +43,6 @@ export const getPost = options => {
 
         return new Promise(resolve => {
             
-            const user = config.github.username;
-            const repo = config.github.repository;
-
             github.repos.getCommits({ user, repo, path: `public/${path}` }, (error, commits) => {
 
                 const firstCommit = commits[commits.length - 1];
