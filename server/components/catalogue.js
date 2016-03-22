@@ -1,4 +1,3 @@
-import by from 'sort-by';
 import { dissoc } from 'ramda';
 import { getPosts } from './posts';
 import sort from '../../public/js/utilities/sort';

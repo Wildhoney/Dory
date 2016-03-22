@@ -44,7 +44,7 @@ const cacheList = [
 
     worker.addEventListener('fetch', event => {
 
-        const {request} = event;
+        const { request } = event;
 
         if (request.method !== 'GET') {
             return false;
@@ -52,7 +52,7 @@ const cacheList = [
 
         event.respondWith(caches.open(CACHE_NAME).then(cache => {
 
-            return fetch(request).then(networkResponse => {
+            return global.fetch(request).then(networkResponse => {
 
                 const path = parse(request.url).pathname;
 

@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import { stitch } from 'keo';
 import { connect } from 'react-redux';
-import by from 'sort-by';
 import ordinal from 'ordinal';
 import DocumentTitle from '../components/document-title';
 import hash from 'object-hash';

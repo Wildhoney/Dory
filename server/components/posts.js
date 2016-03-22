@@ -1,4 +1,3 @@
-import by from 'sort-by';
 import { loadFront } from 'yaml-front-matter';
 import { getPost } from './post';
 import glob from 'glob';

@@ -1,4 +1,3 @@
-import by from 'sort-by';
 import { getPosts } from './posts';
 import { render } from 'mustache';
 import moment from 'moment';
