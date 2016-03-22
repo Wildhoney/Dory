@@ -4,6 +4,7 @@ import GitHubApi from 'github';
 import marked from 'marked';
 import moment from 'moment';
 import authenticate from '../helpers/authenticate';
+import config from '../../public/js/config';
 
 /**
  * @constant github
@@ -44,8 +45,11 @@ export const getPost = options => {
         const synopsis = markdown.synopsis ? marked(markdown.synopsis, markedOptions) : undefined;
 
         return new Promise(resolve => {
+            
+            const user = config.github.username;
+            const repo = config.github.repository;
 
-            github.repos.getCommits({ user: 'Wildhoney', repo: 'Dory', path: `public/${path}` }, (error, commits) => {
+            github.repos.getCommits({ user, repo, path: `public/${path}` }, (error, commits) => {
 
                 const firstCommit = commits[commits.length - 1];
                 const lastCommit = commits[0];
