@@ -16,6 +16,7 @@ export default (
         <Route path="/" component={Layout}>
             <IndexRoute component={Posts} />
             <Route component={Posts} path="/archive/page-:pageNumber" />
+            <Route component={Posts} path="/author/:name" />
             <Route component={Post} path="/post/:slug" />
             <Route component={NotFound} path="*" />
         </Route>

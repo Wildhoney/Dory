@@ -1,10 +1,20 @@
 import by from 'sort-by';
+import { getPosts } from './posts';
+import { dissoc } from 'ramda';
 
 /**
  * @param {Object} options
  * @return {Function}
  */
 export default options => {
-    const catalogue = options.fromJson(options.fromPublic('/catalogue.json')).sort(by('createdDate')).reverse();
-    return (request, response) => response.end(options.toJson(catalogue));
+
+    return (request, response) => {
+
+        getPosts(options).then(posts => {
+            const sorted = posts.sort(by('createdDate')).reverse();
+            response.end(options.toJson(sorted.map(post => dissoc('content', post))));
+        });
+
+    };
+
 };

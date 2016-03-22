@@ -13,6 +13,7 @@ $spacing-bottom: 40px;
     font-weight: 800;
     font-size: 1.5rem;
     margin-bottom: 5px;
+    font-display: swap;
   }
 
   > datetime {
@@ -73,6 +74,7 @@ $spacing-bottom: 40px;
       font-size: 1.2rem;
       text-align: justify;
       margin-bottom: $content-padding;
+      font-display: fallback;
 
       &:last-of-type {
         margin-bottom: 0;

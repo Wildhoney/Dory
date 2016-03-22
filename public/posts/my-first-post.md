@@ -1,8 +1,6 @@
 ---
 title: First Post
 tags: demo
-author: Adam Timberlake
-email: adam.timberlake@gmail.com
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porta enim enim, interdum porta elit malesuada at. Sed placerat, ante quis vulputate ullamcorper, neque lacus ullamcorper neque, et pretium ante libero sit amet sapien. Suspendisse maximus lobortis nisl. Proin egestas dignissim nulla at tincidunt. Praesent eu consectetur est. In congue enim urna, ac mattis justo facilisis et. Maecenas eu diam enim. Mauris at placerat mauris. Nullam auctor ac lorem rhoncus placerat.

@@ -1,15 +1,33 @@
 import by from 'sort-by';
 import { loadFront } from 'yaml-front-matter';
 import { getPost } from './post';
+import glob from 'glob';
+import { parse } from 'path';
 
 /**
  * @method getPosts
  * @param {Object} options
- * @return {Array}
+ * @return {Promise}
  */
 export const getPosts = options => {
-    const posts = options.fromJson(options.fromPublic('/catalogue.json'));
-    return posts.map(post => getPost(options)(post.slug));
+
+    const filterBy = getPost(options);
+
+    return new Promise(resolve => {
+
+        glob(`./public/posts/*.md`, {}, (error, files) => {
+
+            const posts = files.map(file => {
+                const {name: slug} = parse(file);
+                return filterBy(slug);
+            });
+
+            Promise.all(posts).then(resolve);
+
+        });
+
+    });
+
 };
 
 /**
@@ -24,12 +42,12 @@ export default options => {
         const sortProperty = request.params.sortProperty || 'createdDate';
         const isAscending = request.params.sortOrder === 'desc';
         const perPage = Number(request.params.perPage) || options.config.perPage;
-
         const index = (pageNumber - 1) * perPage;
-        const posts = getPosts(options).sort(by(sortProperty));
 
-        response.end(options.toJson((isAscending ? [...posts] : [...posts.reverse()])
-                            .slice(index, index + perPage)));
+        getPosts(options).then(posts => {
+            const sorted = posts.sort(by(sortProperty));
+            response.end(options.toJson((isAscending ? [...sorted] : [...sorted.reverse()]).slice(index, index + perPage)));
+        });
 
     };
     

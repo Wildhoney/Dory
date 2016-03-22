@@ -35,9 +35,7 @@ const cacheList = [
             return cache.addAll([
                 '/dory.js',
                 '/dory.css',
-                '/favicon.ico',
-                '/archive/page-2',
-                '/api/posts/page-2'
+                '/favicon.ico'
             ]);
 
         }));

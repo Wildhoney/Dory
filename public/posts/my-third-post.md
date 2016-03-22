@@ -1,6 +1,5 @@
 ---
 title: Third Post
-author: Maria Timberlake
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae dictum libero. Nullam nec ullamcorper ligula. Suspendisse hendrerit ut leo eu pellentesque. Sed et urna fringilla, pharetra sapien ac, tristique arcu. Integer pharetra a diam eu sollicitudin. Aenean at tempor ante. Fusce consectetur dui molestie massa sagittis, a vestibulum ligula facilisis. Etiam augue libero, mattis eget fermentum nec, rutrum ut turpis. Donec hendrerit arcu vitae commodo iaculis. Aenean pulvinar iaculis sapien, quis iaculis velit lobortis sit amet. Nam interdum dui non lacus elementum vulputate. Nunc nec tempus felis.

@@ -13,24 +13,26 @@ export default options => {
     const perPage = options.config.rssLimit;
     const feed = options.fromPublic('/templates/feed.xml');
 
-    const posts = getPosts(options).slice(0, perPage).sort(by('createdDate')).map((post, index) => {
-
-        return {
-            ...post,
-            guid: ((index + 1) * 1000).toString(16),
-            createdDate: moment(post.createdDate).format(rfc822Format)
-        };
-
-    }).reverse();
-
     return (request, response) => {
 
-        response.end(render(feed, {
-            ...options.config,
-            createdDate: posts[0].createdDate,
-            posts
-        }));
+        getPosts(options).then(posts => {
 
+            const sorted = posts.slice(0, perPage).sort(by('createdDate')).map((post, index) => {
+
+                return {
+                    ...post,
+                    guid: ((index + 1) * 1000).toString(16),
+                    createdDate: moment(post.createdDate).format(rfc822Format)
+                };
+
+            }).reverse();
+
+            response.end(render(feed, {
+                ...options.config,
+                createdDate: posts[0].createdDate,
+                posts: sorted
+            }));
+
+        });
     }
-
 };

@@ -1,6 +1,20 @@
 import { loadFront } from 'yaml-front-matter';
 import removeNewLines from 'newline-remove';
+import GitHubApi from 'github';
 import marked from 'marked';
+import moment from 'moment';
+import authenticate from '../helpers/authenticate';
+
+/**
+ * @constant github
+ * @type {Object}
+ */
+const github = new GitHubApi({ version: '3.0.0', headers: {
+    'user-agent': 'Dory (https://github.com/Wildhoney/Dory)'
+}});
+
+// Attempt authentication via GitHub to raise the rate limit.
+authenticate(github);
 
 /**
  * @constant markedOptions
@@ -18,19 +32,35 @@ const markedOptions = {
  */
 export const getPost = options => {
 
-    const catalogue = options.fromJson(options.fromPublic('/catalogue.json'));
-
     /**
      * @param {String} slug
-     * @return {Object}
+     * @return {Promise}
      */
     return slug => {
-        const model = catalogue.find(model => model.slug === slug);
-        const markdown = loadFront(options.fromPublic(`/posts/${model.filename}`), 'content');
+
+        const path = `posts/${slug}.md`;
+        const markdown = loadFront(options.fromPublic(path), 'content');
         const content = removeNewLines(marked(markdown.content, markedOptions));
         const synopsis = markdown.synopsis ? marked(markdown.synopsis, markedOptions) : undefined;
 
-        return { ...model, ...markdown, content, synopsis, filename: undefined };
+        return new Promise(resolve => {
+
+            github.repos.getCommits({ user: 'Wildhoney', repo: 'Dory', path: `public/${path}` }, (error, commits) => {
+
+                const firstCommit = commits[commits.length - 1];
+                const lastCommit = commits[0];
+
+                const userId = Number(firstCommit.author.id);
+                const author = firstCommit.author.login;
+                const createdDate = moment(firstCommit.commit.author.date).unix() * 1000;
+                const modifiedDate = moment(lastCommit.commit.author.date).unix() * 1000;
+
+                resolve({ ...markdown, userId, createdDate, modifiedDate, author, content, synopsis, slug });
+
+            });
+
+        });
+
     };
 
 };
@@ -41,9 +71,14 @@ export const getPost = options => {
  */
 export default options => {
 
+    const filterBy = getPost(options);
+
     return (request, response) => {
-        const bySlug = getPost(options);
-        response.end(options.toJson(bySlug(request.params.slug)));
+
+        filterBy(request.params.slug).then(post => {
+            response.end(options.toJson(post));
+        });
+
     };
 
 };

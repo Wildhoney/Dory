@@ -61,25 +61,18 @@ const options = {
      * @param {Object} model
      * @return {String}
      */
-    toJson: model => JSON.stringify(model),
-
-    /**
-     * @method fromJson
-     * @param {String} text
-     * @return {Object}
-     */
-    fromJson: text => JSON.parse(text)
+    toJson: model => JSON.stringify(model)
 
 };
 
-// if (!isProduction) {
-//
-//     // Setup development mode using Webpack when NODE_ENV is not production.
-//     const compiler = webpack(webpackConfig);
-//     app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
-//     app.use(webpackHotMiddleware(compiler));
-//
-// }
+if (!isProduction) {
+
+    // Setup development mode using Webpack when NODE_ENV is not production.
+    const compiler = webpack(webpackConfig);
+    app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
+    app.use(webpackHotMiddleware(compiler));
+
+}
 
 // Define the routes.
 configure(options)(app);

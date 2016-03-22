@@ -10,6 +10,3 @@ exec('npm run config');
 // Build the assets, and copy the favicon.
 exec('webpack -p --optimize-minimize --optimize-dedupe');
 exec('html-minifier public/index.html --collapse-whitespace > core/build/index.html');
-
-// Ensure the catalogue is up-to-date.
-exec('npm run catalogue');

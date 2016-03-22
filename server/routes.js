@@ -40,7 +40,6 @@ export function configure(options) {
 
         // Define the API routes.
         app.get('/api/catalogue', handleCatalogue(options));
-        app.get('/api/catalogue', handleCatalogue(options));
         app.get('/api/post/:slug', handlePost(options));
         app.get('/api/posts/page-:pageNumber', handlePosts(options));
         app.get('/api/posts/page-:pageNumber/limit-:perPage', handlePosts(options));
