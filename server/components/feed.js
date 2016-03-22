@@ -2,6 +2,7 @@ import by from 'sort-by';
 import { getPosts } from './posts';
 import { render } from 'mustache';
 import moment from 'moment';
+import sort from '../../public/js/utilities/sort';
 
 /**
  * @param {Object} options
@@ -17,7 +18,7 @@ export default options => {
 
         getPosts(options).then(posts => {
 
-            const sorted = posts.slice(0, perPage).sort(by('createdDate')).map((post, index) => {
+            const sorted = sort()(posts).slice(0, perPage).map((post, index) => {
 
                 return {
                     ...post,
