@@ -5,7 +5,6 @@ import marked from 'marked';
 import moment from 'moment';
 import authenticate from '../helpers/authenticate';
 import { compose } from 'ramda';
-import config from '../../public/js/config';
 import { isProduction } from '../helpers/common';
 
 /**

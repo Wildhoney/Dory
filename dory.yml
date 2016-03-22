@@ -2,11 +2,6 @@ title: Dory
 url: http://dory-app.herokuapp.com/
 description: The official Dory blog.
 
-# Settings for GitHub to check for posts.
-github:
-  username: Wildhoney
-  repository: Dory
-
 # Amount of posts to be displayed on the homepage before pagination is visible.
 perPage: 3
 

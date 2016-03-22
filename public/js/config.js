@@ -1,1 +1,1 @@
-export default {"title":"Dory","url":"http://dory-app.herokuapp.com/","description":"The official Dory blog.","github":{"username":"Wildhoney","repository":"Dory"},"perPage":3,"dateFormat":"LLLL","displaySynopsis":true,"feedLimit":15,"useInfiniteScroll":false,"cacheRevision":1};
+export default {"title":"Dory","url":"http://dory-app.herokuapp.com/","description":"The official Dory blog.","github":{"username":"Wildhoney","repository":"Dory"},"perPage":3,"dateFormat":"LLLL","displaySynopsis":true,"feedLimit":10,"cacheRevision":1};
