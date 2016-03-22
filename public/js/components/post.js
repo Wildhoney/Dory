@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import { stitch } from 'keo';
 import { Link } from 'react-router';
 import moment from 'moment';
-import { url } from 'gravatar';
 import config from '../config';
 import { isOnline } from '../utilities/common';
 
@@ -43,10 +42,11 @@ const getDefaultProps = () => {
  */
 export const Author = stitch(({ props }) => {
 
-    const { author, email } = props.model;
+    const { author, email, userId } = props.model;
+    const avatarUrl = `https://avatars.githubusercontent.com/u/${userId}`;
 
     const avatar = !email || !isOnline() ? '' : (
-        <img src={url(email)} alt={`${author}'s avatar`} onError={event => event.target.remove()} />
+        <img src={avatarUrl} alt={`${author}'s avatar`} onError={event => event.target.remove()} />
     );
 
     return (
