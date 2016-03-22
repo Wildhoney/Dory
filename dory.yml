@@ -2,8 +2,16 @@ title: Dory
 url: http://dory-app.herokuapp.com/
 description: The official Dory blog.
 
+# Repository that relates to the current installation.
+repository: Wildhoney/Dory
+
 # Amount of posts to be displayed on the homepage before pagination is visible.
 perPage: 3
+
+# Default sort order for posts using a composite key.
+sortOrder:
+  - [createdDate, desc]
+  - [slug, desc]
 
 # Format to be used throughout the website using Moment.js parsing.
 # See: http://momentjs.com/docs/#/displaying/

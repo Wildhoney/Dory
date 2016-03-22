@@ -87,6 +87,7 @@
     "redux": "^3.3.1",
     "seamless-immutable": "^5.1.0",
     "sort-by": "^1.1.1",
+    "sorty": "^1.2.2",
     "yaml-front-matter": "^3.4.0",
     "yaml-js": "^0.1.3"
   },

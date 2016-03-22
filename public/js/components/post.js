@@ -42,10 +42,10 @@ const getDefaultProps = () => {
  */
 export const Author = stitch(({ props }) => {
 
-    const { author, email, userId } = props.model;
+    const { userId, author } = props.model;
     const avatarUrl = `https://avatars.githubusercontent.com/u/${userId}`;
 
-    const avatar = !email || !isOnline() ? '' : (
+    const avatar = !author || !isOnline() ? '' : (
         <img src={avatarUrl} alt={`${author}'s avatar`} onError={event => event.target.remove()} />
     );
 

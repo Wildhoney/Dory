@@ -1,6 +1,7 @@
 import by from 'sort-by';
-import { getPosts } from './posts';
 import { dissoc } from 'ramda';
+import { getPosts } from './posts';
+import sort from '../../public/js/utilities/sort';
 
 /**
  * @param {Object} options
@@ -11,7 +12,7 @@ export default options => {
     return (request, response) => {
 
         getPosts(options).then(posts => {
-            const sorted = posts.sort(by('createdDate')).reverse();
+            const sorted = sort()(posts);
             response.end(options.toJson(sorted.map(post => dissoc('content', post))));
         });
 

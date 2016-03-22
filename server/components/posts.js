@@ -3,6 +3,7 @@ import { loadFront } from 'yaml-front-matter';
 import { getPost } from './post';
 import glob from 'glob';
 import { parse } from 'path';
+import sort from '../../public/js/utilities/sort';
 
 /**
  * @method getPosts
@@ -39,14 +40,14 @@ export default options => {
     return (request, response) => {
 
         const pageNumber = Number(request.params.pageNumber);
-        const sortProperty = request.params.sortProperty || 'createdDate';
-        const isAscending = request.params.sortOrder === 'desc';
+        // const sortProperty = request.params.sortProperty || 'createdDate';
+        // const isAscending = request.params.sortOrder === 'desc';
         const perPage = Number(request.params.perPage) || options.config.perPage;
         const index = (pageNumber - 1) * perPage;
 
         getPosts(options).then(posts => {
-            const sorted = posts.sort(by(sortProperty));
-            response.end(options.toJson((isAscending ? [...sorted] : [...sorted.reverse()]).slice(index, index + perPage)));
+            const sorted = sort()(posts);
+            response.end(options.toJson(sorted.slice(index, index + perPage)));
         });
 
     };

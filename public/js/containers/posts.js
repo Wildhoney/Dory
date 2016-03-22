@@ -10,6 +10,7 @@ import Post from '../components/post';
 import Pagination from '../components/pagination';
 import { getPosts } from '../actions';
 import config from '../config';
+import sort from '../utilities/sort';
 
 /**
  * @constant propTypes
@@ -81,7 +82,7 @@ const render = ({ props }) => {
     const pageNumber = Number(props.params.pageNumber || 1);
     const perPage = config.perPage;
     const index = (pageNumber - 1) * perPage;
-    const posts = [ ...props.catalogue ].sort(by('createdDate')).reverse().slice(index, index + perPage);
+    const posts = sort()([ ...props.catalogue ]).slice(index, index + perPage);
     const morePages = props.catalogue.length > posts.length;
 
     return (

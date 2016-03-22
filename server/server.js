@@ -5,6 +5,7 @@ import { loadFront } from 'yaml-front-matter';
 import { load as loadYaml } from 'yaml-js';
 import { configure } from './routes';
 import { isProduction } from './helpers/common';
+import config from '../public/js/config';
 
 // Enable development for things like hot reloading.
 import webpack from 'webpack';
@@ -38,38 +39,24 @@ const options = {
      * @type {Object}
      */
     repository: () => {
-
-        const config = parse(readFileSync('./.git/config', 'utf-8'));
-        const remoteOrigin = String(config['remote "origin"'].url);
-        const matches = remoteOrigin.match(/:(.+?)\/(.+)\.git/i);
-
+        const remoteOrigin = String(config.repository);
+        const matches = remoteOrigin.match(/(.+?)\/(.+)/i);
         return { user: matches[1], repo: matches[2] };
-        
     },
-
-    /**
-     * @constant isProduction
-     * @type {Boolean}
-     */
-    isProduction,
 
     /**
      * @method fromCore
      * @param {String} path
      * @return {String}
      */
-    fromCore: path => {
-        return readFileSync(`./core/build/${path}`, 'utf8');
-    },
+    fromCore: path => readFileSync(`./core/build/${path}`, 'utf8'),
 
     /**
      * @method fromPublic
      * @param {String} path
      * @return {String}
      */
-    fromPublic: path => {
-        return readFileSync(`./public/${path}`, 'utf8');
-    },
+    fromPublic: path => readFileSync(`./public/${path}`, 'utf8'),
 
     /**
      * @method toJson
