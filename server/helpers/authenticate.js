@@ -10,8 +10,8 @@ export default github => {
 
         github.authenticate({
             type: 'oauth',
-            key: '2d29a37ba0a4494ea432',
-            secret: '15730f2f0ab95d31295df13c26c7c40cacbf7d10'
+            key: GITHUB_KEY,
+            secret: GITHUB_SECRET
         });
 
     }
