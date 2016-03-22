@@ -18,10 +18,7 @@ dateFormat: LLLL
 displaySynopsis: true
 
 # How many posts are displayed on the RSS feed.
-feedLimit: 15
-
-# Whether to use infinite scroll on the posts container for mobile.
-useInfiniteScroll: false
+feedLimit: 10
 
 # Controls the version of the Service Worker for offline support.
 cacheRevision: 1
