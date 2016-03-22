@@ -10,12 +10,9 @@ import config from '../../public/js/config';
  * @constant github
  * @type {Object}
  */
-const github = new GitHubApi({ version: '3.0.0', headers: {
+const github = authenticate(new GitHubApi({ version: '3.0.0', headers: {
     'user-agent': 'Dory (https://github.com/Wildhoney/Dory)'
-}});
-
-// Attempt authentication via GitHub to raise the rate limit.
-authenticate(github);
+}}));
 
 /**
  * @constant markedOptions
@@ -33,10 +30,6 @@ const markedOptions = {
  */
 export const getPost = options => {
 
-    /**
-     * @param {String} slug
-     * @return {Promise}
-     */
     return slug => {
 
         const path = `posts/${slug}.md`;

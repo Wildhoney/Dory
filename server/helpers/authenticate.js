@@ -1,10 +1,10 @@
-const { GITHUB_KEY, GITHUB_SECRET } = process.env;
-
 /**
  * @param github {Object}
- * @return {void}
+ * @return {Object}
  */
 export default github => {
+
+    const { GITHUB_KEY, GITHUB_SECRET } = process.env;
 
     if (GITHUB_KEY && GITHUB_SECRET) {
 
@@ -15,5 +15,7 @@ export default github => {
         });
 
     }
+
+    return github;
 
 };
