@@ -4,13 +4,15 @@ import GitHubApi from 'github';
 import marked from 'marked';
 import moment from 'moment';
 import authenticate from '../helpers/authenticate';
+import { compose } from 'ramda';
 import config from '../../public/js/config';
+import { isProduction } from '../helpers/common';
 
 /**
  * @constant github
  * @type {Object}
  */
-const github = authenticate(new GitHubApi({ version: '3.0.0', headers: {
+const github = compose(authenticate)(new GitHubApi({ version: '3.0.0', debug: isProduction(), headers: {
     'user-agent': 'Dory (https://github.com/Wildhoney/Dory)'
 }}));
 

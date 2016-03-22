@@ -3,6 +3,7 @@ import { readFileSync } from 'fs';
 import { loadFront } from 'yaml-front-matter';
 import { load as loadYaml } from 'yaml-js';
 import { configure } from './routes';
+import { isProduction } from './helpers/common';
 
 // Enable development for things like hot reloading.
 import webpack from 'webpack';
@@ -11,7 +12,6 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../webpack.config.js';
 
 const app = express();
-const isProduction = process.env.NODE_ENV === 'production';
 const options = {
 
     /**
@@ -65,14 +65,14 @@ const options = {
 
 };
 
-if (!isProduction) {
-
-    // Setup development mode using Webpack when NODE_ENV is not production.
-    const compiler = webpack(webpackConfig);
-    app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
-    app.use(webpackHotMiddleware(compiler));
-
-}
+// if (!isProduction()) {
+//
+//     // Setup development mode using Webpack when NODE_ENV is not production.
+//     const compiler = webpack(webpackConfig);
+//     app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
+//     app.use(webpackHotMiddleware(compiler));
+//
+// }
 
 // Define the routes.
 configure(options)(app);
