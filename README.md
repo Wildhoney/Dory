@@ -16,21 +16,16 @@
 
 ![v0.1.11 Screenshot](media/0.1.11.png)
 
-## Getting Started
+## Documentation
 
-You first need to fork the repository to your own GitHub account &mdash; and then clone it.
+Getting started with Dory is a fairly straightforward task &mdash; however we have broken up the various steps to make this even easier. By step three you will be publishing posts to Heroku.
 
-* `npm install`
-* `npm run build`
-* `npm run start`
-
-## Post
-
-### YAML
-
-* `author`: Places the author's name underneath the post's title;
-* `email`: Used to place author's avatar from [Gravatar](https://en.gravatar.com/);
-* `paid`: Adds `rel="nofollow"` to all anchors that link to the post;
+1. Getting Started
+2. Travis &amp; Heroku
+3. Publishing
+4. GitHub Authentication
+4. [Redis Authentication](documentation/REDIS.md)
+5. Change Settings
 
 ## Features
 
