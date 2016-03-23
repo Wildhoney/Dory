@@ -3,8 +3,9 @@ import removeNewLines from 'newline-remove';
 import GitHubApi from 'github';
 import marked from 'marked';
 import moment from 'moment';
-import authenticate from '../helpers/authenticate';
 import { compose } from 'ramda';
+import PrettyError from 'pretty-error';
+import authenticate from '../helpers/authenticate';
 import { isProduction } from '../helpers/common';
 
 /**
@@ -43,6 +44,13 @@ export const getPost = options => {
         return new Promise(resolve => {
             
             github.repos.getCommits({ user, repo, path: `public/${path}` }, (error, commits) => {
+
+                if (error) {
+                    const response = JSON.parse(error.message);
+                    const prettyError = new PrettyError();
+                    console.log(prettyError.render(new Error(response.message)));
+                    return;
+                }
 
                 const firstCommit = commits[commits.length - 1];
                 const lastCommit = commits[0];

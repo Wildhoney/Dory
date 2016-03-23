@@ -17,7 +17,9 @@
   "xo": {
     "space": 4,
     "esnext": true,
-    "globals": ["self"],
+    "globals": [
+      "self"
+    ],
     "extends": "xo-react",
     "rules": {
       "padded-blocks": "off",
@@ -26,8 +28,13 @@
         "always"
       ],
       "babel/array-bracket-spacing": "off",
-      "no-unused-vars": [1],
-      "max-nested-callbacks": [1, 5],
+      "no-unused-vars": [
+        1
+      ],
+      "max-nested-callbacks": [
+        1,
+        5
+      ],
       "default-case": "off",
       "no-unused-expressions": "off",
       "no-case-declarations": "off",
@@ -80,10 +87,12 @@
     "object-hash": "^1.1.2",
     "ordinal": "^1.0.0",
     "pluralize": "^1.2.1",
+    "pretty-error": "^2.0.0",
     "ramda": "^0.19.1",
     "react-document-title": "^2.0.1",
     "react-dom": "^0.14.7",
     "react-router": "^2.0.0",
+    "redis": "^2.5.3",
     "redux": "^3.3.1",
     "seamless-immutable": "^5.1.0",
     "sorty": "^1.2.2",
