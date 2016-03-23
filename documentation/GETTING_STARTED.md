@@ -7,7 +7,7 @@ We'll first start by configuring Dory locally using the [Webpack Dev Server](htt
 * Run the initial build for the blog using `npm run build`;
 * Start the local development server using `npm run start`;
 
-Once you have issued the `npm run start` command you will be up and running on port <kbd>5000</kbd> by default &mdash; and therefore navigating to localhost:5000 should render the default Dory instance with a handful of posts.
+Once you have issued the `npm run start` command you will be up and running on port <kbd>5000</kbd> by default &mdash; and therefore navigating to <kbd>[localhost:5000](http://localhost:5000/)</kbd> should render the default Dory instance with a handful of posts.
 
 **Note:** You may run the server on a different port by changing the `PORT` environment variable: `PORT=3000 npm run start`.
 
