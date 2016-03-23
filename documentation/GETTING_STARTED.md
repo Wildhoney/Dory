@@ -20,3 +20,5 @@ By default the repository details point to `Wildhoney/Dory` and this is where co
 **Note:** Valid as of 23rd March, 2016.
 
 Whilst you have the `dory.yml` file open, you can go ahead and change the `title`, `url` and `description` options to personalise your blog &mdash; making it look less like the default Dory instance!
+
+After you have modified the configuration, you must *currently* run `npm run build` for the application to reflect the changes &mdash; however this will soon change to prevent the need.
