@@ -23,10 +23,10 @@ Getting started with Dory is a fairly straightforward task &mdash; however we ha
 1. Getting Started
 2. Travis &amp; Heroku
 3. Publishing
-4. GitHub Authentication
-4. [Redis Authentication](documentation/REDIS.md)
-5. Modifying Options
-6. Development
+4. [GitHub Authentication](documentation/GITHUB.md)
+5. [Redis Authentication](documentation/REDIS.md)
+6. Modifying Options
+7. Development
 
 ## Features
 

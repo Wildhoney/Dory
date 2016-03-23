@@ -14,11 +14,13 @@ Redis Cloud provides 30MB which should be **more** than sufficient for Dory, how
 
 ## Development
 
-For development you can use the Redis instance on Heroku &mdash; or you could opt to install Redis locally. You simply need to have the `REDIS_HOST` in your list of environment variables &mdash; although it is purely optional, and without Redis configured locally each API call will simply query GitHub &mdash; and although slightly slower than cached Redis responses, may well be preferred for your development environment.
+For development you can use the Redis instance on Heroku &mdash; or you could opt to install Redis locally. You simply need to have the `REDIS_HOST` in your list of environment variables.
+
+However using Redis is purely optional, and without Redis configured locally each API call will simply query GitHub &mdash; and although slightly slower than cached Redis responses, may well be preferred for your development environment.
 
 By default **all** Redis keys are cached for <kbd>120</kbd> seconds &mdash; you can change this by modifying `cacheExpiration` from the `dory.yml` configuration.
 
-## Debugging
+## Summary
 
 * You can log onto your remote Redis host by the details listed on [RedisLabs](https://app.redislabs.com/main/bdbconfiguration).
 * Issue the `KEYS *` command to display all cached GitHub keys;
