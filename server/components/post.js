@@ -1,20 +1,8 @@
 import { loadFront } from 'yaml-front-matter';
 import removeNewLines from 'newline-remove';
-import GitHubApi from 'github';
 import marked from 'marked';
 import moment from 'moment';
-import { compose } from 'ramda';
-import PrettyError from 'pretty-error';
-import authenticate from '../helpers/authenticate';
-import { isProduction } from '../helpers/common';
-
-/**
- * @constant github
- * @type {Object}
- */
-const github = compose(authenticate)(new GitHubApi({ version: '3.0.0', debug: !isProduction(), headers: {
-    'user-agent': 'Dory (https://github.com/Wildhoney/Dory)'
-}}));
+import { getCommits } from '../helpers/github';
 
 /**
  * @constant markedOptions
@@ -42,15 +30,8 @@ export const getPost = options => {
         const synopsis = markdown.synopsis ? marked(markdown.synopsis, markedOptions) : undefined;
 
         return new Promise(resolve => {
-            
-            github.repos.getCommits({ user, repo, path: `public/${path}` }, (error, commits) => {
 
-                if (error) {
-                    const response = JSON.parse(error.message);
-                    const prettyError = new PrettyError();
-                    console.log(prettyError.render(new Error(response.message)));
-                    return;
-                }
+            getCommits({ user, repo, path: `public/${path}` }).then(commits => {
 
                 const firstCommit = commits[commits.length - 1];
                 const lastCommit = commits[0];
