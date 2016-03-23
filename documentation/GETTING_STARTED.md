@@ -17,7 +17,7 @@ By default the repository details point to `Wildhoney/Dory` and this is where co
 
 ![Dory Configuration](images/dory-configuration.png)
 
-**Note:** Valid as of 23rd March, 2016.
+<sup>**Note:** Valid as of 23rd March, 2016.</sup>
 
 Whilst you have the `dory.yml` file open, you can go ahead and change the `title`, `url` and `description` options to personalise your blog &mdash; making it look less like the default Dory instance!
 
