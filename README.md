@@ -25,7 +25,8 @@ Getting started with Dory is a fairly straightforward task &mdash; however we ha
 3. Publishing
 4. GitHub Authentication
 4. [Redis Authentication](documentation/REDIS.md)
-5. Change Settings
+5. Modifying Options
+6. Development
 
 ## Features
 
@@ -34,13 +35,13 @@ Getting started with Dory is a fairly straightforward task &mdash; however we ha
 * Instantaneous publishing to [Heroku](https://www.heroku.com/) for each post via [Travis CI](https://travis-ci.org/);
 * Supports [Webpack Hot Reloading](https://github.com/webpack/docs/wiki/hot-module-replacement-with-webpack) for rapid development;
 * Generates a valid [RSS](https://en.wikipedia.org/wiki/RSS) feed when you publish articles;
+* Utilises HTML5 [`ServiceWorker`](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) for offline support;
 
 ### Upcoming
 
 * Automatically pings via [Ping-o-matic](http://pingomatic.com/) to notify of updates;
 * Generates a [`sitemap.xml`](http://www.sitemaps.org/protocol.html) with automatic XSLT styling;
 * Integrates [Disqus](https://disqus.com/) for post commenting when enabled via `dory.yml`;
-* Utilises HTML5 [`ServiceWorker`](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) for offline support;
 * Seamlessly applies background sync for posting comments when offline;
 * Implements the HTML5 [Push API](https://developer.mozilla.org/en/docs/Web/API/Push_API) for notifying users of added posts;
 * Allows integration of generic pages &ndash; such as about and contact us;
