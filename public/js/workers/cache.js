@@ -1,6 +1,6 @@
 import { parse } from 'url';
+import glob from 'glob';
 import config from '../config';
-import catalogue from '../../catalogue.json';
 
 /**
  * @constant CACHE_NAME
@@ -21,51 +21,55 @@ const cacheList = [
 
 (function main(caches, worker) {
 
-    worker.addEventListener('install', event => {
+    glob(`../../posts/*.md`, (error, catalogue) => {
 
-        return event.waitUntil(caches.open(CACHE_NAME).then(cache => {
+        worker.addEventListener('install', event => {
 
-            const maxPages = Math.ceil(catalogue.length / config.perPage);
-            const pages = new Array(maxPages).fill().map((_, i) => i + 1);
+            return event.waitUntil(caches.open(CACHE_NAME).then(cache => {
 
-            // Cache each available page, but in a non-blocking lazy fashion.
-            catalogue.forEach(c => cache.add(`/post/${c.slug}`));
-            pages.forEach(p => cache.addAll([`/archive/page-${p}`, `/api/posts/page-${p}`]));
+                const maxPages = Math.ceil(catalogue.length / config.perPage);
+                const pages = new Array(maxPages).fill().map((_, i) => i + 1);
 
-            return cache.addAll([
-                '/dory.js',
-                '/dory.css',
-                '/favicon.ico'
-            ]);
+                // Cache each available page, but in a non-blocking lazy fashion.
+                catalogue.forEach(c => cache.add(`/post/${c.slug}`));
+                pages.forEach(p => cache.addAll([`/archive/page-${p}`, `/api/posts/page-${p}`]));
 
-        }));
+                return cache.addAll([
+                    '/dory.js',
+                    '/dory.css',
+                    '/favicon.ico'
+                ]);
 
-    });
+            }));
 
-    worker.addEventListener('fetch', event => {
+        });
 
-        const { request } = event;
+        worker.addEventListener('fetch', event => {
 
-        if (request.method !== 'GET') {
-            return false;
-        }
+            const { request } = event;
 
-        event.respondWith(caches.open(CACHE_NAME).then(cache => {
+            if (request.method !== 'GET') {
+                return false;
+            }
 
-            return global.fetch(request).then(networkResponse => {
+            event.respondWith(caches.open(CACHE_NAME).then(cache => {
 
-                const path = parse(request.url).pathname;
+                return global.fetch(request).then(networkResponse => {
 
-                // Determine if we wish to cache this resource.
-                if (cacheList.some(r => r.test(path))) {
-                    cache.put(request, networkResponse.clone());
-                }
+                    const path = parse(request.url).pathname;
 
-                return networkResponse;
+                    // Determine if we wish to cache this resource.
+                    if (cacheList.some(r => r.test(path))) {
+                        cache.put(request, networkResponse.clone());
+                    }
 
-            }).catch(() => cache.match(request));
+                    return networkResponse;
 
-        }));
+                }).catch(() => cache.match(request));
+
+            }));
+        });
+
     });
 
 })(global.caches, self);

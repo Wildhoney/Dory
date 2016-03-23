@@ -17,12 +17,10 @@ export const getPosts = options => {
 
         glob(`./public/posts/*.md`, {}, (error, files) => {
 
-            const posts = files.map(file => {
+            Promise.all(files.map(file => {
                 const {name: slug} = parse(file);
                 return filterBy(slug);
-            });
-
-            Promise.all(posts).then(resolve);
+            })).then(resolve);
 
         });
 
@@ -39,13 +37,15 @@ export default options => {
     return (request, response) => {
 
         const pageNumber = Number(request.params.pageNumber);
-        // const sortProperty = request.params.sortProperty || 'createdDate';
-        // const isAscending = request.params.sortOrder === 'desc';
+        const sortProperty = request.params.sortProperty;
+        const sortOrder = request.params.sortOrder || 'desc';
+
         const perPage = Number(request.params.perPage) || options.config.perPage;
         const index = (pageNumber - 1) * perPage;
+        const strategy = sortProperty ? [[sortProperty, sortOrder]] : options.config.sortOrder;
 
         getPosts(options).then(posts => {
-            const sorted = sort()(posts);
+            const sorted = sort(strategy)(posts);
             response.end(options.toJson(sorted.slice(index, index + perPage)));
         });
 
