@@ -5,7 +5,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import routes from './config/routes';
+import getRoutes from './config/routes';
 import reducers from './reducers';
 import promise from './utilities/middleware.js';
 
@@ -24,7 +24,7 @@ ready().then(() => {
 
     render((
         <Provider store={store}>
-            {routes}
+            {getRoutes(store)}
         </Provider>
     ), mountNode);
 

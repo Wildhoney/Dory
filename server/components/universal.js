@@ -7,7 +7,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { RouterContext, match } from 'react-router';
 import { Base64 } from 'js-base64';
 import createLocation from 'history/lib/createLocation';
-import routes from '../../public/js/config/routes';
+import getRoutes from '../../public/js/config/routes';
 import reducers from '../../public/js/reducers';
 import promise from '../../public/js/utilities/middleware';
 
@@ -31,7 +31,7 @@ export default options => {
         const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
         const store = createStoreWithMiddleware(reducers);
 
-        match({ routes, location }, (error, redirectLocation, renderProps) => {
+        match({ routes: getRoutes(store), location }, (error, redirectLocation, renderProps) => {
 
             /**
              * @constant statusCode
@@ -60,33 +60,20 @@ export default options => {
                 </Provider>
             );
 
-            /**
-             * @constant promises
-             * @type {Promise[]}
-             */
-            const promises = renderProps && renderProps.components.map(component => {
-                const hasFetchData = component && typeof component.fetchData === 'function';
-                return hasFetchData ? component.fetchData(store.dispatch, renderProps.params) : Promise.resolve(true);
-            });
+            try {
 
-            Promise.all(promises).then(() => {
+                // Render the HTML using the components determined by the React router.
+                const componentHtml = renderToString(InitialComponent);
 
-                try {
+                response.end(render(documentHtml, {
+                    content: componentHtml,
+                    title: DocumentTitle.rewind(),
+                    data: Base64.encode(JSON.stringify(store.getState()))
+                }));
 
-                    // Render the HTML using the components determined by the React router.
-                    const componentHtml = renderToString(InitialComponent);
-
-                    response.end(render(documentHtml, {
-                        content: componentHtml,
-                        title: DocumentTitle.rewind(),
-                        data: Base64.encode(JSON.stringify(store.getState()))
-                    }));
-
-                } catch (e) {
-                    console.log('Error!', e);
-                }
-
-            });
+            } catch (e) {
+                console.log('Error!', e);
+            }
 
         });
 
