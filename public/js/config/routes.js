@@ -1,17 +1,18 @@
 import React from 'react';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { identity } from 'ramda';
 import Layout from '../containers/layout';
 import Posts from '../containers/posts';
 import Post from '../containers/post';
 import NotFound from '../containers/not-found';
 
-/**
- * @method top
- * @return {void}
- */
-const top = () => global.scrollTo(0, 0);
-
 export default store => {
+
+    /**
+     * @method top
+     * @return {void}
+     */
+    const top = () => global.scrollTo(0, 0);
 
     /**
      * @method fetchData
@@ -24,14 +25,9 @@ export default store => {
     const fetchData = function({ params, routes }, replace, callback) {
 
         const promises = routes.map(route => {
-
-            if (route.component && typeof route.component.fetchData === 'function') {
-                return route.component.fetchData(store.dispatch, params);
-            }
-
-            return false;
-
-        }).filter(x => x !== false);
+            const retrievesData = route.component && typeof route.component.fetchData === 'function';
+            return retrievesData && route.component.fetchData(store.dispatch, params);
+        }).filter(identity);
 
         Promise.all(promises).then(() => callback());
 

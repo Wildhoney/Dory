@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import { stitch } from 'keo';
 import { connect } from 'react-redux';
-import ordinal from 'ordinal';
 import DocumentTitle from '../components/document-title';
 import hash from 'object-hash';
 import pluralize from 'pluralize';
@@ -85,7 +84,7 @@ const render = ({ props }) => {
     const morePages = props.catalogue.length > posts.length;
 
     return (
-        <DocumentTitle title={pageNumber === 1 ? 'Posts' : `Posts (${ordinal(pageNumber)} Page)`}>
+        <DocumentTitle title={pageNumber === 1 ? 'Posts' : `Posts (Page ${pageNumber})`}>
             <main className="page posts">
 
                 <h2>
