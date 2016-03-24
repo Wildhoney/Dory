@@ -3,7 +3,7 @@ import RedisApi from 'redis';
 import { parse } from 'url';
 import { compose } from 'ramda';
 import PrettyError from 'pretty-error';
-import crc32 from 'crc-32';
+import hash from 'object-hash';
 import { isProduction } from './common';
 import config from '../../public/js/config';
 
@@ -28,7 +28,7 @@ const redis = process.env.REDIS_HOST ? RedisApi.createClient(process.env.REDIS_H
  */
 export const getCommits = options => {
 
-    const key = Math.abs(crc32.str(JSON.stringify(options)));
+    const key = hash(options);
 
     return new Promise((resolve, reject) => {
 
