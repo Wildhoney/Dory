@@ -22,7 +22,7 @@ export default store => {
      * @param {Function} callback
      * @type {Object}
      */
-    const fetchData = function({ params, routes }, replace, callback) {
+    const fetchData = ({ params, routes }, replace, callback) => {
 
         const promises = routes.map(route => {
             const retrievesData = route.component && typeof route.component.fetchData === 'function';

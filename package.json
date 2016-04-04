@@ -4,7 +4,7 @@
   "description": "Markdown blogging platform with automatic publishing to Surge.sh, using advanced JavaScript/HTML5 techniques for a much loved UX.",
   "scripts": {
     "test": "ava tests/**/*.test.js --tap | tap-nyan && npm run lint",
-    "lint": "stylelint public/sass/*.scss public/sass/**/*.scss public/sass/**/**/*.scss && xo public/js/**/*.js",
+    "lint": "stylelint public/sass/*.scss public/sass/**/*.scss public/sass/**/**/*.scss !public/sass/config.scss && xo public/js/**/*.js",
     "config": "babel core/cli/config.js | node",
     "build": "babel core/cli/build.js | node",
     "clean": "babel core/cli/clean.js | node",
@@ -23,18 +23,10 @@
     "extends": "xo-react",
     "rules": {
       "padded-blocks": "off",
-      "babel/object-curly-spacing": [
-        2,
-        "always"
-      ],
+      "babel/object-curly-spacing": [2, "always"],
       "babel/array-bracket-spacing": "off",
-      "no-unused-vars": [
-        1
-      ],
-      "max-nested-callbacks": [
-        1,
-        5
-      ],
+      "no-unused-vars": [1],
+      "max-nested-callbacks": [1, 5],
       "default-case": "off",
       "no-unused-expressions": "off",
       "no-case-declarations": "off",

@@ -4,6 +4,7 @@
     "indentation": [2],
     "number-leading-zero": "never",
     "no-invalid-double-slash-comments": null,
-    "media-feature-no-missing-punctuation": null
+    "media-feature-no-missing-punctuation": null,
+    "function-url-quotes": null
   }
 }
