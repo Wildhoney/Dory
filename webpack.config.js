@@ -7,7 +7,7 @@ module.exports = {
         cache: ['./public/js/workers/cache.js', 'webpack-hot-middleware/client']
     },
     output: {
-        path: __dirname + '/core/build',
+        path: __dirname + '/core/build/assets',
         publicPath: '/',
         filename: '[name].js',
         libraryTarget: 'var'

@@ -1,6 +1,6 @@
 import express from 'express';
+import compression from 'compression';
 import { readFileSync } from 'fs';
-import { parse } from 'ini';
 import { loadFront } from 'yaml-front-matter';
 import { load as loadYaml } from 'yaml-js';
 import { configure } from './routes';
@@ -13,7 +13,10 @@ import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../webpack.config.js';
 
+// Instantiate Express application and apply required middleware.
 const app = express();
+app.use(compression());
+
 const options = {
 
     /**

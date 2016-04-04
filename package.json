@@ -72,6 +72,7 @@
   "dependencies": {
     "array.from": "^1.0.0",
     "axios": "^0.9.1",
+    "compression": "^1.6.1",
     "document-ready-promise": "^3.0.1",
     "es6-promise": "^3.0.2",
     "express": "^4.13.4",

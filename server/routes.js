@@ -14,11 +14,7 @@ import handleUniversal from './components/universal';
  */
 export function configure(options) {
 
-    const script = options.fromCore('/dory.js');
-    const styles = options.fromCore('/dory.css');
     const xsl = options.fromPublic('/templates/feed.xsl');
-    const favIcon = readFileSync(`${options.publicPath}/favicon.ico`);
-    const serviceWorker = options.fromCore('/cache.js');
 
     /**
      * @method sendFile
@@ -46,10 +42,7 @@ export function configure(options) {
         app.get('/api/posts/page-:pageNumber/by-:sortProperty-:sortOrder/limit-:perPage', handlePosts(options));
 
         // Followed by the asset routes.
-        app.get('/dory.js', sendFile(script));
-        app.get('/dory.css', sendFile(styles));
-        app.get('/favicon.ico', sendFile(favIcon));
-        app.get('/cache.js', sendFile(serviceWorker));
+        app.use('/assets', handleAssets(options.assetsPath)(options));
         app.use('(/images|.json$)', handleAssets(`${options.publicPath}/images`)(options));
 
         // ...And finally the universal application.
