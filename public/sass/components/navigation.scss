@@ -1,4 +1,5 @@
 @import "../config";
+@import "../mixins/urls";
 
 @mixin apply-mobile() {
   flex-direction: column;
@@ -27,15 +28,15 @@
     background-position: center center;
 
     &.home {
-      background-image: url("/images/icons/home.svg");
+      @include image-url("/images/icons/home.svg");
     }
 
     &.archive {
-      background-image: url("/images/icons/archive-black-box.svg");
+      @include image-url("/images/icons/archive-black-box.svg");
     }
 
     &.contact {
-      background-image: url("/images/icons/pencil.svg");
+      @include image-url("/images/icons/pencil.svg");
     }
 
     a {
@@ -62,7 +63,9 @@
       top: 0;
       border-bottom: 0;
       border-left: 1px solid $border-colour;
-      background: url("/images/icons/reorder-option.svg") no-repeat center center;
+      @include image-url("/images/icons/reorder-option.svg");
+      background-repeat: no-repeat;
+      background-position: center center;
       background-size: $icon-size-medium;
       cursor: pointer;
     }

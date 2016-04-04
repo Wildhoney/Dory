@@ -4,7 +4,7 @@ import { exec } from 'shelljs';
 // Make the necessary directory structure.
 exec('mkdir -p core/build');
 
-// Export the configuration file.
+// Export the configuration file, and generate the SASS file.
 exec('npm run config');
 
 // Build the assets, and copy the favicon.

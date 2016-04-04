@@ -16,3 +16,4 @@ core/build
 
 # config
 public/js/config.js
+public/sass/config.scss

@@ -1,4 +1,5 @@
 @import "../config";
+@import "../mixins/urls";
 
 $spacing-bottom: 40px;
 
@@ -22,7 +23,9 @@ $spacing-bottom: 40px;
     color: rgba(0, 0, 0, .5);
     font-size: 1.2rem;
     font-weight: 200;
-    background: url("/images/icons/calendar-with-spring-binder-and-date-blocks.svg") no-repeat left 1px;
+    @include image-url("/images/icons/calendar-with-spring-binder-and-date-blocks.svg");
+    background-repeat: no-repeat;
+    background-position: left 1px;
     padding-left: 1.8rem;
     background-size: 1.2rem;
 
