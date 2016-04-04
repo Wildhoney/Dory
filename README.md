@@ -20,11 +20,11 @@
 
 Getting started with Dory is a fairly straightforward task &mdash; however we have broken up the various steps to make this even easier. By step three you will be publishing posts to Heroku.
 
-1. [Getting Started](documentation/GETTING_STARTED.md)
+1. [Getting Started](docs/GETTING_STARTED.md)
 2. Travis &amp; Heroku
-3. Publishing
-4. [GitHub Authentication](documentation/GITHUB.md)
-5. [Redis Authentication](documentation/REDIS.md)
+3. [Publishing](docs/PUBLISHING.md)
+4. [GitHub Authentication](docs/GITHUB.md)
+5. [Redis Authentication](docs/REDIS.md)
 6. Modifying Options
 7. Development
 
