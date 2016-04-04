@@ -31,3 +31,5 @@ Dory's `ServiceWorker` &mdash; `cache.js` &mdash; uses web caching for an improv
 ### Redis Cache
 
 One cache item that isn't invalidated when changing `version` is the Redis cache &mdash; this **still** adheres to the `cacheExpiration` value defined in `dory.yml` and is therefore important to have a realistic value defined.
+
+Invalidating the Redis cache *can* be performed manually by connecting to the Redis instance and issuing `FLUSHALL`.
