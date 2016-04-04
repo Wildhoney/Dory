@@ -5,7 +5,7 @@ import config from '../config';
  * @constant CACHE_NAME
  * @type {String}
  */
-const CACHE_NAME = `dory/rev-${config.version}`;
+const CACHE_NAME = `dory/${config.version}`;
 
 /**
  * @constant cacheList
