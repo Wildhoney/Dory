@@ -23,9 +23,6 @@ displaySynopsis: true
 # How many posts are displayed on the RSS feed.
 feedLimit: 10
 
-# Controls the version of the Service Worker for offline support.
-cacheRevision: 1
-
 # Amount of time to keep the caching alive for GitHub requests. Any webhook invocations from GitHub will invalidate
 # the cache, and therefore you could potentially put this to a VERY high number.
 cacheExpiration: 120
